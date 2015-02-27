@@ -1,0 +1,206 @@
+<!----------- "LAYING OUT" ALL THE ELEMENTS THAT WILL APPEAR AS WELL AS THEIR HIERACHY RELATIVE TO EACH OTHER ------->
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>new_file</title>
+		<meta name="author" content="jy" />
+	
+		<script src="brine.js"></script>
+		<script src="clock.js"></script>
+
+		<!-- Date: 2015-02-10 -->
+	</head>
+	<body>
+		<div id="beginCanvas" class="html">
+			<div id="welcome">
+				<br><br><br><br><br><br><br><br><br><br><br><br>	<!-- for some reason, vertical-align doesn't work. if solution found, then i will fix -->
+				Welcome to the DRA Government Database. 
+				<br><br>
+				Please type in your username.
+				<br><br>
+				<div id="rec"> 
+					(Recommended 21 characters or less)
+					<br><br>
+				</div>
+				<input id="input1"type="text" style="font:courier" maxlength="21">
+				<input type="button" id="btn" value="OK" onclick="saveName()">
+				<br>
+			</div>
+			<div id="picChoose" class="playerImage" style="display:none">
+				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> <!-- same reason here as above -->
+				Please confirm icon. <br>
+				<br><br><br><br><br><br><br><br><br><br>
+				<img id="picMale" onclick="savePic('picMale')" src="http://i.imgur.com/AAIQnbJ.jpg">
+				<img id="picFem" onclick="savePic('picFem')" src="http://i.imgur.com/NY7FQ05.jpg">
+			</div>
+			<br><br><br>
+			<div id="nameShow" class="playerInfo" style="display:none">
+				Welcome back,
+				<input id="playName" disabled maxlength="21">. 	
+			</div> 
+			<br> <br>
+			<canvas id="playerCard" class="html" width="400" height="200" style="display:none" >
+				<div id="seal" class="cardInfo" align="center" > 
+				</div>
+			</canvas>
+			<br><br><br>
+			<div id="confirm" style="display:none" >
+				Continue to complete system login. <br>
+				<br>
+				<input id="enter" type="image" src="http://i.imgur.com/uGokOYh.jpg?1" onclick="loadInter(name, playerImage)">
+			</div>
+		
+		<script src="playerCustom.js"></script>
+		<link rel="stylesheet" type="text/css" href="playerCustom.css">
+		</div>
+		
+		
+		<!--everything within a parent div set to relative. gameCanvas should act as boundary-->
+		<div id="gameCanvas" class = "html,noselect"style="display:none">
+		
+		<!------------------	<div id = "workspace">
+				<!--icons that will toggle pop ups-->
+				<div id = "toolbar" class="noselect">
+					<img id="messageIcon" class="icons,noselect" onclick="popup('messagePopUp')"onMouseUp = "changeZIndex('messagePopUp')" src="https://cdn4.iconfinder.com/data/icons/8-bit/160/bit-37-512.png">
+					<img id="terminalIcon" class="icons,noselect" onclick="popup('terminalPopUp')"onMouseUp="changeZIndex('terminalPopUp')" src="http://piq.codeus.net/static/media/userpics/piq_32116_400x400.png">
+					<div id = "cdiv">
+						<canvas id="canvas" width = "168" height = "60">
+    						You shouldn't see this.
+	  					</canvas>
+						<script>
+							use2D = true;
+							var dayClock = new Clock(300,1260,null,null);
+							dayClock.fontSize = 30;
+							dayClock.x = 75;
+							dayClock.y = 15;
+							dayClock.startClock();
+							world.addChild(dayClock);
+							initGame('canvas');
+						</script>
+					</div>
+				</div>
+			
+		
+			
+			
+				<!--window pop ups with exit buttons-->		
+				<div id="messagePopUp" class= "noselect,popUp" onMouseDown = "changeZIndex('messagePopUp')" style="display:none">	
+					
+					<a name = "searchBox"></a>        
+                    <div class = "search" id = "searchBox"> Please enter your search in the format FIRSTNAME LASTNAME. Case not sensitive.<br>
+                        <img id="messageX" onclick="toggle('messagePopUp')"src="http://www.clipartbest.com/cliparts/LcK/rMA/LcKrMAkEi.jpeg">
+                                            
+                        <input id="input" type="text" style="font:courier" maxlength="30">
+                        <input type="button" id="btn" value="Search" onclick="saveInput(),window.location='#searchResult';">
+                        </div>
+                    
+                    <a name = "searchResult"></a>
+                    <div class = "search" id = "searchResult">
+                        <img id="messageX" onclick="toggle('messagePopUp')"src="http://www.clipartbest.com/cliparts/LcK/rMA/LcKrMAkEi.jpeg">
+					<!-- TEMP!!! --> <br><br>
+				
+						<img id = "back" onclick = "window.location ='#searchBox', clearResults(); clearNoResults();" src= "http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
+						
+					</div>
+					
+				</div>	
+				
+				<div id="terminalPopUp" class = "noselect,popUp" onMouseDown="changeZIndex('terminalPopUp')" style="display:none">
+					<div id="hackDiv">
+						<iframe src = "hack.html" height="395" width="595" frameborder="0"></iframe>
+					</div>
+					<img id="terminalX" onclick="toggle('terminalPopUp')"src="http://www.clipartbest.com/cliparts/LcK/rMA/LcKrMAkEi.jpeg">
+
+				</div>
+				
+				<div id="targetPopUp" class= "noselect,popUp" onMouseDown = "changeZIndex('targetPopUp')" style="display:none">	
+					<img id="targetX" onclick="toggle('targetPopUp')"src="http://www.clipartbest.com/cliparts/LcK/rMA/LcKrMAkEi.jpeg">
+				</div>
+				
+				
+				
+				
+		<!------------------------- </div> 
+		
+		
+			<!-- side email display -->
+			
+			<div id = "sidebar" class = "noselect">		
+				<a name = "default"></a>
+					<div class = "page">
+						<div class = "email" id = "0" onclick= "window.location='#10',targetIndex('0');"></div>		
+						<div class = "email" id = "1" onclick= "window.location='#11',targetIndex('1');"></div>
+						<div class = "email" id = "2" onclick= "window.location='#12',targetIndex('2');"></div>		
+						<div class = "email" id = "3" onclick= "window.location='#13',targetIndex('3');"></div>
+						<div class = "email" id = "4" onclick= "window.location='#14',targetIndex('4');"></div>		
+						<div class = "email" id = "5" onclick= "window.location='#15',targetIndex('5');"></div>
+					</div>
+				
+				<a name ="10"></a>
+					<div class = "page" id = "10"> 
+						<img id = "back" onclick = "window.location ='#default', closeAttachment();" src= "http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
+						
+						<!--<a href = #default>back</a><br>-->
+
+
+					</div>
+				<a name ="11"></a>
+					<div class = "page" id = "11">
+						<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp');" src= "http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
+			
+					</div>
+				<a name ="12"></a>
+					<div class = "page" id = "12">
+						<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp');" src= "http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
+					
+					</div>						
+				<a name ="13"></a>
+					<div class = "page" id = "13">
+						<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp');" src= "http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
+				
+					</div>
+				<a name ="14"></a>
+					<div class = "page" id = "14">
+						<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp');" src= "http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
+				
+					</div>
+				<a name ="15"></a>
+					<div class = "page" id = "15">
+						<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp');" src= "http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
+					
+					</div>
+	
+			</div>			
+	
+	</div>
+
+	</body>
+
+
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script src="PDInterfaceJS.js"></script>		
+<link rel="stylesheet" type="text/css" href="PDInterfaceCSS.css">
+
+<!------------------------------------------- bootstrap stuff------------------------------------------------------------ 
+
+ <!-- Latest compiled and minified CSS
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+
+<!-- Latest compiled JavaScript
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+------------------------------------------------------------------------------------------------------------------------->
+
+</html>
+

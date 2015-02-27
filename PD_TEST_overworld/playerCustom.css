@@ -1,0 +1,92 @@
+#beginCanvas {
+	position: relative;
+	margin: auto;
+	border: 1px solid #000;
+	width: 1000px;
+	height: 600px;
+}
+
+#welcome {
+	font-family: courier;
+	text-align: center;
+	top:200px;
+	vertical-align: middle;
+}
+
+#rec {
+	font-size: 12px;
+	
+	
+}
+
+#input {
+	margin-left: 20px;
+	top: 200px;
+	
+}
+
+#picChoose {
+	position: absolute;
+	text-align: center;
+	font-family: courier;
+	width:1000px;
+	height:600px;
+}
+
+
+#picMale {
+	width: 100px;
+	height:100px;
+	position: absolute;
+	left: 380px;
+	top: 110px;
+	border: 1px solid #000;
+	
+}
+
+
+#picFem {
+	width: 100px;
+	height:100px;
+	position: absolute;
+	left: 505px;
+	top: 110px;
+	border: 1px solid #000;
+
+}
+
+input#playName:focus {
+	font-family:courier;
+	outline: none;
+}
+
+#nameShow {
+	margin-left: 400px;
+	top: 30px;
+	font-family: courier;
+	
+}
+
+#playerCard {
+	background-color: #5C5C5C;
+	margin-left: 300px;
+	font-family: courier;
+	font-size: 24px;
+	
+}
+
+#nameSpace {
+	font-family: courier;
+	
+}
+
+#confirm {
+	font-family: courier;
+	margin-left: 340px;
+}
+
+#enter {
+	width: 40px;
+	height: 30px;
+	margin-left: 450px;
+}

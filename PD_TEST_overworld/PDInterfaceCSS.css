@@ -1,0 +1,305 @@
+/******** STYLIZING ALL THE ELEMENTS. POSITIONAL STUFF, STYLE PROPERTIES, ETC*************/
+#beginCanvas {
+	position: relative;
+	margin: auto;
+	border: 1px solid #000;
+	width: 1000px;
+	height: 600px;
+}
+
+#welcome {
+	font-family: courier;
+	text-align: center;
+	top:200px;
+	vertical-align: middle;
+}
+
+#rec {
+	font-size: 12px;
+	
+	
+}
+
+#input1 {
+	margin-left: 20px;
+	top: 200px;
+	
+}
+
+#picChoose {
+	position: absolute;
+	text-align: center;
+	font-family: courier;
+	width:1000px;
+	height:600px;
+}
+
+
+#picMale {
+	width: 100px;
+	height:100px;
+	position: absolute;
+	left: 380px;
+	top: 110px;
+	border: 1px solid #000;
+	
+}
+
+
+#picFem {
+	width: 100px;
+	height:100px;
+	position: absolute;
+	left: 505px;
+	top: 110px;
+	border: 1px solid #000;
+
+}
+
+input#playName:focus {
+	font-family:courier;
+	outline: none;
+}
+
+#nameShow {
+	margin-left: 400px;
+	top: 30px;
+	font-family: courier;
+	
+}
+
+#playerCard {
+	background-color: #5C5C5C;
+	margin-left: 300px;
+	font-family: courier;
+	font-size: 24px;
+	
+}
+
+#nameSpace {
+	font-family: courier;
+	
+	
+}
+
+#confirm {
+	font-family: courier;
+	margin-left: 340px;
+}
+
+#enter {
+	width: 40px;
+	height: 30px;
+	margin-left: 450px;
+}
+/********* THIS SHOULD BE THE BOUNDARIES OF THE GAME *********/
+#gameCanvas {
+    position: relative;
+    margin: auto;
+    border: 1px solid #000;
+    width: 1000px;
+    height: 600px;   
+}
+
+
+
+/*basically makes it so you cant highlight stuff*/
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#back {
+	width:20px;
+	height:20px;
+	
+}
+
+/*the bar at the bottom of the screen with the icons*/
+
+#toolbar {
+    z-index: 1000;
+    background:#fff;
+    position: absolute;   
+    width: 669px;
+    height: 60px;
+    top:540px;
+    border: 1px solid #000;
+    left:330px;
+   }
+   
+   #cdiv {
+		position: absolute;
+		top: -1px;
+		width: 168px;
+		height: 60px;
+		left: 500px;
+		border: 1px solid #000;
+	}
+
+.icons {
+
+}
+
+
+/********* MESSAGE AND ITS PROPERTIES **************************/
+#messageIcon {
+    position:absolute;
+    width:95px;
+    height:50px;
+    left:30px;
+    top:10px;
+}
+
+
+#messagePopUp {
+    position:absolute;
+    background: #eee;
+    width:400px;
+    height:400px;
+    border:1px solid #333;
+    margin-left:330px;
+    font-family: "courier new";
+    z-index:50;
+    overflow: hidden;
+    /*z-index: 9002;*/
+}
+
+#messagePopUp:hover {
+    cursor: pointer;
+}
+
+#messageX {
+    width:20px;
+    height:20px;
+    position: absolute;
+    right:7px;
+    top:7px;
+}
+
+
+/********* TERMINAL AND ITS PROPERTIES *********************/
+#terminalIcon {
+    position:absolute;
+    width:50px;
+    height:40px;
+    left: 140px;
+    top:10px;
+}
+
+
+#terminalPopUp {
+    position:absolute;
+    background: #eee;
+    width:600px;
+    height:500px;
+    border:1px solid #333;
+    margin-left:330px;
+    font-family: "courier new";
+       	z-index:50;
+    /*z-index: 9002;    */
+}
+	#hackDiv {
+		position: absolute;
+		top: 100px;
+		left: -1px;
+		width: 600px;
+		height: 400px;
+	}
+	
+#terminalPopUp:hover {
+    cursor: pointer;
+}
+
+
+
+#terminalX {
+    width:20px;
+    height:20px;
+    position: absolute;
+    right:7px;
+    top:7px;
+}
+
+/**********TARGET POPUP***********************/
+
+
+#targetPopUp {
+    position:absolute;
+    background: #eee;
+    width:200px;
+    height:450px;
+    border:1px solid #333;
+    margin-left:330px;
+    font-family: "courier new";
+   	z-index:50;
+}
+
+
+
+#targetPopUp:hover {
+    cursor: pointer;
+}
+
+
+
+#targetX {
+    width:20px;
+    height:20px;
+    position: absolute;
+    right:7px;
+    top:7px;
+}
+
+
+
+
+/********* EMAIL SIDEBAR *********************/
+
+#sidebar {
+    position: relative;
+    width: 329px;
+    height: 325px;   
+    top: 275px;
+    border: 1px solid #000;
+    overflow: hidden;
+}
+
+.email {
+    border: 1px solid #000;
+    position: relative;
+    height:80px;
+    width:290px;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+.page {
+    overflow: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+    height: 100%;
+    width: 310px;
+    border: 1px solid #000;
+    font-family: "courier new";
+    text-align: justify;
+}
+
+.search {
+	overflow: auto;
+    background: #eee;
+	width : 100%;
+	height: 100%;
+	position: relative;
+}
+
+/*.popUp {
+    position: absolute;
+    font-family: "courier new";
+    z-index:10;
+}*/
