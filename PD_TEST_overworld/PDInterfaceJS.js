@@ -115,12 +115,12 @@ function emailPreview(a,b,c,d) {
 	 this.content = d;
 }
 
-emailPreviewArray.push(new emailPreview("NEW ASSIGNMENT","Today","Government Target",
+emailPreviewArray.push(new emailPreview("*NEW ASSIGNMENT*","Today","Government Target",
 	"Your target is 48 year old Jon Gonzalez. Gonzalez is a member of a large unorderly group"+ 
-	"that has been causing much trouble lately." + "We believe that he has been illegally obtaining funds" + 
-	"to power his campaign. Please look into Gonzalez further and get more information."));
+	" that has been causing much trouble lately." + " We believe that he has been illegally obtaining funds" + 
+	" to power his campaign. Please look into Gonzalez further and get more information."));
 	
-emailPreviewArray.push(new emailPreview("NEW TASK ","Today ","We ask for help.",
+emailPreviewArray.push(new emailPreview("*NEW TASK*","Today ","We ask for help.",
 	"Hello there. We have been interested in you for a while now and we are asking for help." +
 	" We believe the DRA Government has made Jon Gonzalez a target." + 
 	" His name and his organization have been everywhere lately, and we know the government does not approve of his objectives." +
@@ -130,10 +130,10 @@ emailPreviewArray.push(new emailPreview("NEW TASK ","Today ","We ask for help.",
 	" We trust that you will do the right thing. Iniustum non debet lucrari.    " +"     - a friend"));
 
 
-emailPreviewArray.push(new emailPreview("princess morbucks ","date ","subject ","content "));
-emailPreviewArray.push(new emailPreview("sedusa ","date ","subject ","content "));
-emailPreviewArray.push(new emailPreview("sailor neptune ","date ","subject ","content "));
-emailPreviewArray.push(new emailPreview("juri","taco tuesday ","poopoo ","content "));
+emailPreviewArray.push(new emailPreview(" A favor please ","date ","subject ","content "));
+emailPreviewArray.push(new emailPreview("NEW MISSION","date ","subject ","content "));
+emailPreviewArray.push(new emailPreview("NEW TASK ","date ","subject ","content "));
+emailPreviewArray.push(new emailPreview("NEW MISSION"," date  ","subject ","content "));
 
 
 
@@ -232,8 +232,11 @@ function appendToTerminalWindow(){
 
 
 var people1d = [];
+// TARGETS FOR TESTING 2 MAIN MISSIONS
 people1d.push(new Person("Jon Gonzalez", "Difficulty: 3/10", "Occupation: Freedom Fighter", "Net Worth: $ 1 mill", "http://i.imgur.com/3yEtel6.jpg"));
 people1d.push(new Person("Ben York", "Difficulty: 5/10", "Occupation: Wall Street broker", "Net Worth: $ 3.5 mill", "http://i.imgur.com/3yEtel6.jpg"));
+
+// Random targets to make sure it worked, ignore for now
 people1d.push(new Person("fernando", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
 people1d.push(new Person("ipanema", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
 people1d.push(new Person("marry me", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
@@ -312,14 +315,12 @@ function appendToEmail (emailPreviewArray) {
 		targetAttachment = document.createElement("input");
 		targetAttachment.setAttribute("type", "button");
 		targetAttachment.setAttribute("value","Target Profile");
-		//attachment.setAttribute("name","targetProfile");
 		targetAttachment.setAttribute("onclick","downloadAttachment('targetPopUp'),changeZIndex('targetPopUp')");	
-		//appendToTargetWindow(targetArray)
+
 
 		infoAttachment = document.createElement("input");
 		infoAttachment.setAttribute("type", "button");
 		infoAttachment.setAttribute("value","Supplementary Information");
-		//attachment.setAttribute("name","attachment2");
 		infoAttachment.setAttribute("onclick","console.log('clicked button 2')");	 //should call funciton that toggles new window
 
 
