@@ -91,18 +91,21 @@ function emailPreview(a,b,c,d) {
 	 this.content = d;
 }
 
-emailPreviewArray.push(new emailPreview("jill ","614 ","fernando ",
-	"hi pizzalisia make me a pizza piz pipizpzipizpizza" + 
-	"yum hi pizzalinkTextlisia make me a pizza piz pipizpzipizpizza yumhi" + 
-	"pizzalisia make me a pizza piz pipizpzipizpizza yum"));
-emailPreviewArray.push(new emailPreview("sender ","date ","subject ",
-	"content Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do" +
-	" eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim" + 
-	" ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut" +
-	" aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit" + 
-	" in voluptate velit esse cillum dolore eu fugiat nulla pariatur." + 
-	" Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia" +
-	" deserunt mollit anim id est laborum."));
+emailPreviewArray.push(new emailPreview("NEW ASSIGNMENT","Today","Government Target",
+	"Your target is 48 year old Jon Gonzalez. Gonzalez is a member of a large unorderly group"+ 
+	"that has been causing much trouble lately." + "We believe that he has been illegally obtaining funds" + 
+	"to power his campaign. Please look into Gonzalez further and get more information."));
+	
+emailPreviewArray.push(new emailPreview("NEW TASK ","Today ","We ask for help.",
+	"Hello there. We have been interested in you for a while now and we are asking for help." +
+	" We believe the DRA Government has made Jon Gonzalez a target." + 
+	" His name and his organization have been everywhere lately, and we know the government does not approve of his objectives." +
+	" Jon is a very good friend of ours, and anyone can plainly see he means more right than wrong." + 
+	" We ask that you do not target Mr. Gonzalez, and instead look at a Mister Ben York." + 
+	" York is a business man on Wall Street who we believe is working with the government and stealing the profit of other organizations." +
+	" We trust that you will do the right thing. Iniustum non debet lucrari.    " +"     - a friend"));
+
+
 emailPreviewArray.push(new emailPreview("princess morbucks ","date ","subject ","content "));
 emailPreviewArray.push(new emailPreview("sedusa ","date ","subject ","content "));
 emailPreviewArray.push(new emailPreview("sailor neptune ","date ","subject ","content "));
@@ -171,11 +174,6 @@ function changeZIndex(id) {
 
 
 
-
-
-
-
-
 //***************************"RENDERING"(appending) DATA FROM JS INTO TEXT OUTPUT ON THE INTERFACE ********************************************************//
 // http://www.w3schools.com/js/js_htmldom_nodes.asp
 // http://www.w3schools.com/jsref/met_node_appendchild.asp
@@ -187,8 +185,8 @@ var element;
 	
 function appendToMessageWindow(){
 	para = document.createElement("p");
-	node = document.createTextNode("this is the message window!!!!");
-	para.appendChild(node);	
+	//node = document.createTextNode("this is the message window!!!!");
+	//para.appendChild(node);	
 	element = document.getElementById("messagePopUp");
 	element.appendChild(para);
 	
@@ -202,16 +200,16 @@ var elmnt;
 	
 function appendToTerminalWindow(){
 	stuff = document.createElement("p");
-	node2 = document.createTextNode("this is the terminal window!!!");
-	stuff.appendChild(node2);
+	//node2 = document.createTextNode("this is the terminal window!!!");
+	//stuff.appendChild(node2);
 	elmnt = document.getElementById("terminalPopUp");
 	elmnt.appendChild(stuff);
 }
 
 
 var people1d = [];
-people1d.push(new Person("Alisia", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
-people1d.push(new Person("jill", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
+people1d.push(new Person("Jon Gonzalez", "Difficulty: 3/10", "Occupation: Freedom Fighter", "Net Worth: $ 1 mill", "http://i.imgur.com/3yEtel6.jpg"));
+people1d.push(new Person("Ben York", "Difficulty: 5/10", "Occupation: Wall Street broker", "Net Worth: $ 3.5 mill", "http://i.imgur.com/3yEtel6.jpg"));
 people1d.push(new Person("fernando", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
 people1d.push(new Person("ipanema", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
 people1d.push(new Person("marry me", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
@@ -487,8 +485,7 @@ function appendToSearch(result) {
     
     //resultInfo.remove();
     resultInfo = document.createElement("p");
-    
-    
+       
     resultInfo.appendChild(resultName);
     resultInfo.appendChild(document.createElement("br"));
     resultInfo.appendChild(resultBirthday);
@@ -519,9 +516,6 @@ function clearNoResults() {
 }
 
 
-
-
-
 function database (a,b,c,d,e,f,g) {
      this.firstName = a;
      this.lastName = b;
@@ -534,7 +528,13 @@ function database (a,b,c,d,e,f,g) {
 
 
 
+// THIS pushes the new people into the search array (Makes them searchable)
+//databaseArray.push(new database("homerun", "hitter", "December 4th, 1972", "99", "maria", "none", "11 street, city, country"));
+//databaseArray.push(new database("hannah", "montana", "January 1st, 1990", "42", "Phoenix Wright", "kidz", "77 street, city, country"));
+//databaseArray.push(new database("hannah", "FAKEHANNAH", "January 1st, 1990", "20", "Phoenix Wright", "kidz", "77 street, city, country"));
+databaseArray.push(new database("Jon", "Gonzalez", "Difficulty: 3/10", "Occupation: Freedom Fighter", "Net Worth: $ 1 mill"));
+databaseArray.push(new database("Ben", "York", "Difficulty: 5/10", "Occupation: Wall Street broker", "Net Worth: $ 3.5 mill"));
 
-databaseArray.push(new database("homerun", "hitter", "December 4th, 1972", "99", "maria", "none", "11 street, city, country"));
-databaseArray.push(new database("hannah", "montana", "January 1st, 1990", "42", "Phoenix Wright", "kidz", "77 street, city, country"));
-databaseArray.push(new database("hannah", "FAKEHANNAH", "January 1st, 1990", "20", "Phoenix Wright", "kidz", "77 street, city, country"));
+
+
+
