@@ -37,13 +37,29 @@ function closeAttachment() {
 	}
 }
 
-
-function displayID(name, img) {
-	
-	
-	
+var id = document.getElementById('playerID');
+var d = id.getContext('2d');
+// Function to display play id card to main interface (NOT INCLUDING FACTION AFFILIATION)
+function displayID(name, img) {	
+		console.log(name);
+		console.log(img);
+		seal = new Image();
+		seal.src = "http://i.imgur.com/dlRKNsf.png";
+		seal.onload = function() {
+			d.strokeStyle = 'black';
+			d.drawImage(seal, 40, 135, 50,50 );
+		};
+		playerImage = new Image();
+		playerImage.src = img;
+		playerImage.onload = function() {
+    		d.strokeStyle = 'black';
+   			d.drawImage(playerImage, 20, 20, 100,100); 
+		};	
+		d.font = "30px courier";
+		d.fillText(name, 130, 40, 250);
+		d.fillText("NSA Hacker", 130, 70, 250);
 }
-
+ //displayID(playerName, playerImage);
 
 //************** special toggle code that dictates how attachment windows are toggled *************************************
 //(because players shouldn't be able to "download" the attachment a second time and have the window minimize itself)

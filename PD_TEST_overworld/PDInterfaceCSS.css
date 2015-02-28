@@ -15,9 +15,7 @@
 }
 
 #rec {
-	font-size: 12px;
-	
-	
+	font-size: 12px;	
 }
 
 #input1 {
@@ -92,7 +90,9 @@ input#playName:focus {
 	height: 30px;
 	margin-left: 450px;
 }
+
 /********* THIS SHOULD BE THE BOUNDARIES OF THE GAME *********/
+
 #gameCanvas {
     position: relative;
     margin: auto;
@@ -260,11 +260,17 @@ input#playName:focus {
 
 /********* EMAIL SIDEBAR *********************/
 
+#playerID {
+	background-color: #5C5C5C;
+	font-family: courier;
+	font-size: 24px;
+	
+}
+
 #sidebar {
     position: relative;
     width: 329px;
-    height: 325px;   
-    top: 275px;
+    height: 394px;   
     border: 1px solid #000;
     overflow: hidden;
 }
