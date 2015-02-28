@@ -37,6 +37,14 @@ function closeAttachment() {
 	}
 }
 
+
+function displayID(name, img) {
+	
+	
+	
+}
+
+
 //************** special toggle code that dictates how attachment windows are toggled *************************************
 //(because players shouldn't be able to "download" the attachment a second time and have the window minimize itself)
 

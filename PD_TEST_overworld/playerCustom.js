@@ -1,19 +1,25 @@
 /**
- * @author Alisia Martinez
- */
-
-// Make a player object that has a name and an image.
-
-/*
-function Player(name, image) {
-	this.name = name;
-	this.
-}
-*/				
+ * playerCustom.js
+ * 
+ * Deals with the player customization code 
+*/		
+// ALL VARIABLES FOR THIS FILE		
 	 	var player = [];	// First element is name, second is pic choice
 		var nameElement = document.getElementById("input1");
 		var theName;
-
+		var button = document.getElementById("btn");
+		var welcome = document.getElementById("welcome");
+		var txt = document.getElementById('picChoose');
+		var window = document.getElementById('beginCanvas');
+		var pic1 = document.getElementById('picMale');
+		var pic2 = document.getElementById('picFem');
+		var thePic;		
+		var playerName;		
+		var card = document.getElementById('playerCard'); 
+		var c = card.getContext('2d');		
+		
+		
+// Saves the name into an array and calls the icon selection screen		
 		function saveName() {
 			theName = nameElement.value;
 			player.push(theName);			
@@ -21,28 +27,21 @@ function Player(name, image) {
 			clearNameScreen();
 			picSelect();
 		}
-				
-		var button = document.getElementById("btn");
-		var welcome = document.getElementById("welcome");
 		
+// Removes elements from name screen
 		function clearNameScreen() {
 			welcome.remove();
 			nameElement.remove();
 			button.remove();
 		};
 		
-		var txt = document.getElementById('picChoose');
-		var window = document.getElementById('beginCanvas');
-		var pic1 = document.getElementById('picMale');
-		var pic2 = document.getElementById('picFem');
-		
+// Makes sure screen is clear before displaying picture choices
 		function picSelect() {
 			clearNameScreen();
 			txt.style.display = "inline";
 		};
-		
-		var thePic;
 
+// Saves the selected picture into the player array
 		function savePic(pic) {
 			if (pic === 'picMale'){
 				thePic = pic1.src;
@@ -59,24 +58,21 @@ function Player(name, image) {
 			clearPicScreen();
 		};
 		
-		
+// Clears the picture screen and displays ID card display		
 		function clearPicScreen() {
 			txt.remove();
 			showInfo();
 			initCard();
 		};
-		
-		var playerName;
 
+// Displays the player information onto the ID card
 		function showInfo() {
 			document.getElementById("nameShow").style.display = "inline";
 			playerName = player[0];
 			document.getElementById("playName").value = playerName;
 		};
 		
-		var card = document.getElementById('playerCard'); 
-		var c = card.getContext('2d');
-		
+// ID Card function, turns card into separate canvas
 		function initCard(name, img) {
 			document.getElementById("playerCard").style.display = "inline";
 			document.getElementById("confirm").style.display = "inline";
@@ -100,12 +96,13 @@ function Player(name, image) {
 			c.fillText(name, 130, 40, 250);
 			c.fillText("NSA Hacker", 130, 70, 250);
 		}
-	
-		var gamecanvas = document.getElementById("gameCanvas");
-		
-		function loadInter(name, img) {
+
+// Loads main game interface, with name and img as parameters		
+		function loadInter(playerName, img) {
 			document.getElementById("beginCanvas").style.display = "none";
 			document.getElementById("gameCanvas").style.display = "block";
-			document.getElementById("gameCanvas").style.fontSize = 12; 
+			playerName= name;
+			console.log(playerName);
+			console.log(img);
 		}	
 	
