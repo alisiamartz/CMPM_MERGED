@@ -15,7 +15,7 @@ faction = {
 	}
 };
 updateEmailPreviewArray = {
-	init: funtion() {
+	init: function() {
 		for(var i = 0; i < 5; i++) {
 			emailPreviewArray.push(new emailPreview(getData(i)));
 		}
@@ -25,7 +25,7 @@ updateEmailPreviewArray = {
 		emailPreviewArray.length = 0;
 	}
 };
-function emailPreview( data[] ) {
+function emailPreview( data ) {
 	this.sender = data[0];
 	this.date = data[1];
 	this.subject = data[2];
@@ -75,7 +75,7 @@ people1dObject = {
 				emailPreviewArray.push(new Person(getID(i)));
 			}
 		}
-	}
+	},
 	clear: function() {
 		//may not need since people1d is always needed
 		people1d.length = 0;
