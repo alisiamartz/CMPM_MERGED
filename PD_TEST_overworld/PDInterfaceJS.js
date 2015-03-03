@@ -311,18 +311,18 @@ function appendToEmail (emailPreviewArray) {
 		//call add attachments
 		//addAttachments(event)
 
-
+///////////////////////// EMAIL BUTTONS ///////////////////////////////////
 		targetAttachment = document.createElement("input");
 		targetAttachment.setAttribute("type", "button");
-		targetAttachment.setAttribute("value","Target Profile");
+		targetAttachment.setAttribute("value","Initialize Hack");
 		targetAttachment.setAttribute("onclick","downloadAttachment('targetPopUp'),changeZIndex('targetPopUp')");	
 
-
+// to take out
 		infoAttachment = document.createElement("input");
 		infoAttachment.setAttribute("type", "button");
 		infoAttachment.setAttribute("value","Supplementary Information");
 		infoAttachment.setAttribute("onclick","console.log('clicked button 2')");	 //should call funciton that toggles new window
-
+//
 
 		contentBox.appendChild(targetAttachment);		
 		contentBox.appendChild(document.createElement("br"));
@@ -431,7 +431,11 @@ function saveInput() {
     searchDatabase(input1, input2);
 }
 
-
+function ipHack() {
+	
+	
+	
+}
 
 function searchDatabase(input1, input2) {
     // go through array of everything in database, pull out matching first names into new array
