@@ -122,18 +122,29 @@
 
 				</div>
 				
-				<div id="targetPopUp" class= "noselect,popUp" onMouseDown = "changeZIndex('targetPopUp')" style="display:none">	
+				 <!--<div id="targetPopUp" class= "noselect,popUp" onMouseDown = "changeZIndex('targetPopUp')" style="display:none">	
 					<img id="targetX" onclick="toggle('targetPopUp')"src="http://www.clipartbest.com/cliparts/LcK/rMA/LcKrMAkEi.jpeg">
 				</div>
 				
-				<!-- NOT CORRECT CODE YET, BUT WILL BE HACK INITIALIZER 
-				<div id="ipHack" class="searchBox">
-					Please enter the code to begin hack against target.
-					<input id="input" type="text" style="font:courier" maxlength="30">
-                    <input type="button" id="btn" value="Search" onclick="saveInput(),window.location='#searchResult';">
+				<!-- NOT CORRECT CODE YET, BUT WILL BE HACK INITIALIZER -->
+				<div id="ipPopUp" class= "noselect,popUp" onMouseDown = "changeZIndex('ipPopUp')" style="display:none">
+					<a name="ipSearchBox"></a>
+					<div class="search" id="ipSearchBox"> Please enter the code to begin hack of target.
+						<img id="ipX" onclick="toggle('ipPopUp')"src="http://www.clipartbest.com/cliparts/LcK/rMA/LcKrMAkEi.jpeg">
 					
+						<input id="ipinput" type="text" style="font:courier" maxlength="30">	<!-- saveIP() , location #hack beginning -->
+                    	<input type="button" id="btn" value="Search" onclick="caseCompare(ipinput.value, temp.caseNum), window.location='#ipSearchResult';">	
+
+					</div>
+					<a name="ipSearchResult"></a>
+					<div class="search" id="ipSearchResult"> Results:
+						<img id="ipX" onclick="toggle('ipPopUp')"src="http://www.clipartbest.com/cliparts/LcK/rMA/LcKrMAkEi.jpeg"> 
+						<br><br>
+						<img id="back1" onclick="window.location='#ipSearchBox', clearResults(); clearNoResults();" src="http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
+						
+					</div>
 					
-				</div> -->
+				</div> 
 				
 				
 				
@@ -148,20 +159,17 @@
 			<div id = "sidebar" class = "noselect">		
 				<a name = "default"></a>
 					<div class = "page">
-						<div class = "email" id = "0" onclick= "window.location='#10',targetIndex('0');"></div>		
-						<div class = "email" id = "1" onclick= "window.location='#11',targetIndex('1');"></div>
-						<div class = "email" id = "2" onclick= "window.location='#12',targetIndex('2');"></div>		
-						<div class = "email" id = "3" onclick= "window.location='#13',targetIndex('3');"></div>
-						<div class = "email" id = "4" onclick= "window.location='#14',targetIndex('4');"></div>		
-						<div class = "email" id = "5" onclick= "window.location='#15',targetIndex('5');"></div>
+						<div class = "email" id = "0" onclick= "window.location='#10',targetIndex('0'), saveEcontent(0);"></div>		
+						<div class = "email" id = "1" onclick= "window.location='#11',targetIndex('1'), saveEcontent(1);"></div>
+						<div class = "email" id = "2" onclick= "window.location='#12',targetIndex('2'), saveEcontent(2);"></div>		
+						<div class = "email" id = "3" onclick= "window.location='#13',targetIndex('3'), saveEcontent(3);"></div>
+						<div class = "email" id = "4" onclick= "window.location='#14',targetIndex('4'), saveEcontent(4);"></div>		
+						<div class = "email" id = "5" onclick= "window.location='#15',targetIndex('5'), saveEcontent(5);"></div>
 					</div>
 				
 				<a name ="10"></a>
 					<div class = "page" id = "10"> 
 						<img id = "back" onclick = "window.location ='#default', closeAttachment();" src= "http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
-						
-						<!--<a href = #default>back</a><br>-->
-
 
 					</div>
 				<a name ="11"></a>

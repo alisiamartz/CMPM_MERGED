@@ -14,24 +14,21 @@ function toggle(window) {
 	var el = document.getElementById(window);
 	if (el.style.display == 'none') {
 		el.style.display = 'block';
-		
 	} else {
 		el.style.display = 'none';
-	
-	}
-		
+	}	
 }
 
 function popup(window) {
-	if (window != 'targetPopUp')	
+	if (window != 'ipPopUp')	
 		toggle(window);		
 	else 
 		downloadAttachment(window);
 }
 
 function closeAttachment() {
-	console.log('close the fuckin popup');
-	var el = document.getElementById('targetPopUp');
+	console.log('close the popup');
+	var el = document.getElementById('ipPopUp');
 	if (el.style.display == 'block') {
 		el.style.display = 'none';
 	}
@@ -57,7 +54,7 @@ function displayID(name, img) {
 		};	
 		d.font = "30px courier";
 		d.fillText(name, 130, 40, 250);
-		d.fillText("NSA Hacker", 130, 70, 250);
+		d.fillText("NSS Hacker", 130, 70, 250);
 }
  //displayID(playerName, playerImage);
 
@@ -70,8 +67,8 @@ function downloadAttachment(window) {
 	attachmentCounter += 1;
 	var el = document.getElementById(window);
 	if (el.style.display == 'none') {
-		console.log("shouldappend now");
-		targetWindow.appendChild(targetPro);
+		console.log("should append now");
+		ipWindow.appendChild(ipPro);
 		
 		el.style.display = 'block';
 	} else {
@@ -98,7 +95,7 @@ $( "#terminalPopUp" ).draggable({
 
 
 $(function() {
-$( "#targetPopUp" ).draggable({
+$( "#ipPopUp" ).draggable({
 	containment: '#gameCanvas'
 	});
 });
@@ -108,17 +105,21 @@ $( "#targetPopUp" ).draggable({
 // ************* AN ARRAY THAT STORES ALL EMAIL CONTENT (STUFF THAT APPEARS IN THE SUBJECT BOX AND THE ACTUAL MAXIMIZED CONTENT) ****************//
 var emailPreviewArray = [];
 
-function emailPreview(a,b,c,d) {
+function emailPreview(a,b,c,d,e,f,g,h) {
 	 this.sender = a;
 	 this.date = b;
 	 this.subject = c;
 	 this.content = d;
+	 this.caseNum = e;
+	 this.reportWin = f;
+	 this.reportLose = g;
+	 this.index = h;
 }
 
 emailPreviewArray.push(new emailPreview("*NEW ASSIGNMENT*","Today","Government Target",
 	"Your target is 48 year old Jon Gonzalez. Gonzalez is a member of a large unorderly group"+ 
 	" that has been causing much trouble lately." + " We believe that he has been illegally obtaining funds" + 
-	" to power his campaign. Please look into Gonzalez further and get more information."));
+	" to power his campaign. Please look into Gonzalez further and get more information.", "2244"));
 	
 emailPreviewArray.push(new emailPreview("*NEW TASK*","Today ","We ask for help.",
 	"Hello there. We have been interested in you for a while now and we are asking for help." +
@@ -168,7 +169,8 @@ function changeZIndex(id) {
 	        console.log("id is messagePopUp");
 	        //change other window z index to 0
 			document.getElementById("terminalPopUp").style.zIndex --;
-			document.getElementById("targetPopUp").style.zIndex -- ;
+			//document.getElementById("targetPopUp").style.zIndex -- ;
+			document.getElementById("ipPopUp").style.zIndex -- ;
 	    	//change z index to 1:
 			document.getElementById(id).style.zIndex=50;
 			
@@ -177,17 +179,19 @@ function changeZIndex(id) {
 	    case "terminalPopUp":
 	        console.log("id is terminalPopUp");	     
 			document.getElementById("messagePopUp").style.zIndex --;
-			document.getElementById("targetPopUp").style.zIndex --;
+			//document.getElementById("targetPopUp").style.zIndex --;
+			document.getElementById("ipPopUp").style.zIndex -- ;
 			document.getElementById(id).style.zIndex=50;
 			console.log ("message index " + document.getElementById("messagePopUp").style.zIndex);
 	        break;
 	        
-	   case "targetPopUp":
-	    	console.log("id is targetPopUp");   	
+	    case "ipPopUp":
+	    	console.log("id is ipPopUp");
 	    	document.getElementById("messagePopUp").style.zIndex --;
 	    	document.getElementById("terminalPopUp").style.zIndex --;
 	    	document.getElementById(id).style.zIndex=50;
-	      
+	        break;
+      
 	    default:
 	        console.log("default");
 	        break;
@@ -242,6 +246,7 @@ people1d.push(new Person("ipanema", "5 STARS", "Nerd", "$21847947892", "http://i
 people1d.push(new Person("marry me", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
 people1d.push(new Person("archieo", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
 
+
 var people2d = [];
 
 var people3d = [];
@@ -259,7 +264,6 @@ function Person(name, diff, occ, netWorth, IP, image) {
 	this.image = image;
 
 }
-
 
 
 //looping function that appends data from emailArray to the email subject boxes and maximized email window
@@ -281,9 +285,7 @@ function appendToEmail (emailPreviewArray) {
 	
 	
     for (i=0;i<emailPreviewArray.length;i++) {   
-                   
-   
-       
+                        
         //append to email buttons
         emailButton = document.createElement("p");
         subjectBox = document.getElementById(i);
@@ -315,23 +317,12 @@ function appendToEmail (emailPreviewArray) {
 		targetAttachment = document.createElement("input");
 		targetAttachment.setAttribute("type", "button");
 		targetAttachment.setAttribute("value","Initialize Hack");
-		targetAttachment.setAttribute("onclick","downloadAttachment('targetPopUp'),changeZIndex('targetPopUp')");	
-
-// to take out
-		infoAttachment = document.createElement("input");
-		infoAttachment.setAttribute("type", "button");
-		infoAttachment.setAttribute("value","Supplementary Information");
-		infoAttachment.setAttribute("onclick","console.log('clicked button 2')");	 //should call funciton that toggles new window
-//
+		targetAttachment.setAttribute("onclick","downloadAttachment('ipPopUp'),changeZIndex('ipPopUp')");	
 
 		contentBox.appendChild(targetAttachment);		
 		contentBox.appendChild(document.createElement("br"));
-		contentBox.appendChild(infoAttachment);
 		
-		j+=1;
-
-
-	
+		j+=1;	
 	}
 	
 }
@@ -344,22 +335,21 @@ appendToTerminalWindow();
 appendToEmail(emailPreviewArray);
 
 
-
-
-
-
 function targetIndex(index) {
 				
 		console.log("went into targetIndex()");
 		//if day = 1 
 		appendToTargetWindow(index, people1d);
 		//else if 2 else if 3 else if4
+		
 }
 
 //appendToTargetWindow(people1d);
 
 var targetPro = document.createElement("p");
-var targetWindow = document.getElementById('targetPopUp');
+var ipPro = document.createElement("p");
+var ipWindow = document.getElementById('ipPopUp');
+//var targetWindow = document.getElementById('targetPopUp');
 
 function appendToTargetWindow(index, targetArray) {
 
@@ -368,20 +358,14 @@ function appendToTargetWindow(index, targetArray) {
     var targetOccupation = document.createTextNode(targetArray[index].occ);
     var targetNetworth = document.createTextNode(targetArray[index].netWorth);
     var targetImage = document.createTextNode(targetArray[index].image);
-
-
-
-	/*targetContent = document.createTextNode(targetArray[1].name);
-	targetPro.appendChild(targetContent);
-	targetWindow.appendChild(targetProa);*/
-	console.log("right before targetArray[index]should print");
-	console.log(index);
+	savePerson(targetArray[index], index);
 	
+	console.log("right before targetArray[index]should print");
+	console.log(index);	
 	
 	targetPro.remove();
 	targetPro = document.createElement("p");
-	
-	
+		
 	targetPro.appendChild(targetName);
 	targetPro.appendChild(document.createElement("br"));
 	targetPro.appendChild(targetDifficulty);
@@ -392,10 +376,8 @@ function appendToTargetWindow(index, targetArray) {
 	targetPro.appendChild(document.createElement("br"));
 	targetPro.appendChild(targetImage);
 	targetPro.appendChild(document.createElement("br"));
-
-
 	
-	console.log("target content is: " +targetArray[index].name);
+	console.log("target content is: " + targetArray[index].name);
 	
 	//targetWindow.appendChild(targetPro);
 	
@@ -410,7 +392,6 @@ var databaseArray2 = [];
 var result;
 var current;
 
-
 var input1;
 var input2;
 var searchElement = document.getElementById('input');
@@ -422,7 +403,7 @@ function saveInput() {
     for (i = 0; i < databaseArray2.length; i++) {
         databaseArray2.pop();
     }
-    console.log("you just searched for: "+searchElement.value);
+    console.log("you just searched for: "+ searchElement.value);
     input1 = inputArray[0];
     input2 = inputArray[1];
     console.log("var input1 is: " + input1);
@@ -431,11 +412,72 @@ function saveInput() {
     searchDatabase(input1, input2);
 }
 
-function ipHack() {
+/////////////////////////////////////////////////////////////////////
+var eCase;
+var searchEl = document.getElementById('ipinput');
+
+var case1;
+
+var temp = {
+	sender:null,
+	date:null,
+	subject:null,
+	content:null,
+	caseNum:null,
+	reportWin:null,
+	reportLose:null,
+	index: null
+};
+
+
+//im trying to make it so when you press the search button, 
+//it passes the email information to a function, saves that email info, 
+//and then compares one piece of the email info to the user input
+
+// save contents of the email into a function
+
+function saveEcontent(index) {
+	console.log("index of email clicked is: " + index);
 	
+	// saves content of email into a temp object
+	temp.sender = emailPreviewArray[index].sender;
+	temp.date = emailPreviewArray[index].date;
+	temp.subject = emailPreviewArray[index].subject;
+	temp.content = emailPreviewArray[index].content;
+	temp.caseNum = emailPreviewArray[index].caseNum;
+	temp.reportWin = emailPreviewArray[index].reportWin;
+	temp.reportLose = emailPreviewArray[index].reportLose;
+	temp.index = index;
 	
+	// for testing
+	console.log(temp.sender);
+	console.log(temp.date);
+	console.log(temp.subject);
+	console.log(temp.content);
+	console.log(temp.index);
 	
+	console.log("this target casenum is: " + temp.caseNum);
 }
+
+
+
+// Compares user input to case number attached to email
+function caseCompare(input, caseNum) {
+
+	console.log(input);
+	console.log(caseNum);
+	
+	if (input == caseNum) {
+		console.log("INPUT AND CASE # MATCH. BEGIN HACK");
+		// send info over
+		// remove back button
+		
+	} else {
+		console.log("INPUT AND CASE # DO NOT MATCH. NO HACK");	
+	}
+}
+
+
 
 function searchDatabase(input1, input2) {
     // go through array of everything in database, pull out matching first names into new array
@@ -502,7 +544,7 @@ var resultInfo;
 
 
 function appendToSearch(result) {
-    console.log("appendtosearch() called")
+    console.log("appendtosearch() called");
     var resultName = document.createTextNode(result.firstName +" "+result.lastName);
     var resultBirthday = document.createTextNode(result.birthday);
     var resultAge = document.createTextNode(result.age);
@@ -544,15 +586,16 @@ function clearNoResults() {
     noResult.remove();
 }
 
-
-function database (a,b,c,d,e,f,g) {
+// ADDED IP ADDRESS AREA
+function database (a,b,c,d,e,f,g,h) {
      this.firstName = a;
      this.lastName = b;
      this.birthday = c;
      this.age = d;
-     this.spouse = e;
-     this.children = f;
-     this.address = g;
+     this.caseNum = e;
+     this.spouse = f;
+     this.children = g;
+     this.address = h;
 }
 
 
@@ -561,8 +604,8 @@ function database (a,b,c,d,e,f,g) {
 //databaseArray.push(new database("homerun", "hitter", "December 4th, 1972", "99", "maria", "none", "11 street, city, country"));
 //databaseArray.push(new database("hannah", "montana", "January 1st, 1990", "42", "Phoenix Wright", "kidz", "77 street, city, country"));
 //databaseArray.push(new database("hannah", "FAKEHANNAH", "January 1st, 1990", "20", "Phoenix Wright", "kidz", "77 street, city, country"));
-databaseArray.push(new database("Jon", "Gonzalez", "Difficulty: 3/10", "Occupation: Freedom Fighter", "Net Worth: $ 1 mill"));
-databaseArray.push(new database("Ben", "York", "Difficulty: 5/10", "Occupation: Wall Street broker", "Net Worth: $ 3.5 mill"));
+databaseArray.push(new database("Jon", "Gonzalez", "Difficulty: 3/10", "Occupation: Freedom Fighter","833 457 999", "Net Worth: $ 1 mill"));
+databaseArray.push(new database("Ben", "York", "Difficulty: 5/10", "Occupation: Wall Street broker", "999 666 988","Net Worth: $ 3.5 mill"));
 
 
 
