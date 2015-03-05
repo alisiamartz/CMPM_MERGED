@@ -36,10 +36,16 @@ function closeAttachment() {
 
 var id = document.getElementById('playerID');
 var d = id.getContext('2d');
+
+var pName;
+var pImg;
+
 // Function to display play id card to main interface (NOT INCLUDING FACTION AFFILIATION)
-function displayID(name, img) {	
-		console.log(name);
-		console.log(img);
+function displayID() {	
+		pName = player[0];
+		pImg = player[1];
+		console.log(pName);
+		console.log(pImg);
 		seal = new Image();
 		seal.src = "http://i.imgur.com/dlRKNsf.png";
 		seal.onload = function() {
@@ -47,16 +53,15 @@ function displayID(name, img) {
 			d.drawImage(seal, 40, 135, 50,50 );
 		};
 		playerImage = new Image();
-		playerImage.src = img;
+		playerImage.src = pImg;
 		playerImage.onload = function() {
     		d.strokeStyle = 'black';
-   			d.drawImage(playerImage, 20, 20, 100,100); 
+   			d.drawImage(playerImage, 15, 15, 100,100); 
 		};	
 		d.font = "30px courier";
-		d.fillText(name, 130, 40, 250);
+		d.fillText(pName, 130, 40, 250);
 		d.fillText("NSS Hacker", 130, 70, 250);
 }
- //displayID(playerName, playerImage);
 
 //************** special toggle code that dictates how attachment windows are toggled *************************************
 //(because players shouldn't be able to "download" the attachment a second time and have the window minimize itself)
@@ -454,14 +459,7 @@ var temp = {
 	name:null
 };
 
-// need something to remove values of temp
-
-//im trying to make it so when you press the search button, 
-//it passes the email information to a function, saves that email info, 
-//and then compares one piece of the email info to the user input
-
 // save contents of the email into a function
-
 function saveEcontent(index) {
 	console.log("index of email clicked is: " + index);
 	
@@ -486,7 +484,7 @@ function saveEcontent(index) {
 	console.log("this target casenum is: " + temp.caseNum);
 }
 
-
+var hackBack;
 
 // Compares user input to case number attached to email
 function caseCompare(input, caseNum) {
@@ -496,8 +494,10 @@ function caseCompare(input, caseNum) {
 	
 	if (input == caseNum) {
 		console.log("INPUT AND CASE # MATCH. BEGIN HACK");
+		//hackBack = document.getElementById('back1').style.display = "none";
 		// send info over
 		// remove back button
+		// AT THE END OF HACK, ADD BACK BUTTON BACK IN
 		
 	} else {
 		console.log("INPUT AND CASE # DO NOT MATCH. NO HACK");	

@@ -98,11 +98,8 @@
 		}
 
 // Loads main game interface, with name and img as parameters		
-		function loadInter(playerName, img) {
+		function loadInter() {
 			document.getElementById("beginCanvas").style.display = "none";
 			document.getElementById("gameCanvas").style.display = "block";
-			playerName= name;
-			console.log(playerName);
-			console.log(img);
 		}	
 	
