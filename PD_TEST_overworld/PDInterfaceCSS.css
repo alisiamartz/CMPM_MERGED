@@ -100,9 +100,18 @@ input#playName:focus {
     margin: auto;
     border: 1px solid #000;
     width: 1000px;
-    height: 600px;   
+    height: 600px;
 }
 
+#workSpace {
+	background-image: url("http://i.imgur.com/d9nBU7b.png");
+	position:absolute;
+	background-repeat: no-repeat;
+    margin-left:330px;
+    height:540px;
+    width:670px;	
+    background-position:center;
+}
 
 
 /*basically makes it so you cant highlight stuff*/
