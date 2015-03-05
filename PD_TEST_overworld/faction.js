@@ -6,6 +6,7 @@
  *	faction.updateFaction(number of increase of decrement) should be called every time a mission a completed	<--- tedious, may need to add extra variable in email
  *	updateReport.update(either email.reportWin or email.reportLose) needs to be called by email or temp or some shit after a win or loss	<--- tricky
  *	IF you want to show faction as a string, the affiliation variable within the faction object will automatically update that string
+ *	To get the string for the end of the day, use the variable progressReport
  */
 var DAY = 1;
 //var HACK_WIN = false;
