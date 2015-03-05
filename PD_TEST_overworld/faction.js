@@ -5,6 +5,7 @@
  *	databasebArrayObject.init() is called once	<--- easiest to implement
  *	faction.updateFaction(number of increase of decrement) should be called every time a mission a completed	<--- tedious, may need to add extra variable in email
  *	updateReport.update(either email.reportWin or email.reportLose) needs to be called by email or temp or some shit after a win or loss	<--- tricky
+ *	IF you want to show faction as a string, the affiliation variable within the faction object will automatically update that string
  */
 var DAY = 1;
 //var HACK_WIN = false;
@@ -30,7 +31,7 @@ faction = {
 updateEmailPreviewArray = {
 	currentMission: null, // make this equate to the email mission that is accepted
 	init: function() {
-		for(var i = 0; i < 5; i++) {
+		for(var i = 1; i <= 5; i++) {
 			emailPreviewArray.push(new emailPreview(getData(i)));
 		}
 	},
@@ -55,27 +56,27 @@ function emailPreview( data ) {
 function getData(emailNum) {
 	if (DAY == 1) {
 		if(faction.pos) {
-			if (emailNum == 0) {
-				return ["Jill", "XX/XX/XX15", "Bon Chon Chicken",
-				"Hungry hungry, give me yummy gummy, tummy hungry!",
-				"chicken wings are becoming hot", "chicken wings are not becoming hot!"];
-			} else if (emailNum == 1) {
-				return ["Plankton", "XX/XX/XX15", "Gimme Formula",
-				"Ravioli, ravioli, give me the formuoli!",
-				"Plankton killed Krabs", "Plankton was killed by Krabs"];
+			if (emailNum == 1) {
+				return ["Supervisor Tresha Brannon", "June 24", "TASK", 
+				"There have been hundreds of reports on the trial of Devan MacDougall’s for rigging a national sport championship. Plant the attached evidence in MacDougall’s machine and security will take care of the rest.", 
+				"0905", "MacDougall lost his chance at freedom as citizens press for his imprisonment.", 
+				"MacDougall was released for his last day in court, which has caused an uproar within several counties."];
 			} else if (emailNum == 2) {
-				return ["Plankton", "XX/XX/XX15", "Gimme Formula",
-				"Ravioli, ravioli, give me the formuoli!",
-				"Plankton killed Krabs", "Plankton was killed by Krabs"];
+				return ["Supervisor Tresha Brannon", "June 24", "TASK", 
+				"Recent events have given Devan MacDougall notoriety and citizens want MacDougall stripped of everything so let us give them what they want. Gather MacDougall’s past criminal nude photos and bring it to light on the net.", 
+				"0945", "public hatred for MacDougall has risen once again after the subject got his photos leaked to the public. Public shaming of MacDougall has been at an all time high.", ""];
 			} else if (emailNum == 3) {
-				return ["Government", "XX/XX/XX15", "New Assignment",
-				"Find and terminate Jack Nicoli's brother's server",
-				"Government got no swag!", "Government swagged out!"];
+				return ["Supervisor Tresha Brannon", "June 24", "TASK", 
+				"Some rebel scum named Ellis McFarlane is showing up with an account for smuggling drugs. No orders were sent for his case but under my care he will be punished. Go into the files and bring to the public his previous case for stealing Orange electronic goods.", 
+				"1102", "the case of Ellis McFarlane’s old theft charges have resurfaced within the online community for reasons unknown as of now aside from garnering attention from the press", "Ellis McFarlane’s final trial ended with no sign of conviction."];
 			} else if (emailNum == 4) {
-				return ["Justice", "XX/XX/XX15", "HELP",
-				"A local woman has been hacked and had her privacy invaded" +
-				", we ask of you to take those photos back from Jack Daniel of Big Tech Enterprise",
-				"Down with Justice!", "Justice FTW!"];
+				return ["Supervisor Tresha Brannon", "June 24", "TASK", 
+				"Yet another rebel scum going against the law. The name is Lino Archer: accused of providing illegal fighter jet lessons. Working for terrorist groups most likely. Gather some evidence against this guy and report it back to nearby law enforcers.", 
+				"9422", "retired veteran and local flying instructor, Lino Archer, is sentenced to jail without trial for suspicion of being a terrorist.", ""];
+			} else if (emailNum == 5) {
+				return ["Supervisor Tresha Brannon", "June 24", "TASK", 
+				"Katerina Bove, a Child Care Worker, was recently found with possessions of cannabis. Unfortunately she won’t comply to our questions. Find her residence and report all necessary information to the local force to drag her into questioning.", 
+				"9859", "Katerina Bove, who was recently caught possessing infinitesimal amounts of cannabis was also found concealing copious amounts of narcotics earlier today." "Katerina Bove, who was recently caught possessing infinitesimal amounts of cannabis has been let off from all charges."];
 			}
 		}
 	}
@@ -204,7 +205,7 @@ updateReport = {
 			case 5:
 				progressReport += "And to conclude today' report, we inform you that ";
 				progressReport += newStr;
-				progressReport += "This has been your Daily Digest, farewell and good night!";
+				progressReport += "This has been your Daily Digest, farewell and good night friends!";
 				break;
 			default:
 				break;
