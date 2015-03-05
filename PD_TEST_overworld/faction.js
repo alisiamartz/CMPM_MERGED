@@ -1,17 +1,29 @@
 /*
- *	To use this function, you just call updateEmailArray.init() to update emailPreviewArray with data
- *	for that specific day, when implemented. Use updateEmailArray.clear() at the end of every day.
+ *	updateEmailPreviewArray.init() should be called at the beginning of every day	<--- easy to implement
+ *	updateEmailPreviewArray.clear() should be called at the end of every day	<--- easy to implement
+ *	DAY should increase by one at the end of every day	<--- easy to implement
+ *	databasebArrayObject.init() is called once	<--- easiest to implement
+ *	faction.updateFaction(number of increase of decrement) should be called every time a mission a completed	<--- tedious, may need to add extra variable in email
+ *	updateReport.update(either email.reportWin or email.reportLose) needs to be called by email or temp or some shit after a win or loss	<--- tricky
  */
 var DAY = 1;
-var HACK_WIN = false;
+//var HACK_WIN = false;
 var emailPreviewArray = [];
 faction = {
+	affiliation: "Government",
 	pos: 80,
 	updateFaction: function(num) {
 		if (this.pos < 100 || this.pos > 0) {
 			this.pos += num;
 			if (this.pos > 100) this.pos = 100;
 			else if (this.pos < 0) this.pos = 0;
+		}
+		if (this.pos >= 60 && this.pos <= 100) {
+			this.affiliation = "Government";
+		} else if (this.pos >= 40 && this.pos < 60) {
+			this.affiliation = "Neutral";
+		} else if (this.pos >= 0 && this.pos < 40) {
+			this.affiliation = "Anti-government";
 		}
 	}
 };
@@ -24,7 +36,7 @@ updateEmailPreviewArray = {
 	},
 	updateReport: function(winBool) {
 		//<--------------------------------------------- called by the winLose function
-		// calls updateReport.update(string); depending on if win or lose
+		// calls updateReport.update(string); depending on if win or lose - I can do this later
 	},
 	clear: function() {
 		// used at the end of the day to use array for the next day
@@ -36,35 +48,35 @@ function emailPreview( data ) {
 	this.date = data[1];
 	this.subject = data[2];
 	this.content = data[3];
-	this.reportWin = data[4];		// if the player completes the level then send the data to report
-	this.reportLose = data[5];
+	this.caseNum = data[4];
+	this.reportWin = data[5];		// if the player completes the level then send the data to report
+	this.reportLose = data[6];
 }
 function getData(emailNum) {
 	if (DAY == 1) {
 		if(faction.pos) {
 			if (emailNum == 0) {
 				return ["Jill", "XX/XX/XX15", "Bon Chon Chicken",
-					"Hungry hungry, give me yummy gummy, tummy hungry!",
-					"chicken wings are becoming hot", "chicken wings are not becoming hot!"];
+				"Hungry hungry, give me yummy gummy, tummy hungry!",
+				"chicken wings are becoming hot", "chicken wings are not becoming hot!"];
 			} else if (emailNum == 1) {
 				return ["Plankton", "XX/XX/XX15", "Gimme Formula",
-					"Ravioli, ravioli, give me the formuoli!",
-					"Plankton killed Krabs", "Plankton was killed by Krabs"];
+				"Ravioli, ravioli, give me the formuoli!",
+				"Plankton killed Krabs", "Plankton was killed by Krabs"];
 			} else if (emailNum == 2) {
 				return ["Plankton", "XX/XX/XX15", "Gimme Formula",
-					"Ravioli, ravioli, give me the formuoli!",
-					"Plankton killed Krabs", "Plankton was killed by Krabs"];
+				"Ravioli, ravioli, give me the formuoli!",
+				"Plankton killed Krabs", "Plankton was killed by Krabs"];
 			} else if (emailNum == 3) {
 				return ["Government", "XX/XX/XX15", "New Assignment",
-					"Find and terminate Jack Nicoli's brother's server",
-					"Government got no swag!", "Government swagged out!"];
+				"Find and terminate Jack Nicoli's brother's server",
+				"Government got no swag!", "Government swagged out!"];
 			} else if (emailNum == 4) {
 				return ["Justice", "XX/XX/XX15", "HELP",
-					"A local woman has been hacked and had her privacy invaded" +
-					", we ask of you to take those photos back from Jack Daniel of Big Tech Enterprise",
-					"Down with Justice!", "Justice FTW!"];
-			}	//may update to create an array that specifies, which email to get but is the same as this
-				//just less manual
+				"A local woman has been hacked and had her privacy invaded" +
+				", we ask of you to take those photos back from Jack Daniel of Big Tech Enterprise",
+				"Down with Justice!", "Justice FTW!"];
+			}
 		}
 	}
 }
@@ -81,9 +93,9 @@ function Person(name, diff, occ, netWorth, IP, image, note) {
 }
 databasebArrayObject = {
 	init: function() {
-		for(var i = 0; i < 50; i++) {		//manually put number larger than how much data there are
-			temp = getID(i);
-			if (temp != null) {
+		for(var i = 1; i < 25; i++) {		//manually put number larger than how much data there are
+			var tempp = getID(i);
+			if (tempp != null) {
 				databaseArray.push(new Person(getID(i)));
 			}
 		}
@@ -96,22 +108,111 @@ databasebArrayObject = {
 function getID(person) {
 	switch(person) {
 		case 1:
-			return ["Name; Jack Nicoli", "Difficulty: 3/10", "Occupation: Anti-Americk Group", "Net Worth: $ 1.5 million", "http://i.imgur.com/3yEtel6.jpg",
-					"Note: [No Data]"];
+			return ["Name: Aaron Johnson", "Occupation: Panoi Ambassador", "Net Worth: 150.000", "TEMP", 
+			"Note: case 0331 elicited panoi slave trafficking"];
 		case 2:
-			return ["Name: Jack Daniel", "Difficulty: 2/10", "Occupation: Lead Programmer at Big Tech Enterprise", "Net Worth: $ 1 million", "http://i.imgur.com/3yEtel6.jpg",
-					"Note: ID 9980, Charged for involvement in two instances of terrorism, but was bailed by Big Tech Enterprise"];
+			return ["Name: Trista Hedley", "Occupation: Civil Servant", "Net Worth: 50.000", "TEMP", 
+			"Note: case 1123 failure to commit with schedule, case 1150 caught trespassing local homes"];
+		case 3:
+			return ["Name: Amelia Rana", "Occupation: Information Specialist", "Net Worth: 10.000", "TEMP", 
+			"Note: case 9760 publically caught selling private information, case 9780 failure to abide by official ethical conducts"];
+		case 4:
+			return ["Name: Nhung Rhier", "Occupation: State Security Programme", "Net Worth: 20.000", "TEMP", 
+			"Note: case 9910 unlawful possession of marijuana and traces of cocaine"];
+		case 5:
+			return ["Name: Brigham Tsukino", "Occupation: Politician", "Net Worth: 80.000", "TEMP", 
+			"Note: case 6628 accused of corporate bribery, case 7444 unlawful possession of firearm"];
+		case 6:
+			return ["Name: Kelsie Toxell", "Occupation: Reporter", "Net Worth: 70.000", "TEMP", 
+			"Note: case 3709 sued for withholding information from the public"];
+		case 7:
+			return ["Name: Jennifer Wragge", "Occupation: Corporate Attorney", "Net Worth: 150.000", "TEMP", 
+			"Note: case 1147 accused of forging evidence, case 1286 caught promoting a suicide attempt"];
+		case 8:
+			return ["Name: Dinah Senft", "Occupation: NSS Technician", "Net Worth: 200.000", "TEMP", 
+			"Note: case 6890 accused of stalking public figure"];
+		case 9:
+			return ["Name: Fawn Murdok", "Occupation: Chief of NSS", "Net Worth: 250.000", "TEMP", 
+			"Note: case 6513 accused of corporate blackmailing"];
+		case 10:
+			return ["Name: Devan MacDougall", "Occupation: Amtrak Operator", "Net Worth: 2.000", "TEMP", 
+			"Note: case 0905 tampering with a sports contest, case 0945 public nudity"];
+		case 11:
+			return ["Name: Jaslyn Vitali", "Occupation: Doctor", "Net Worth: 15.000", "TEMP", 
+			"Note: case 707 illegal distribution of drugs to patients"];
+		case 12:
+			return ["Name: Janella Earl", "Occupation: Grave Digger", "Net Worth: 550", "TEMP", 
+			"Note: case 0107 convicted of shoplifting, case 120 sued for grave robbing"];
+		case 13:
+			return ["Name: Marlin Amadori", "Occupation: Stockbroker", "Net Worth: 70.000", "TEMP", 
+			"Note: case 7708 accused of stock manipulation"];
+		case 14:
+			return ["Name: Yoko Wyndham", "Occupation: Taxi Driver", "Net Worth: 4.000", "TEMP", 
+			"Note: case 3122 convicted for work-related sex scandal, case 3587 sued for sexual assault"];
+		case 15:
+			return ["Name: Ellis McFarlane", "Occupation: unknown", "Net Worth: 10", "TEMP", 
+			"Note: case 1102 stole orange electronic goods, case 1108 vandalized city hall, case 1109 accused of smuggling drugs"];
+		case 16:
+			return ["Name: Lino Archer", "Occupation: Flying Instructor", "Net Worth: 780", "TEMP", 
+			"Note: case 9422 accused of providing illegal fighter jet lessons"];
+		case 17:
+			return ["Name: Katerina Bove", "Occupation: Child Care Worker", "Net Worth: 5.000", "TEMP", 
+			"Note: case 9859 possession of cannabis"] ;
+		case 18:
+			return ["Name: Martie Trueman", "Occupation:Car Mechanic", "Net Worth: 5.500", "TEMP", 
+			"Note: case 4906 welfare fraud, case 4987 tax evasion"];
+		case 19:
+			return ["Name: Ellis Walter", "Occupation: Astrophysicist", "Net Worth: 10.500", "TEMP", 
+			"Note: case 3008 perjury at a state court"];
+		case 20:
+			return ["Name: Raimonda Robert", "Occupation: unknown", "Net Worth: 100.000", "TEMP", 
+			"Note: case 4400 unlawful fleeing a police officer in a motor vehicle, case 4401 grand larceny, case 4403 grand theft auto, case 4405 promotion of prostitution in the first degree"];
+		case 21:
+			return ["Name: Beatrix Coutts", "Occupation: unknown", "Net Worth: 200.000", "TEMP", 
+			"Note: case 6037 massacre of 200 citizens, case 6040 mass political conspiracy, case 6041 wide spread distribution of cyanide, case 6056 mass dumping of anthrax in four major water networks"];
 		default:
 			return null;
 	}
 }
-databasebArrayObject.init();
 /******************************************************************************************/
 /******************************************************************************************/
 var progressReport = "";
-updateReport() = {
+updateReport = {
+	reportNum: 1,	// reset to zero after displaying the string for that day
 	update: function(newStr) {
-		progressReport += newStr;	// needs to be called by email or some shit after a win or loss
+		switch(this.reportNum) {	// needs to be called by email or some shit after a win or loss
+			case 1:
+				progressReport += "Earlier today ";
+				progressReport += newStr;
+				this.reportNum++;
+				break;
+			case 2:
+				progressReport += "Following that, ";
+				progressReport += newStr;
+				this.reportNum++;
+				break;
+			case 3:
+				progressReport += "Soon after, ";
+				progressReport += newStr;
+				this.reportNum++;
+				break;
+			case 4:
+				progressReport += "Not to mention that ";
+				progressReport += newStr;
+				this.reportNum++;
+				break;
+			case 5:
+				progressReport += "And to conclude today' report, we inform you that ";
+				progressReport += newStr;
+				progressReport += "This has been your Daily Digest, farewell and good night!";
+				break;
+			default:
+				break;
+		}
+	},
+	clear: function() {
+		progressReport = "";
+		this.reportNum = 1;
 	}
 }
 /******************************************************************************************/
