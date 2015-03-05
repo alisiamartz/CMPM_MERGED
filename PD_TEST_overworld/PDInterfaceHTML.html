@@ -129,18 +129,18 @@
 				<!-- NOT CORRECT CODE YET, BUT WILL BE HACK INITIALIZER -->
 				<div id="ipPopUp" class= "noselect,popUp" onMouseDown = "changeZIndex('ipPopUp')" style="display:none">
 					<a name="ipSearchBox"></a>
-					<div class="search" id="ipSearchBox"> Please enter the code to begin hack of target.
-						<img id="ipX" onclick="toggle('ipPopUp')"src="http://www.clipartbest.com/cliparts/LcK/rMA/LcKrMAkEi.jpeg">
-					
-						<input id="ipinput" type="text" style="font:courier" maxlength="30">	<!-- saveIP() , location #hack beginning -->
-                    	<input type="button" id="btn" value="Search" onclick="caseCompare(ipinput.value, temp.caseNum), window.location='#ipSearchResult';">	
+					<div class="search" id="ipSearchBox"> Please enter the code to begin hack. <br>
+						<img id="ipX" onclick="toggle('ipPopUp'), removePrevHack()"src="http://www.clipartbest.com/cliparts/LcK/rMA/LcKrMAkEi.jpeg">
+						<div id="targetName" class="info"></div> 
+						<input id="ipinput" type="text" style="font:courier" maxlength="30">	
+                    	<input type="button" id="btn" value="Search" onclick="caseCompare(ipinput.value, temp.caseNum), window.location='#ipSearchResult';">
 
 					</div>
 					<a name="ipSearchResult"></a>
 					<div class="search" id="ipSearchResult"> Results:
-						<img id="ipX" onclick="toggle('ipPopUp')"src="http://www.clipartbest.com/cliparts/LcK/rMA/LcKrMAkEi.jpeg"> 
+						<img id="ipX" onclick="toggle('ipPopUp'), removePrevHack()"src="http://www.clipartbest.com/cliparts/LcK/rMA/LcKrMAkEi.jpeg"> 
 						<br><br>
-						<img id="back1" onclick="window.location='#ipSearchBox', clearResults(); clearNoResults();" src="http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
+						<img id="back1" onclick="window.location='#ipSearchBox'" src="http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
 						
 					</div>
 					
@@ -169,32 +169,32 @@
 				
 				<a name ="10"></a>
 					<div class = "page" id = "10"> 
-						<img id = "back" onclick = "window.location ='#default', closeAttachment();" src= "http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
+						<img id = "back" onclick = "window.location ='#default', closeAttachment(), removePrevHack(),clearInput();" src= "http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
 
 					</div>
 				<a name ="11"></a>
 					<div class = "page" id = "11">
-						<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp');" src= "http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
+						<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp'), removePrevHack(),clearInput();" src= "http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
 			
 					</div>
 				<a name ="12"></a>
 					<div class = "page" id = "12">
-						<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp');" src= "http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
+						<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp'), removePrevHack(), clearInput();" src= "http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
 					
 					</div>						
 				<a name ="13"></a>
 					<div class = "page" id = "13">
-						<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp');" src= "http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
+						<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp'), removePrevHack(), clearInput();" src= "http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
 				
 					</div>
 				<a name ="14"></a>
 					<div class = "page" id = "14">
-						<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp');" src= "http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
+						<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp'), removePrevHack(), clearInput();" src= "http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
 				
 					</div>
 				<a name ="15"></a>
 					<div class = "page" id = "15">
-						<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp');" src= "http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
+						<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp'), removePrevHack(), clearInput();" src= "http://static1.squarespace.com/static/517988d0e4b0f0be01bfb04b/t/51d2fb81e4b001d5c138ab4f/1372781441932/back.button.jpg">
 					
 					</div>
 	

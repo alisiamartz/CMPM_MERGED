@@ -105,7 +105,7 @@ $( "#ipPopUp" ).draggable({
 // ************* AN ARRAY THAT STORES ALL EMAIL CONTENT (STUFF THAT APPEARS IN THE SUBJECT BOX AND THE ACTUAL MAXIMIZED CONTENT) ****************//
 var emailPreviewArray = [];
 
-function emailPreview(a,b,c,d,e,f,g,h) {
+function emailPreview(a,b,c,d,e,f,g,h,i) {
 	 this.sender = a;
 	 this.date = b;
 	 this.subject = c;
@@ -114,12 +114,13 @@ function emailPreview(a,b,c,d,e,f,g,h) {
 	 this.reportWin = f;
 	 this.reportLose = g;
 	 this.index = h;
+	 this.name = i;
 }
 
 emailPreviewArray.push(new emailPreview("*NEW ASSIGNMENT*","Today","Government Target",
 	"Your target is 48 year old Jon Gonzalez. Gonzalez is a member of a large unorderly group"+ 
 	" that has been causing much trouble lately." + " We believe that he has been illegally obtaining funds" + 
-	" to power his campaign. Please look into Gonzalez further and get more information.", "2244"));
+	" to power his campaign. Please look into Gonzalez further and get more information.", "2244", "report win here", "report lose here","0", "Jon Gonzalez"));
 	
 emailPreviewArray.push(new emailPreview("*NEW TASK*","Today ","We ask for help.",
 	"Hello there. We have been interested in you for a while now and we are asking for help." +
@@ -128,7 +129,7 @@ emailPreviewArray.push(new emailPreview("*NEW TASK*","Today ","We ask for help."
 	" Jon is a very good friend of ours, and anyone can plainly see he means more right than wrong." + 
 	" We ask that you do not target Mr. Gonzalez, and instead look at a Mister Ben York." + 
 	" York is a business man on Wall Street who we believe is working with the government and stealing the profit of other organizations." +
-	" We trust that you will do the right thing. Iniustum non debet lucrari.    " +"     - a friend"));
+	" We trust that you will do the right thing. Iniustum non debet lucrari.    " +"     - a friend","1438", "report win here", "report lose here","1", "Ben York"));
 
 
 emailPreviewArray.push(new emailPreview(" A favor please ","date ","subject ","content "));
@@ -220,7 +221,31 @@ function appendToMessageWindow(){
 	
 }
 
+var par;
+var txt;
+var el;
 
+function appendToIpPopUp() {
+	par = document.createElement("p");
+	console.log(temp.name);
+	txt = document.createTextNode("Target is: " + temp.name);
+	par.appendChild(txt);
+	el = document.getElementById("targetName");
+	el.appendChild(par);
+	
+}
+
+function removePrevHack() {
+	par.remove();
+	txt.remove();
+	
+}
+
+var userIn;
+function clearInput() {
+	userIn = document.getElementById('ipinput');
+	userIn.value = "";
+}
 
 var stuff;
 var node2;
@@ -230,8 +255,8 @@ function appendToTerminalWindow(){
 	stuff = document.createElement("p");
 	//node2 = document.createTextNode("this is the terminal window!!!");
 	//stuff.appendChild(node2);
-	elmnt = document.getElementById("terminalPopUp");
-	elmnt.appendChild(stuff);
+	//elmnt = document.getElementById("terminalPopUp");
+	//elmnt.appendChild(stuff);
 }
 
 
@@ -317,7 +342,7 @@ function appendToEmail (emailPreviewArray) {
 		targetAttachment = document.createElement("input");
 		targetAttachment.setAttribute("type", "button");
 		targetAttachment.setAttribute("value","Initialize Hack");
-		targetAttachment.setAttribute("onclick","downloadAttachment('ipPopUp'),changeZIndex('ipPopUp')");	
+		targetAttachment.setAttribute("onclick","downloadAttachment('ipPopUp'),changeZIndex('ipPopUp'), appendToIpPopUp()");	
 
 		contentBox.appendChild(targetAttachment);		
 		contentBox.appendChild(document.createElement("br"));
@@ -358,7 +383,6 @@ function appendToTargetWindow(index, targetArray) {
     var targetOccupation = document.createTextNode(targetArray[index].occ);
     var targetNetworth = document.createTextNode(targetArray[index].netWorth);
     var targetImage = document.createTextNode(targetArray[index].image);
-	savePerson(targetArray[index], index);
 	
 	console.log("right before targetArray[index]should print");
 	console.log(index);	
@@ -426,9 +450,11 @@ var temp = {
 	caseNum:null,
 	reportWin:null,
 	reportLose:null,
-	index: null
+	index: null,
+	name:null
 };
 
+// need something to remove values of temp
 
 //im trying to make it so when you press the search button, 
 //it passes the email information to a function, saves that email info, 
@@ -447,7 +473,8 @@ function saveEcontent(index) {
 	temp.caseNum = emailPreviewArray[index].caseNum;
 	temp.reportWin = emailPreviewArray[index].reportWin;
 	temp.reportLose = emailPreviewArray[index].reportLose;
-	temp.index = index;
+	temp.index = emailPreviewArray[index].index;
+	temp.name = emailPreviewArray[index].name;
 	
 	// for testing
 	console.log(temp.sender);
@@ -585,6 +612,8 @@ function clearResults() {
 function clearNoResults() {
     noResult.remove();
 }
+
+
 
 // ADDED IP ADDRESS AREA
 function database (a,b,c,d,e,f,g,h) {
