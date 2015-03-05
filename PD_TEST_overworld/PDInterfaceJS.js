@@ -1,13 +1,14 @@
 
 /**
- * @author jy
+ * @author jy, am
  */
 
 
-// JS: INTERNAL STRUCTURES, CONTENT, "EVENTS" WHEN PLAYER INTERACTS WITH INTERFACE
+// JS: INTERNAL STRUCTURES, CONTENT, "EVENTS" WHEN PLAYER INTERACTS WITH INTERFACE //
 
-
-// ***************** functions that dictate how windows are toggled *******************************/
+/******************************************************************
+ * functions that dictate how windows are toggled 
+ ******************************************************************/
 
 function toggle(window) {
 	
@@ -34,9 +35,98 @@ function closeAttachment() {
 	}
 }
 
+
+/******************************************************************
+ * special toggle code that dictates how attachment windows are toggled
+ * (because players shouldn't be able to "download" the attachment a second time and have the window minimize itself)
+ ******************************************************************/
+var attachmentCounter = 0;
+function downloadAttachment(window) {
+	
+	attachmentCounter += 1;
+	var el = document.getElementById(window);
+	if (el.style.display == 'none') {
+		console.log("should append now");
+		ipWindow.appendChild(ipPro);
+		
+		el.style.display = 'block';
+	} else {
+		el.style.display = 'none';
+	}
+			
+}
+
+/******************************************************************
+ * make pop ups draggable within gameCanvas
+ ******************************************************************/
+
+$(function() {
+$( "#messagePopUp" ).draggable({
+	containment: '#gameCanvas'
+	});
+});
+
+$(function() {
+$( "#terminalPopUp" ).draggable({
+	containment: '#gameCanvas'
+	});
+});
+
+$(function() {
+$( "#ipPopUp" ).draggable({
+	containment: '#gameCanvas'
+	});
+});
+
+
+/******************************************************************
+ * (FIXED?): FUNCTION CONTAINING LOGIC FOR WHICH WINDOW WILL APPEAR ON TOP AT ANY TIME 
+ ******************************************************************/
+
+function changeZIndex(id) {
+
+	console.log("went into changezindex");
+
+	switch(id) {
+	    case "messagePopUp":
+	        console.log("id is messagePopUp");
+	        //change other window z index to 0
+			document.getElementById("terminalPopUp").style.zIndex --;
+			//document.getElementById("targetPopUp").style.zIndex -- ;
+			document.getElementById("ipPopUp").style.zIndex -- ;
+	    	//change z index to 1:
+			document.getElementById(id).style.zIndex=50;
+			
+            break;
+	
+	    case "terminalPopUp":
+	        console.log("id is terminalPopUp");	     
+			document.getElementById("messagePopUp").style.zIndex --;
+			//document.getElementById("targetPopUp").style.zIndex --;
+			document.getElementById("ipPopUp").style.zIndex -- ;
+			document.getElementById(id).style.zIndex=50;
+			console.log ("message index " + document.getElementById("messagePopUp").style.zIndex);
+	        break;
+	        
+	    case "ipPopUp":
+	    	console.log("id is ipPopUp");
+	    	document.getElementById("messagePopUp").style.zIndex --;
+	    	document.getElementById("terminalPopUp").style.zIndex --;
+	    	document.getElementById(id).style.zIndex=50;
+	        break;
+      
+	    default:
+	        console.log("default");
+	        break;
+	}
+}
+
+/******************************************************************
+ * DISPLAYING INTERFACE AND ITEMS
+ ******************************************************************/
+
 var id = document.getElementById('playerID');
 var d = id.getContext('2d');
-
 var pName;
 var pImg;
 
@@ -63,51 +153,90 @@ function displayID() {
 		d.fillText("NSS Hacker", 130, 70, 250);
 }
 
-//************** special toggle code that dictates how attachment windows are toggled *************************************
-//(because players shouldn't be able to "download" the attachment a second time and have the window minimize itself)
 
-var attachmentCounter = 0;
-function downloadAttachment(window) {
+/******************************************************************
+ * RENDERING"(appending) DATA FROM JS INTO TEXT OUTPUT ON THE INTERFACE
+ * // http://www.w3schools.com/js/js_htmldom_nodes.asp
+// http://www.w3schools.com/jsref/met_node_appendchild.asp
+// VERSATILE METHOD THAT CAN BE ADAPTED!
+ ******************************************************************/
+var stuff;
+var node2;
+var elmnt;
 	
-	attachmentCounter += 1;
-	var el = document.getElementById(window);
-	if (el.style.display == 'none') {
-		console.log("should append now");
-		ipWindow.appendChild(ipPro);
-		
-		el.style.display = 'block';
-	} else {
-		el.style.display = 'none';
-	}
-			
+function appendToTerminalWindow(){
+	stuff = document.createElement("p");
+	//node2 = document.createTextNode("this is the terminal window!!!");
+	//stuff.appendChild(node2);
+	//elmnt = document.getElementById("terminalPopUp");
+	//elmnt.appendChild(stuff);
 }
 
 
-// *************make pop ups draggable within gameCanvas**************************************************//
+var people1d = [];
+// TARGETS FOR TESTING 2 MAIN MISSIONS
+people1d.push(new Person("Jon Gonzalez", "Difficulty: 3/10", "Occupation: Freedom Fighter", "Net Worth: $ 1 mill", "http://i.imgur.com/3yEtel6.jpg"));
+people1d.push(new Person("Ben York", "Difficulty: 5/10", "Occupation: Wall Street broker", "Net Worth: $ 3.5 mill", "http://i.imgur.com/3yEtel6.jpg"));
 
-$(function() {
-$( "#messagePopUp" ).draggable({
-	containment: '#gameCanvas'
-	});
-});
-
-
-$(function() {
-$( "#terminalPopUp" ).draggable({
-	containment: '#gameCanvas'
-	});
-});
+// Random targets to make sure it worked, ignore for now
+people1d.push(new Person("fernando", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
+people1d.push(new Person("ipanema", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
+people1d.push(new Person("marry me", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
+people1d.push(new Person("archieo", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
 
 
-$(function() {
-$( "#ipPopUp" ).draggable({
-	containment: '#gameCanvas'
-	});
-});
+var people2d = [];
+
+var people3d = [];
+
+var people4d = [];
+
+var people5d = [];
 
 
+function Person(name, diff, occ, netWorth, IP, image) {
+	this.name = name;
+	this.diff = diff;
+	this.occ = occ;
+	this.netWorth = netWorth;
+	this.image = image;
 
-// ************* AN ARRAY THAT STORES ALL EMAIL CONTENT (STUFF THAT APPEARS IN THE SUBJECT BOX AND THE ACTUAL MAXIMIZED CONTENT) ****************//
+}
+
+var para; 
+var node;
+var element;
+	
+function appendToMessageWindow(){
+	para = document.createElement("p");
+	//node = document.createTextNode("this is the message window!!!!");
+	//para.appendChild(node);	
+	element = document.getElementById("messagePopUp");
+	element.appendChild(para);
+	
+}
+
+var par;
+var txt;
+var el;
+
+function appendToIpPopUp() {
+	par = document.createElement("p");
+	console.log(temp.name);
+	txt = document.createTextNode("Target is: " + temp.name);
+	par.appendChild(txt);
+	el = document.getElementById("targetName");
+	el.appendChild(par);
+	
+}
+
+
+/******************************************************************
+ * EMAIL CODE
+ * 
+ * AN ARRAY THAT STORES ALL EMAIL CONTENT (STUFF THAT APPEARS IN THE SUBJECT BOX AND THE ACTUAL MAXIMIZED CONTENT)
+ ******************************************************************/
+
 var emailPreviewArray = [];
 
 function emailPreview(a,b,c,d,e,f,g,h,i) {
@@ -158,146 +287,9 @@ function printEmails(emailPreviewArray) {
 	}
 }
 
-
-
-
-
-
-//***************** (FIXED?): FUNCTION CONTAINING LOGIC FOR WHICH WINDOW WILL APPEAR ON TOP AT ANY TIME ***************************//
-
-function changeZIndex(id) {
-
-	console.log("went into changezindex");
-
-
-	switch(id) {
-	    case "messagePopUp":
-	        console.log("id is messagePopUp");
-	        //change other window z index to 0
-			document.getElementById("terminalPopUp").style.zIndex --;
-			//document.getElementById("targetPopUp").style.zIndex -- ;
-			document.getElementById("ipPopUp").style.zIndex -- ;
-	    	//change z index to 1:
-			document.getElementById(id).style.zIndex=50;
-			
-            break;
-	
-	    case "terminalPopUp":
-	        console.log("id is terminalPopUp");	     
-			document.getElementById("messagePopUp").style.zIndex --;
-			//document.getElementById("targetPopUp").style.zIndex --;
-			document.getElementById("ipPopUp").style.zIndex -- ;
-			document.getElementById(id).style.zIndex=50;
-			console.log ("message index " + document.getElementById("messagePopUp").style.zIndex);
-	        break;
-	        
-	    case "ipPopUp":
-	    	console.log("id is ipPopUp");
-	    	document.getElementById("messagePopUp").style.zIndex --;
-	    	document.getElementById("terminalPopUp").style.zIndex --;
-	    	document.getElementById(id).style.zIndex=50;
-	        break;
-      
-	    default:
-	        console.log("default");
-	        break;
-	}
-
-
-}
-
-
-
-//***************************"RENDERING"(appending) DATA FROM JS INTO TEXT OUTPUT ON THE INTERFACE ********************************************************//
-// http://www.w3schools.com/js/js_htmldom_nodes.asp
-// http://www.w3schools.com/jsref/met_node_appendchild.asp
-// VERSATILE METHOD THAT CAN BE ADAPTED!
-
-var para; 
-var node;
-var element;
-	
-function appendToMessageWindow(){
-	para = document.createElement("p");
-	//node = document.createTextNode("this is the message window!!!!");
-	//para.appendChild(node);	
-	element = document.getElementById("messagePopUp");
-	element.appendChild(para);
-	
-}
-
-var par;
-var txt;
-var el;
-
-function appendToIpPopUp() {
-	par = document.createElement("p");
-	console.log(temp.name);
-	txt = document.createTextNode("Target is: " + temp.name);
-	par.appendChild(txt);
-	el = document.getElementById("targetName");
-	el.appendChild(par);
-	
-}
-
-function removePrevHack() {
-	par.remove();
-	txt.remove();
-	
-}
-
-var userIn;
-function clearInput() {
-	userIn = document.getElementById('ipinput');
-	userIn.value = "";
-}
-
-var stuff;
-var node2;
-var elmnt;
-	
-function appendToTerminalWindow(){
-	stuff = document.createElement("p");
-	//node2 = document.createTextNode("this is the terminal window!!!");
-	//stuff.appendChild(node2);
-	//elmnt = document.getElementById("terminalPopUp");
-	//elmnt.appendChild(stuff);
-}
-
-
-var people1d = [];
-// TARGETS FOR TESTING 2 MAIN MISSIONS
-people1d.push(new Person("Jon Gonzalez", "Difficulty: 3/10", "Occupation: Freedom Fighter", "Net Worth: $ 1 mill", "http://i.imgur.com/3yEtel6.jpg"));
-people1d.push(new Person("Ben York", "Difficulty: 5/10", "Occupation: Wall Street broker", "Net Worth: $ 3.5 mill", "http://i.imgur.com/3yEtel6.jpg"));
-
-// Random targets to make sure it worked, ignore for now
-people1d.push(new Person("fernando", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
-people1d.push(new Person("ipanema", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
-people1d.push(new Person("marry me", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
-people1d.push(new Person("archieo", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
-
-
-var people2d = [];
-
-var people3d = [];
-
-var people4d = [];
-
-var people5d = [];
-
-
-function Person(name, diff, occ, netWorth, IP, image) {
-	this.name = name;
-	this.diff = diff;
-	this.occ = occ;
-	this.netWorth = netWorth;
-	this.image = image;
-
-}
-
-
-//looping function that appends data from emailArray to the email subject boxes and maximized email window
-
+/******************************************************************
+ * looping function that appends data from emailArray to the email subject boxes and maximized email window
+ ******************************************************************/
 function appendToEmail (emailPreviewArray) {
 	var emailSender;
 	var emailDate;
@@ -364,6 +356,9 @@ appendToMessageWindow();
 appendToTerminalWindow();
 appendToEmail(emailPreviewArray);
 
+/******************************************************************
+ * Keeps track of which email is being clicked and targetInfo being appended to screen
+ ******************************************************************/
 
 function targetIndex(index) {
 				
@@ -412,9 +407,11 @@ function appendToTargetWindow(index, targetArray) {
 	
 }
 
-/*****************database search*******************************
-array of people with fields
-search in format and returns field*/
+/******************************************************************
+ * DATABASE SEARCH - PEOPLE SEARCH
+ * (array of people with fields)
+ * (search in format and returns field)
+ ******************************************************************/
 
 var databaseArray = [];
 var databaseArray2 = [];
@@ -424,6 +421,18 @@ var current;
 var input1;
 var input2;
 var searchElement = document.getElementById('input');
+
+function database (a,b,c,d,e,f,g,h) {
+     this.firstName = a;
+     this.lastName = b;
+     this.birthday = c;
+     this.age = d;
+     this.caseNum = e;
+     this.spouse = f;
+     this.children = g;
+     this.address = h;
+}
+
 
 function saveInput() {
 
@@ -441,7 +450,94 @@ function saveInput() {
     searchDatabase(input1, input2);
 }
 
-/////////////////////////////////////////////////////////////////////
+function searchDatabase(input1, input2) {
+    // go through array of everything in database, pull out matching first names into new array
+
+    for (i = 0; i < databaseArray.length; i++) {
+        if (input1.toUpperCase() == (databaseArray[i].firstName).toUpperCase()) {
+            current = databaseArray[i];
+
+            databaseArray2.push(new database(current.firstName, current.lastName, current.birthday, current.age,
+            current.spouse, current.children, current.address));
+            
+            console.log("pushed "+current.firstName +" "+ current.lastName +" into databaseArray2");
+        
+        }
+    }  
+    
+    // search new array matching last names, store found person in var result
+
+
+    if (databaseArray2.length >= 1) {
+        for (i = 0; i < databaseArray2.length; i++){
+            console.log("databaseArray2.length is: "+databaseArray2.length);
+            console.log("input2 = "+input2+"  & last name in database is "+databaseArray2[i].lastName);
+            if (input2.toUpperCase() == (databaseArray2[i].lastName).toUpperCase()) {
+                result = databaseArray2[i];
+                console.log("search result is found.");
+                console.log("result is: "+result.firstName+ " " + result.lastName);
+                     
+                appendToSearch(result);  
+                return;
+            }
+        }
+        
+    }    else {
+            doesNotExist();
+            return; 
+    }
+    
+        console.log("does not exist");    
+        doesNotExist();
+}  
+
+
+var resultInfo;
+
+function appendToSearch(result) {
+    console.log("appendtosearch() called");
+    var resultName = document.createTextNode(result.firstName +" "+result.lastName);
+    var resultBirthday = document.createTextNode(result.birthday);
+    var resultAge = document.createTextNode(result.age);
+    var resultSpouse = document.createTextNode(result.spouse);
+    var resultChildren = document.createTextNode(result.children);
+    var resultAddress = document.createTextNode(result.address);
+    var searchResult = document.getElementById('searchResult');
+    
+    
+    //resultInfo.remove();
+    resultInfo = document.createElement("p");
+       
+    resultInfo.appendChild(resultName);
+    resultInfo.appendChild(document.createElement("br"));
+    resultInfo.appendChild(resultBirthday);
+    resultInfo.appendChild(document.createElement("br"));
+    resultInfo.appendChild(resultAge);
+    resultInfo.appendChild(document.createElement("br"));
+    resultInfo.appendChild(resultSpouse);
+    resultInfo.appendChild(document.createElement("br"));
+    resultInfo.appendChild(resultChildren);
+    resultInfo.appendChild(document.createElement("br"));
+    resultInfo.appendChild(resultAddress);
+    resultInfo.appendChild(document.createElement("br"));
+
+    searchResult.appendChild(resultInfo);
+}
+
+// THIS pushes the new people into the search array (Makes them searchable)
+//databaseArray.push(new database("homerun", "hitter", "December 4th, 1972", "99", "maria", "none", "11 street, city, country"));
+//databaseArray.push(new database("hannah", "montana", "January 1st, 1990", "42", "Phoenix Wright", "kidz", "77 street, city, country"));
+//databaseArray.push(new database("hannah", "FAKEHANNAH", "January 1st, 1990", "20", "Phoenix Wright", "kidz", "77 street, city, country"));
+databaseArray.push(new database("Jon", "Gonzalez", "Difficulty: 3/10", "Occupation: Freedom Fighter","833 457 999", "Net Worth: $ 1 mill"));
+databaseArray.push(new database("Ben", "York", "Difficulty: 5/10", "Occupation: Wall Street broker", "999 666 988","Net Worth: $ 3.5 mill"));
+
+
+///*********** CODE TO COMPARE USER INPUT TO INITIALIZE HACK IF CORRECT (CASENUM) **********///
+/******************************************************************
+ * HACK INITIALIZATION CODE 
+ * Accepts user input and compares user input to target information
+ * If correct then begin hack, if not, try again message
+ ******************************************************************/
 var eCase;
 var searchEl = document.getElementById('ipinput');
 
@@ -506,53 +602,10 @@ function caseCompare(input, caseNum) {
 
 
 
-function searchDatabase(input1, input2) {
-    // go through array of everything in database, pull out matching first names into new array
-    
-
-
-    for (i = 0; i < databaseArray.length; i++) {
-        if (input1.toUpperCase() == (databaseArray[i].firstName).toUpperCase()) {
-            current = databaseArray[i];
-
-            databaseArray2.push(new database(current.firstName, current.lastName, current.birthday, current.age,
-            current.spouse, current.children, current.address));
-            
-            console.log("pushed "+current.firstName +" "+ current.lastName +" into databaseArray2");
-        
-        }
-    }
-    
-    
-    // search new array matching last names, store found person in var result
-
-
-    if (databaseArray2.length >= 1) {
-        for (i = 0; i < databaseArray2.length; i++){
-            console.log("databaseArray2.length is: "+databaseArray2.length);
-            console.log("input2 = "+input2+"  & last name in database is "+databaseArray2[i].lastName);
-            if (input2.toUpperCase() == (databaseArray2[i].lastName).toUpperCase()) {
-                result = databaseArray2[i];
-                console.log("search result is found.");
-                console.log("result is: "+result.firstName+ " " + result.lastName);
-                
-                
-                appendToSearch(result);
-                
-                return;
-            }
-        }
-        
-    }    else {
-            doesNotExist();
-            return;
-        
-    }
-    
-        console.log("does not exist");    
-        doesNotExist();
-}    
-
+//*************** CODE TO CLEAN UP AND REMOVE ELEMENTS ***************//
+/******************************************************************
+ * DISPLAYING INTERFACE AND ITEMS
+ ******************************************************************/
 var noResult;
 
 function doesNotExist() {
@@ -565,39 +618,6 @@ function doesNotExist() {
     noResult.appendChild(doesNotExist);
     searchResult.appendChild(noResult);
 
-}
-
-var resultInfo;
-
-
-function appendToSearch(result) {
-    console.log("appendtosearch() called");
-    var resultName = document.createTextNode(result.firstName +" "+result.lastName);
-    var resultBirthday = document.createTextNode(result.birthday);
-    var resultAge = document.createTextNode(result.age);
-    var resultSpouse = document.createTextNode(result.spouse);
-    var resultChildren = document.createTextNode(result.children);
-    var resultAddress = document.createTextNode(result.address);
-    var searchResult = document.getElementById('searchResult');
-    
-    
-    //resultInfo.remove();
-    resultInfo = document.createElement("p");
-       
-    resultInfo.appendChild(resultName);
-    resultInfo.appendChild(document.createElement("br"));
-    resultInfo.appendChild(resultBirthday);
-    resultInfo.appendChild(document.createElement("br"));
-    resultInfo.appendChild(resultAge);
-    resultInfo.appendChild(document.createElement("br"));
-    resultInfo.appendChild(resultSpouse);
-    resultInfo.appendChild(document.createElement("br"));
-    resultInfo.appendChild(resultChildren);
-    resultInfo.appendChild(document.createElement("br"));
-    resultInfo.appendChild(resultAddress);
-    resultInfo.appendChild(document.createElement("br"));
-
-    searchResult.appendChild(resultInfo);
 }
 
 //changed this in html also
@@ -613,28 +633,16 @@ function clearNoResults() {
     noResult.remove();
 }
 
-
-
-// ADDED IP ADDRESS AREA
-function database (a,b,c,d,e,f,g,h) {
-     this.firstName = a;
-     this.lastName = b;
-     this.birthday = c;
-     this.age = d;
-     this.caseNum = e;
-     this.spouse = f;
-     this.children = g;
-     this.address = h;
+function removePrevHack() {
+	par.remove();
+	txt.remove();
+	
 }
 
-
-
-// THIS pushes the new people into the search array (Makes them searchable)
-//databaseArray.push(new database("homerun", "hitter", "December 4th, 1972", "99", "maria", "none", "11 street, city, country"));
-//databaseArray.push(new database("hannah", "montana", "January 1st, 1990", "42", "Phoenix Wright", "kidz", "77 street, city, country"));
-//databaseArray.push(new database("hannah", "FAKEHANNAH", "January 1st, 1990", "20", "Phoenix Wright", "kidz", "77 street, city, country"));
-databaseArray.push(new database("Jon", "Gonzalez", "Difficulty: 3/10", "Occupation: Freedom Fighter","833 457 999", "Net Worth: $ 1 mill"));
-databaseArray.push(new database("Ben", "York", "Difficulty: 5/10", "Occupation: Wall Street broker", "999 666 988","Net Worth: $ 3.5 mill"));
-
+var userIn;
+function clearInput() {
+	userIn = document.getElementById('ipinput');
+	userIn.value = "";
+}
 
 
