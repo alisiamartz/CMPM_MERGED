@@ -269,3 +269,6 @@ var enemyActions = [
 	enemyStats['enemyLwrDef'],
 	enemyStats['enemyLwrMsk']
 ];
+for (var i = 0; i < 5; i++) {
+	enemyActions.push(enemyStats['intelligence']);
+}
