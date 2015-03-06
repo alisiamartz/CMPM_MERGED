@@ -239,37 +239,25 @@ function appendToIpPopUp() {
 
 var emailPreviewArray = [];
 
-function emailPreview(a,b,c,d,e,f,g,h,i) {
-	 this.sender = a;
-	 this.date = b;
-	 this.subject = c;
-	 this.content = d;
-	 this.caseNum = e;
-	 this.reportWin = f;
-	 this.reportLose = g;
-	 this.index = h;
-	 this.name = i;
-}
-
-emailPreviewArray.push(new emailPreview("*NEW ASSIGNMENT*","Today","Government Target",
+emailPreviewArray.push(new emailPreview(["*NEW ASSIGNMENT*","Today","Government Target",
 	"Your target is 48 year old Jon Gonzalez. Gonzalez is a member of a large unorderly group"+ 
 	" that has been causing much trouble lately." + " We believe that he has been illegally obtaining funds" + 
-	" to power his campaign. Please look into Gonzalez further and get more information.", "2244", "report win here", "report lose here","0", "Jon Gonzalez"));
+	" to power his campaign. Please look into Gonzalez further and get more information.", "2244", "report win here", "report lose here","0", "Jon Gonzalez"]));
 	
-emailPreviewArray.push(new emailPreview("*NEW TASK*","Today ","We ask for help.",
+emailPreviewArray.push(new emailPreview(["*NEW TASK*","Today ","We ask for help.",
 	"Hello there. We have been interested in you for a while now and we are asking for help." +
 	" We believe the DRA Government has made Jon Gonzalez a target." + 
 	" His name and his organization have been everywhere lately, and we know the government does not approve of his objectives." +
 	" Jon is a very good friend of ours, and anyone can plainly see he means more right than wrong." + 
 	" We ask that you do not target Mr. Gonzalez, and instead look at a Mister Ben York." + 
 	" York is a business man on Wall Street who we believe is working with the government and stealing the profit of other organizations." +
-	" We trust that you will do the right thing. Iniustum non debet lucrari.    " +"     - a friend","1438", "report win here", "report lose here","1", "Ben York"));
+	" We trust that you will do the right thing. Iniustum non debet lucrari.    " +"     - a friend","1438", "report win here", "report lose here","1", "Ben York"]));
 
 
-emailPreviewArray.push(new emailPreview(" A favor please ","date ","subject ","content "));
-emailPreviewArray.push(new emailPreview("NEW MISSION","date ","subject ","content "));
-emailPreviewArray.push(new emailPreview("NEW TASK ","date ","subject ","content "));
-emailPreviewArray.push(new emailPreview("NEW MISSION"," date  ","subject ","content "));
+emailPreviewArray.push(new emailPreview([" A favor please ","date ","subject ","content "]));
+emailPreviewArray.push(new emailPreview(["NEW MISSION","date ","subject ","content "]));
+emailPreviewArray.push(new emailPreview(["NEW TASK ","date ","subject ","content "]));
+emailPreviewArray.push(new emailPreview(["NEW MISSION"," date  ","subject ","content "]));
 
 
 console.log(emailPreviewArray + "THIS EMAIL PREV");

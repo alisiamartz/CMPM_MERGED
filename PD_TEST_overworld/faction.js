@@ -54,6 +54,8 @@ function emailPreview( data ) {
 	this.caseNum = data[4];
 	this.reportWin = data[5];		// if the player completes the level then send the data to report
 	this.reportLose = data[6];
+	this.index = data[7];
+	this.name = data[8];
 }
 
 function getData(emailNum) {
