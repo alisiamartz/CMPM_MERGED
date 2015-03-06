@@ -32,13 +32,12 @@ input.onMouseDown = function(button) {
 		for (var click in clickables) {
 			click = clickables[click];
 			if (Collision(click, gInput.mouse.x, gInput.mouse.y)) {
-					if ( hackBool == true ) {
 						console.log(hackBool);
 						//Hack.init();
-						hackBoolTrue();
+						//hackBoolTrue();
+						hackBool = true;
 						HackStart(DIFF);
 						string = "|";
-			}	
 		}
 	}
 };

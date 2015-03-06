@@ -518,7 +518,7 @@ function saveEcontent(index) {
 }
 
 var hackBack;
-
+var win;
 //var p;
 //var no;
 //var ele;
@@ -533,9 +533,11 @@ function caseCompare(input, caseNum) {
 		console.log("INPUT AND CASE # MATCH. BEGIN HACK");
 		//hackBoolTrue();	
 		//console.log(hackBool)
-		
+		win = document.getElementById("hackWin");
+		win.style.display = "inline";
 		// GETS RID OF BACK BUTTON ((REMEMBER TO ADD BACK IN AFTER HACK IS OVER))
 		hackBack = document.getElementById('back1').style.display = "none";
+		
 		
 		// send info over
 		// remove back button
