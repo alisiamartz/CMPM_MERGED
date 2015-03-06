@@ -155,7 +155,7 @@ function getID(person) {
 			"Note: case 0707 illegal distribution of drugs to patients"];
 		case 12:
 			return ["Name: Janella Earl", "Occupation: Grave Digger", "Net Worth: 550", "TEMP", 
-			"Note: case 0107 convicted of shoplifting, case 120 sued for grave robbing"];
+			"Note: case 0107 convicted of shoplifting, case 0120 sued for grave robbing"];
 		case 13:
 			return ["Name: Marlin Amadori", "Occupation: Stockbroker", "Net Worth: 70.000", "TEMP", 
 			"Note: case 7708 accused of stock manipulation"];
