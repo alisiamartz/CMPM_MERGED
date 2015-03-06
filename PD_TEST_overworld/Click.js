@@ -1,5 +1,7 @@
 use2D = true;
 							
+var DIFF = 30;							
+							
 /*************************************************************/
 /* this function can be ignored as it is just for testing */
 LoadContent = function() {
@@ -26,15 +28,23 @@ function Collision(obj, mouseX, mouseY) {
 	return false;
 }
 input.onMouseDown = function(button) {
-	for (var click in clickables) {
-		click = clickables[click];
-		if (Collision(click, gInput.mouse.x, gInput.mouse.y)) {
-			//Hack.init();
-			hackBool = true;
-			HackStart(30);
-			string = "|";
+		console.log("ON MOUSE DOWN" + hackBool);
+		for (var click in clickables) {
+			click = clickables[click];
+			if (Collision(click, gInput.mouse.x, gInput.mouse.y)) {
+					if ( hackBool == true ) {
+						console.log(hackBool);
+						//Hack.init();
+						hackBoolTrue();
+						HackStart(DIFF);
+						string = "|";
+			}	
 		}
 	}
 };
+
+function hackBoolTrue(){
+	hackBool = true;
+}
 
 LoadContent();

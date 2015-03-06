@@ -12,7 +12,7 @@ var crackStats = function(atck, def, msk) {
 var genEnemy = function(difficulty) {
 	var genArr = [];
 	for (var i = 0; i < 3; i++) {
-		genArr.push(Math.floor(difficulty + (Math.random() * difficulty / 3)))
+		genArr.push(Math.floor(difficulty + (Math.random() * difficulty / 3)));
 	}
 	if (genArr[2] > 80) genArr[2] = 80;
 	return new crackStats(genArr[0], genArr[1], genArr[2]);

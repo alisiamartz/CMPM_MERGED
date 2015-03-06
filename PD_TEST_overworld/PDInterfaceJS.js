@@ -532,9 +532,8 @@ databaseArray.push(new database("Jon", "Gonzalez", "Difficulty: 3/10", "Occupati
 databaseArray.push(new database("Ben", "York", "Difficulty: 5/10", "Occupation: Wall Street broker", "999 666 988","Net Worth: $ 3.5 mill"));
 
 
-///*********** CODE TO COMPARE USER INPUT TO INITIALIZE HACK IF CORRECT (CASENUM) **********///
 /******************************************************************
- * HACK INITIALIZATION CODE 
+ * HACK INITIALIZATION CODE - (CASENUM COMPARE)
  * Accepts user input and compares user input to target information
  * If correct then begin hack, if not, try again message
  ******************************************************************/
@@ -590,21 +589,31 @@ function caseCompare(input, caseNum) {
 	
 	if (input == caseNum) {
 		console.log("INPUT AND CASE # MATCH. BEGIN HACK");
-		//hackBack = document.getElementById('back1').style.display = "none";
+		hackBoolTrue();	
+		console.log(hackBool);
+		hackBack = document.getElementById('back1').style.display = "none";
 		// send info over
 		// remove back button
 		// AT THE END OF HACK, ADD BACK BUTTON BACK IN
+		//hackInit();
 		
 	} else {
 		console.log("INPUT AND CASE # DO NOT MATCH. NO HACK");	
 	}
 }
 
+var divHack;
 
 
-//*************** CODE TO CLEAN UP AND REMOVE ELEMENTS ***************//
+function hackInit() {
+	divHack = document.getElementById("hackDiv");
+	hackBoolTrue();
+	console.log(hackBool);
+}
+
+
 /******************************************************************
- * DISPLAYING INTERFACE AND ITEMS
+ * CODE TO CLEAN UP AND REMOVE ELEMENTS
  ******************************************************************/
 var noResult;
 

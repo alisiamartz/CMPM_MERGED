@@ -8,6 +8,7 @@ var MIN_STATS = 1;
 var clickables = new Array();
 var hackBox = new Sprite();
 var input = new Sprite();
+//gInput.addKeyboardListener(input);
 var string = "";
 var hackBool = false;
 
