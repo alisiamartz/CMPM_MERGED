@@ -413,78 +413,29 @@ function appendToTargetWindow(index, targetArray) {
  * (search in format and returns field)
  ******************************************************************/
 
-var databaseArray = [];
-var databaseArray2 = [];
 var result;
-var current;
 
-var input1;
-var input2;
 var searchElement = document.getElementById('input');
-
-function database (a,b,c,d,e,f,g,h) {
-     this.firstName = a;
-     this.lastName = b;
-     this.birthday = c;
-     this.age = d;
-     this.caseNum = e;
-     this.spouse = f;
-     this.children = g;
-     this.address = h;
-}
-
 
 function saveInput() {
 
     var inputString = searchElement.value;
-    var inputArray = inputString.split(" ");
-    for (i = 0; i < databaseArray2.length; i++) {
-        databaseArray2.pop();
-    }
     console.log("you just searched for: "+ searchElement.value);
-    input1 = inputArray[0];
-    input2 = inputArray[1];
-    console.log("var input1 is: " + input1);
-    console.log("var input2 is: " + input2);
     
-    searchDatabase(input1, input2);
+    searchDatabase(inputString);
 }
 
-function searchDatabase(input1, input2) {
-    // go through array of everything in database, pull out matching first names into new array
+function searchDatabase(input1) {
+    // go through array of everything in database, store found person in var result
 
     for (i = 0; i < databaseArray.length; i++) {
-        if (input1.toUpperCase() == (databaseArray[i].firstName).toUpperCase()) {
-            current = databaseArray[i];
-
-            databaseArray2.push(new database(current.firstName, current.lastName, current.birthday, current.age,
-            current.spouse, current.children, current.address));
-            
-            console.log("pushed "+current.firstName +" "+ current.lastName +" into databaseArray2");
-        
+        if (input1.toUpperCase() == (databaseArray[i].name).toUpperCase()) {
+            result = databaseArray[i];
+            console.log("search result is found.");
+            console.log("result is: "+result.name);
+            appendToSearch(result);  
+            return;
         }
-    }  
-    
-    // search new array matching last names, store found person in var result
-
-
-    if (databaseArray2.length >= 1) {
-        for (i = 0; i < databaseArray2.length; i++){
-            console.log("databaseArray2.length is: "+databaseArray2.length);
-            console.log("input2 = "+input2+"  & last name in database is "+databaseArray2[i].lastName);
-            if (input2.toUpperCase() == (databaseArray2[i].lastName).toUpperCase()) {
-                result = databaseArray2[i];
-                console.log("search result is found.");
-                console.log("result is: "+result.firstName+ " " + result.lastName);
-                     
-                appendToSearch(result);  
-                return;
-            }
-        }
-        
-    }    else {
-            doesNotExist();
-            return; 
     }
     
         console.log("does not exist");    
@@ -496,29 +447,21 @@ var resultInfo;
 
 function appendToSearch(result) {
     console.log("appendtosearch() called");
-    var resultName = document.createTextNode(result.firstName +" "+result.lastName);
-    var resultBirthday = document.createTextNode(result.birthday);
-    var resultAge = document.createTextNode(result.age);
-    var resultSpouse = document.createTextNode(result.spouse);
-    var resultChildren = document.createTextNode(result.children);
-    var resultAddress = document.createTextNode(result.address);
     var searchResult = document.getElementById('searchResult');
     
     
     //resultInfo.remove();
     resultInfo = document.createElement("p");
        
-    resultInfo.appendChild(resultName);
+    resultInfo.appendChild(document.createTextNode(result.name));
     resultInfo.appendChild(document.createElement("br"));
-    resultInfo.appendChild(resultBirthday);
+    resultInfo.appendChild(document.createTextNode(result.occ));
     resultInfo.appendChild(document.createElement("br"));
-    resultInfo.appendChild(resultAge);
+    resultInfo.appendChild(document.createTextNode(result.netWorth));
     resultInfo.appendChild(document.createElement("br"));
-    resultInfo.appendChild(resultSpouse);
+    resultInfo.appendChild(document.createTextNode(result.spouse));
     resultInfo.appendChild(document.createElement("br"));
-    resultInfo.appendChild(resultChildren);
-    resultInfo.appendChild(document.createElement("br"));
-    resultInfo.appendChild(resultAddress);
+    resultInfo.appendChild(document.createTextNode(result.note));
     resultInfo.appendChild(document.createElement("br"));
 
     searchResult.appendChild(resultInfo);
@@ -528,8 +471,8 @@ function appendToSearch(result) {
 //databaseArray.push(new database("homerun", "hitter", "December 4th, 1972", "99", "maria", "none", "11 street, city, country"));
 //databaseArray.push(new database("hannah", "montana", "January 1st, 1990", "42", "Phoenix Wright", "kidz", "77 street, city, country"));
 //databaseArray.push(new database("hannah", "FAKEHANNAH", "January 1st, 1990", "20", "Phoenix Wright", "kidz", "77 street, city, country"));
-databaseArray.push(new database("Jon", "Gonzalez", "Difficulty: 3/10", "Occupation: Freedom Fighter","833 457 999", "Net Worth: $ 1 mill"));
-databaseArray.push(new database("Ben", "York", "Difficulty: 5/10", "Occupation: Wall Street broker", "999 666 988","Net Worth: $ 3.5 mill"));
+databaseArray.push(new databaseUnit("Jon Gonzalez", "Occupation: Freedom Fighter", "Net Worth: $ 1 mill", "http://i.imgur.com/3yEtel6.jpg", "No note."));
+databaseArray.push(new databaseUnit("Ben York", "Occupation: Wall Street broker", "Net Worth: $ 3.5 mill", "http://i.imgur.com/3yEtel6.jpg", "No note."));
 
 
 ///*********** CODE TO COMPARE USER INPUT TO INITIALIZE HACK IF CORRECT (CASENUM) **********///
