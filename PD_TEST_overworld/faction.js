@@ -15,11 +15,9 @@ faction = {
 	affiliation: "Government",
 	pos: 80,
 	updateFaction: function(num) {
-		if (this.pos < 100 || this.pos > 0) {
-			this.pos += num;
-			if (this.pos > 100) this.pos = 100;
-			else if (this.pos < 0) this.pos = 0;
-		}
+		this.pos += num;
+		if (this.pos > 100) this.pos = 100;
+		else if (this.pos < 0) this.pos = 0;
 		if (this.pos >= 60 && this.pos <= 100) {
 			this.affiliation = "Government";
 		} else if (this.pos >= 40 && this.pos < 60) {
