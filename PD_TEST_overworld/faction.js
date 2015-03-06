@@ -83,13 +83,13 @@ function getData(emailNum) {
 /******************************************************************************************/
 /******************************************************************************************/
 //var databaseArray = [];
-function databaseUnit(name, occ, netWorth, image, note) {
+var databaseUnit = function(name, occ, netWorth, image, note) {
 	this.name = name;
 	this.occ = occ;
 	this.netWorth = netWorth;
 	this.image = image;
 	this.note = note;
-}
+};
 databasebArrayObject = {
 	init: function() {
 		for(var i = 1; i < 25; i++) {		//manually put number larger than how much data there are
