@@ -18,14 +18,29 @@
 		var card = document.getElementById('playerCard'); 
 		var c = card.getContext('2d');		
 		
+		var parag;
+		var n;
+		var e;
 		
 // Saves the name into an array and calls the icon selection screen		
 		function saveName() {
-			theName = nameElement.value;
-			player.push(theName);			
-			console.log(player);
-			clearNameScreen();
-			picSelect();
+			
+			if (nameElement.value === "" || nameElement.value === " " || nameElement.value === "  ") {
+				parag = document.createElement("p");
+				n = document.createTextNode("Please enter in valid username.");
+				parag.appendChild(n);
+				e = document.getElementById("beginCanvas");
+				e.appendChild(parag);
+				
+			} else {
+				e.removeChild(parag);
+				theName = nameElement.value;
+				player.push(theName);			
+				console.log(player);
+				clearNameScreen();
+				picSelect();
+			}
+
 		}
 		
 // Removes elements from name screen
@@ -61,17 +76,18 @@
 // Clears the picture screen and displays ID card display		
 		function clearPicScreen() {
 			txt.remove();
-			showInfo();
+			//showInfo();
 			initCard();
 		};
 
 // Displays the player information onto the ID card
+/*
 		function showInfo() {
 			document.getElementById("nameShow").style.display = "inline";
 			playerName = player[0];
 			document.getElementById("playName").value = playerName;
 		};
-		
+*/	
 // ID Card function, turns card into separate canvas
 		function initCard(name, img) {
 			document.getElementById("playerCard").style.display = "inline";

@@ -149,8 +149,11 @@ function displayID() {
    			d.drawImage(playerImage, 15, 15, 100,100); 
 		};	
 		d.font = "30px courier";
-		d.fillText(pName, 130, 40, 250);
-		d.fillText("NSS Hacker", 130, 70, 250);
+		d.fillText(pName, 120, 40, 205);
+		d.fillText("NSS Hacker", 120, 70, 250);
+		d.fillText('GOV: (AFFILIATION HERE)', 120, 130, 205);
+		d.fillText('ANTI: (AFFILIATION HERE)', 120, 160, 205);
+		
 }
 
 
