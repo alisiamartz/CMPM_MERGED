@@ -464,8 +464,6 @@ function appendToSearch(result) {
     resultInfo.appendChild(document.createElement("br"));
     resultInfo.appendChild(document.createTextNode(result.netWorth));
     resultInfo.appendChild(document.createElement("br"));
-    resultInfo.appendChild(document.createTextNode(result.spouse));
-    resultInfo.appendChild(document.createElement("br"));
     resultInfo.appendChild(document.createTextNode(result.note));
     resultInfo.appendChild(document.createElement("br"));
 
