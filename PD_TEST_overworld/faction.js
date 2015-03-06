@@ -63,23 +63,28 @@ function getData(emailNum) {
 				return ["Supervisor Tresha Brannon", "June 24", "TASK", 
 				"There have been hundreds of reports on the trial of Devan MacDougall’s for rigging a national sport championship. Plant the attached evidence in MacDougall’s machine and security will take care of the rest.", 
 				"0905", "MacDougall lost his chance at freedom as citizens press for his imprisonment.", 
-				"MacDougall was released for his last day in court, which has caused an uproar within several counties."];
+				"MacDougall was released for his last day in court, which has caused an uproar within several counties.", 
+				1, "Devan MacDougall"];
 			} else if (emailNum == 2) {
 				return ["Supervisor Tresha Brannon", "June 24", "TASK", 
 				"Recent events have given Devan MacDougall notoriety and citizens want MacDougall stripped of everything so let us give them what they want. Gather MacDougall’s past criminal nude photos and bring it to light on the net.", 
-				"0945", "public hatred for MacDougall has risen once again after the subject got his photos leaked to the public. Public shaming of MacDougall has been at an all time high.", ""];
+				"0945", "public hatred for MacDougall has risen once again after the subject got his photos leaked to the public. Public shaming of MacDougall has been at an all time high.", "", 
+				2, "Devan MacDougall"];
 			} else if (emailNum == 3) {
 				return ["Supervisor Tresha Brannon", "June 24", "TASK", 
 				"Some rebel scum named Ellis McFarlane is showing up with an account for smuggling drugs. No orders were sent for his case but under my care he will be punished. Go into the files and bring to the public his previous case for stealing Orange electronic goods.", 
-				"1102", "the case of Ellis McFarlane’s old theft charges have resurfaced within the online community for reasons unknown as of now aside from garnering attention from the press", "Ellis McFarlane’s final trial ended with no sign of conviction."];
+				"1102", "the case of Ellis McFarlane’s old theft charges have resurfaced within the online community for reasons unknown as of now aside from garnering attention from the press", "Ellis McFarlane’s final trial ended with no sign of conviction.", 
+				3, "Ellis McFarlane"];
 			} else if (emailNum == 4) {
 				return ["Supervisor Tresha Brannon", "June 24", "TASK", 
 				"Yet another rebel scum going against the law. The name is Lino Archer: accused of providing illegal fighter jet lessons. Working for terrorist groups most likely. Gather some evidence against this guy and report it back to nearby law enforcers.", 
-				"9422", "retired veteran and local flying instructor, Lino Archer, is sentenced to jail without trial for suspicion of being a terrorist.", ""];
+				"9422", "retired veteran and local flying instructor, Lino Archer, is sentenced to jail without trial for suspicion of being a terrorist.", "", 
+				4, "Lino Archer"];
 			} else if (emailNum == 5) {
 				return ["Supervisor Tresha Brannon", "June 24", "TASK", 
 				"Katerina Bove, a Child Care Worker, was recently found with possessions of cannabis. Unfortunately she won’t comply to our questions. Find her residence and report all necessary information to the local force to drag her into questioning.", 
-				"9859", "Katerina Bove, who was recently caught possessing infinitesimal amounts of cannabis was also found concealing copious amounts of narcotics earlier today." , "Katerina Bove who was recently caught possessing infinitesimal amounts of cannabis has been let off from all charges."];
+				"9859", "Katerina Bove, who was recently caught possessing infinitesimal amounts of cannabis was also found concealing copious amounts of narcotics earlier today." , "Katerina Bove who was recently caught possessing infinitesimal amounts of cannabis has been let off from all charges.", 
+				5, "Katerina Bove"];
 			}
 		}
 	}
