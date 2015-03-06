@@ -145,7 +145,7 @@ function getID(person) {
 			"Note: case 0905 tampering with a sports contest, case 0945 public nudity"];
 		case 11:
 			return ["Name: Jaslyn Vitali", "Occupation: Doctor", "Net Worth: 15.000", "TEMP", 
-			"Note: case 707 illegal distribution of drugs to patients"];
+			"Note: case 0707 illegal distribution of drugs to patients"];
 		case 12:
 			return ["Name: Janella Earl", "Occupation: Grave Digger", "Net Worth: 550", "TEMP", 
 			"Note: case 0107 convicted of shoplifting, case 120 sued for grave robbing"];
