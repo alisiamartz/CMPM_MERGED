@@ -26,14 +26,14 @@
 		function saveName() {
 			
 			if (nameElement.value === "" || nameElement.value === " " || nameElement.value === "  ") {
-				parag = document.createElement("p");
-				n = document.createTextNode("Please enter in valid username.");
-				parag.appendChild(n);
-				e = document.getElementById("beginCanvas");
-				e.appendChild(parag);
+				//parag = document.createElement("p");
+				//n = document.createTextNode("Please enter in valid username.");
+				//parag.appendChild(n);
+				//e = document.getElementById("beginCanvas");
+				//e.appendChild(parag);
 				
 			} else {
-				e.removeChild(parag);
+				//e.removeChild(parag);
 				theName = nameElement.value;
 				player.push(theName);			
 				console.log(player);
