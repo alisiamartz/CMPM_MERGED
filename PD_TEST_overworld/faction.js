@@ -83,9 +83,8 @@ function getData(emailNum) {
 /******************************************************************************************/
 /******************************************************************************************/
 var databaseArray = [];
-function Person(name, diff, occ, netWorth, IP, image, note) {
+function Person(name, occ, netWorth, image, note) {
 	this.name = name;
-	this.diff = diff;
 	this.occ = occ;
 	this.netWorth = netWorth;
 	this.image = image;
