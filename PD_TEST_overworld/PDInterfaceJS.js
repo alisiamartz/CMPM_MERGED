@@ -519,6 +519,10 @@ function saveEcontent(index) {
 
 var hackBack;
 
+//var p;
+//var no;
+//var ele;
+
 // Compares user input to case number attached to email
 function caseCompare(input, caseNum) {
 
@@ -528,8 +532,11 @@ function caseCompare(input, caseNum) {
 	if (input == caseNum) {
 		console.log("INPUT AND CASE # MATCH. BEGIN HACK");
 		//hackBoolTrue();	
-		console.log(hackBool);
+		//console.log(hackBool)
+		
+		// GETS RID OF BACK BUTTON ((REMEMBER TO ADD BACK IN AFTER HACK IS OVER))
 		hackBack = document.getElementById('back1').style.display = "none";
+		
 		// send info over
 		// remove back button
 		// AT THE END OF HACK, ADD BACK BUTTON BACK IN
@@ -537,7 +544,7 @@ function caseCompare(input, caseNum) {
 		
 	} else {
 		console.log("INPUT AND CASE # DO NOT MATCH. NO HACK");
-			
+		
 	}
 }
 
