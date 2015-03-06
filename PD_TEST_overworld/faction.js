@@ -83,9 +83,8 @@ function getData(emailNum) {
 /******************************************************************************************/
 /******************************************************************************************/
 var databaseArray = [];
-function Person(name, diff, occ, netWorth, IP, image, note) {
+function databaseUnit(name, occ, netWorth, image, note) {
 	this.name = name;
-	this.diff = diff;
 	this.occ = occ;
 	this.netWorth = netWorth;
 	this.image = image;
@@ -96,7 +95,7 @@ databasebArrayObject = {
 		for(var i = 1; i < 25; i++) {		//manually put number larger than how much data there are
 			var tempp = getID(i);
 			if (tempp != null) {
-				databaseArray.push(new Person(getID(i)));
+				databaseArray.push(new databaseUnit(getID(i)));
 			}
 		}
 	},
