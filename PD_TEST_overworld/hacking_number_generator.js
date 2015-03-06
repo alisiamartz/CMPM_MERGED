@@ -21,7 +21,7 @@ function HackStart(difficulty) {
 			//playerStats.init(currentStats.hackCrack);
 			playerStats.init(genPlayer(playerStats.staticA, playerStats.staticD, playerStats.staticM));
 			enemyStats.init(genEnemy(difficulty));
-			this.boxType = new TextBox("YOOO");
+			this.boxType = new TextBox("TYPE HERE");
 			this.boxType.fontSize = 50;
 			this.boxType.x = 0;
 			this.boxType.y = 230;

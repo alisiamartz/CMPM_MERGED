@@ -1,4 +1,38 @@
 /******** STYLIZING ALL THE ELEMENTS. POSITIONAL STUFF, STYLE PROPERTIES, ETC*************/
+
+/******************************** MAIN MENU *******************************/
+
+#mainMenu {
+	position: relative;
+	margin: auto;
+	border: 1px solid #000;
+	width: 1000px;
+	height: 600px;
+	font-family: courier;
+}
+
+#title {
+	top:100px;
+	vertical-align:50px;
+	margin-left: 240px;	
+	
+}
+
+#startNew {
+	margin-left: 420px;
+	width:220px;
+	height:50px;
+	
+}
+
+#loadSaves {
+	margin-left: 420px;	
+	width:220px;
+	height:80px;
+	
+}
+
+/************************** CHARACTER CUSTOMIZATION AND INIT**************************************/
 #beginCanvas {
 	position: relative;
 	margin: auto;
@@ -88,9 +122,9 @@ input#playName:focus {
 }
 
 #enter {
-	width: 140px;
-	height: 50px;
-	margin-left: 420px;
+	width: 220px;
+	height: 80px;
+	margin-left: 390px;
 }
 
 

@@ -119,3 +119,15 @@
 			document.getElementById("gameCanvas").style.display = "block";
 		}	
 	
+function loadCustom() {
+	document.getElementById('mainMenu').style.display = "none";
+	document.getElementById("beginCanvas").style.display = "block";
+	console.log("NEW GAME STARTED");
+}
+
+function loadSaves(){
+	console.log("SAVES TO BE LOADED HERE, CLICK START NEW ONE FOR NOW");
+	
+}
+
+

@@ -20,16 +20,21 @@
 		<!-- Date: 2015-02-10 -->
 	</head>
 	<body>
-		<!--
-		<div id="mainMenu" class="html">
-			<!-- decorative stuff here
-				
-				
+		
+	<div id="mainMenu" class="html">
+			<!-- decorative stuff here (http://i.imgur.com/w4YMMb9.png?1) <- title draft (not using this one) -->
+				<div id="gameTitle">
+					<br><br><br><br><br>
+					<img id="title" src="http://i.imgur.com/w4YMMb9.png?1" width ="600" height = "120">
+				</div>
+				<br>
+				<input id="startNew" type="image" src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/startNew_zps2qrvfebt.png" onclick="loadCustom();">
+				<br> <br>
+				<input id="loadSaves" type="image" src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/confirm_zpsprsuz0ce.png" onclick="loadSaves();">
 			
-			
-		</div>
-		-->
-		<div id="beginCanvas" class="html">
+	</div>
+	
+		<div id="beginCanvas" class="html"style="display:none">
 			<div id="welcome">
 				<br><br><br><br><br><br><br><br><br><br><br><br>	<!-- for some reason, vertical-align doesn't work. if solution found, then i will fix -->
 				Welcome to the DRA Government Database. 
@@ -64,7 +69,7 @@
 			<div id="confirm" style="display:none" >
 				Continue to complete system login. <br>
 				<br>
-				<input id="enter" type="image" src="http://i.imgur.com/h6CRCMg.png" onclick="loadInter(), displayID()">
+				<input id="enter" type="image" src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/confirm_zpsprsuz0ce.png" onclick="loadInter(), displayID()">
 			</div>
 		
 		<script src="playerCustom.js"></script>
