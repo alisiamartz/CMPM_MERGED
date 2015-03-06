@@ -125,14 +125,14 @@ input#playName:focus {
 }
 
 #back {
-	width:20px;
-	height:20px;
+	width:40px;
+	height:40px;
 	
 }
 
 #back1 {
-	width:20px;
-	height:20px;
+	width:40px;
+	height:40px;
 	
 }
 
@@ -191,8 +191,8 @@ input#playName:focus {
 }
 
 #messageX {
-    width:20px;
-    height:20px;
+    width:40px;
+    height:40px;
     position: absolute;
     right:7px;
     top:7px;
@@ -202,7 +202,7 @@ input#playName:focus {
 /********* TERMINAL AND ITS PROPERTIES *********************/
 #terminalIcon {
     position:absolute;
-    width:50px;
+    width:40px;
     height:40px;
     left: 140px;
     top:10px;
@@ -236,8 +236,8 @@ input#playName:focus {
 
 
 #terminalX {
-    width:20px;
-    height:20px;
+    width:40px;
+    height:40px;
     position: absolute;
     right:7px;
     top:7px;
@@ -266,8 +266,8 @@ input#playName:focus {
 
 
 #targetX {
-    width:20px;
-    height:20px;
+    width:40px;
+    height:40px;
     position: absolute;
     right:7px;
     top:7px;
@@ -297,8 +297,8 @@ input#playName:focus {
 
 
 #ipX {
-    width:20px;
-    height:20px;
+    width:40px;
+    height:40px;
     position: absolute;
     right:7px;
     top:7px;

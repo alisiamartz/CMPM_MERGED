@@ -16,8 +16,8 @@ faction = {
 	pos: 80,
 	updateFaction: function(num) {
 		this.pos += num;
-		if (this.pos > 100) this.pos = 100;
-		else if (this.pos < 0) this.pos = 0;
+		if (this.pos > 100) {this.pos = 100;}
+		else if (this.pos < 0) {this.pos = 0;}
 		if (this.pos >= 60 && this.pos <= 100) {
 			this.affiliation = "Government";
 		} else if (this.pos >= 40 && this.pos < 60) {
@@ -75,14 +75,14 @@ function getData(emailNum) {
 			} else if (emailNum == 5) {
 				return ["Supervisor Tresha Brannon", "June 24", "TASK", 
 				"Katerina Bove, a Child Care Worker, was recently found with possessions of cannabis. Unfortunately she won’t comply to our questions. Find her residence and report all necessary information to the local force to drag her into questioning.", 
-				"9859", "Katerina Bove, who was recently caught possessing infinitesimal amounts of cannabis was also found concealing copious amounts of narcotics earlier today." "Katerina Bove, who was recently caught possessing infinitesimal amounts of cannabis has been let off from all charges."];
+				"9859", "Katerina Bove, who was recently caught possessing infinitesimal amounts of cannabis was also found concealing copious amounts of narcotics earlier today." , "Katerina Bove who was recently caught possessing infinitesimal amounts of cannabis has been let off from all charges."];
 			}
 		}
 	}
 }
 /******************************************************************************************/
 /******************************************************************************************/
-var databaseArray = [];
+//var databaseArray = [];
 function databaseUnit(name, occ, netWorth, image, note) {
 	this.name = name;
 	this.occ = occ;
@@ -216,6 +216,8 @@ updateReport = {
 }
 /******************************************************************************************/
 /******************************************************************************************/
+
+/*
 function getFriendDialogue() {
 	if (DAY == 1) {
 		if (faction.pos >= 0 && faction.pos < 40) //return "string";
@@ -235,3 +237,4 @@ function getFriendDialogue() {
 	
 	} else return null;
 }
+*/

@@ -272,7 +272,7 @@ emailPreviewArray.push(new emailPreview("NEW TASK ","date ","subject ","content 
 emailPreviewArray.push(new emailPreview("NEW MISSION"," date  ","subject ","content "));
 
 
-
+console.log(emailPreviewArray + "THIS EMAIL PREV");
 // everything beneath this line is just for debugging purposes
 printEmails(emailPreviewArray);
 
@@ -412,6 +412,7 @@ function appendToTargetWindow(index, targetArray) {
  * (array of people with fields)
  * (search in format and returns field)
  ******************************************************************/
+var databaseArray = [];
 
 var result;
 
@@ -500,7 +501,8 @@ var temp = {
 // save contents of the email into a function
 function saveEcontent(index) {
 	console.log("index of email clicked is: " + index);
-	
+	//console.log(temp.sender);
+	console.log(emailPreviewArray[index]);
 	// saves content of email into a temp object
 	temp.sender = emailPreviewArray[index].sender;
 	temp.date = emailPreviewArray[index].date;
