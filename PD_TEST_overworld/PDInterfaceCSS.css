@@ -163,7 +163,7 @@ input#playName:focus {
 }
 
 
-/********* MESSAGE AND ITS PROPERTIES **************************/
+/********* MESSAGE AND ITS PROPERTIES (NOW DATABASE)**************************/
 #messageIcon {
     position:absolute;
     width:95px;
@@ -176,7 +176,7 @@ input#playName:focus {
 #messagePopUp {
     position:absolute;
     background: #eee;
-    width:400px;
+    width:450px;
     height:400px;
     border:1px solid #333;
     margin-left:330px;
@@ -198,6 +198,10 @@ input#playName:focus {
     top:7px;
 }
 
+#personPic {
+	width:150px;	
+	height:150px;
+}
 
 /********* TERMINAL AND ITS PROPERTIES *********************/
 #terminalIcon {

@@ -11,6 +11,7 @@
 var DAY = 1;
 //var HACK_WIN = false;
 var emailPreviewArray = [];
+
 faction = {
 	affiliation: "Government",
 	pos: 80,
@@ -27,6 +28,7 @@ faction = {
 		}
 	}
 };
+
 updateEmailPreviewArray = {
 	currentMission: null, // make this equate to the email mission that is accepted
 	init: function() {
@@ -43,6 +45,7 @@ updateEmailPreviewArray = {
 		emailPreviewArray.length = 0;
 	}
 };
+
 function emailPreview( data ) {
 	this.sender = data[0];
 	this.date = data[1];
@@ -52,6 +55,7 @@ function emailPreview( data ) {
 	this.reportWin = data[5];		// if the player completes the level then send the data to report
 	this.reportLose = data[6];
 }
+
 function getData(emailNum) {
 	if (DAY == 1) {
 		if(faction.pos) {
@@ -80,6 +84,7 @@ function getData(emailNum) {
 		}
 	}
 }
+
 /******************************************************************************************/
 /******************************************************************************************/
 //var databaseArray = [];
@@ -90,6 +95,7 @@ var databaseUnit = function(name, occ, netWorth, image, note) {
 	this.image = image;
 	this.note = note;
 };
+
 databasebArrayObject = {
 	init: function() {
 		for(var i = 1; i < 25; i++) {		//manually put number larger than how much data there are
@@ -104,6 +110,7 @@ databasebArrayObject = {
 		databaseArray.length = 0;
 	}
 };
+
 function getID(person) {
 	switch(person) {
 		case 1:
@@ -173,6 +180,7 @@ function getID(person) {
 			return null;
 	}
 }
+
 /******************************************************************************************/
 /******************************************************************************************/
 var progressReport = "";
@@ -213,7 +221,7 @@ updateReport = {
 		progressReport = "";
 		this.reportNum = 1;
 	}
-}
+};
 /******************************************************************************************/
 /******************************************************************************************/
 

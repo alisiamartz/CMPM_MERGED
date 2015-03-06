@@ -137,10 +137,10 @@ function displayID() {
 		console.log(pName);
 		console.log(pImg);
 		seal = new Image();
-		seal.src = "http://i.imgur.com/dlRKNsf.png";
+		seal.src = "http://i1377.photobucket.com/albums/ah47/PublicDomainGame/smallSeal_zpsvvhlslcv.png";
 		seal.onload = function() {
 			d.strokeStyle = 'black';
-			d.drawImage(seal, 40, 135, 50,50 );
+			d.drawImage(seal, 15, 125, 90,60 );
 		};
 		playerImage = new Image();
 		playerImage.src = pImg;
@@ -445,15 +445,19 @@ function searchDatabase(input1) {
 
 
 var resultInfo;
+var imageDiv;
 
 function appendToSearch(result) {
     console.log("appendtosearch() called");
     var searchResult = document.getElementById('searchResult');
+    imageDiv = document.getElementById("personPic");
     
-    
+    imageDiv.src = result.image;
+    console.log(imageDiv);
     //resultInfo.remove();
     resultInfo = document.createElement("p");
        
+    
     resultInfo.appendChild(document.createTextNode(result.name));
     resultInfo.appendChild(document.createElement("br"));
     resultInfo.appendChild(document.createTextNode(result.occ));
@@ -473,7 +477,7 @@ function appendToSearch(result) {
 //databaseArray.push(new database("hannah", "montana", "January 1st, 1990", "42", "Phoenix Wright", "kidz", "77 street, city, country"));
 //databaseArray.push(new database("hannah", "FAKEHANNAH", "January 1st, 1990", "20", "Phoenix Wright", "kidz", "77 street, city, country"));
 databaseArray.push(new databaseUnit("Jon Gonzalez", "Occupation: Freedom Fighter", "Net Worth: $ 1 mill", "http://i.imgur.com/3yEtel6.jpg", "No note."));
-databaseArray.push(new databaseUnit("Ben York", "Occupation: Wall Street broker", "Net Worth: $ 3.5 mill", "http://i.imgur.com/3yEtel6.jpg", "No note."));
+databaseArray.push(new databaseUnit("Ben York", "Occupation: Wall Street broker", "Net Worth: $ 3.5 mill", "http://i.imgur.com/cGwRjRh.png", "No note."));
 
 
 /******************************************************************
@@ -534,7 +538,7 @@ function caseCompare(input, caseNum) {
 	
 	if (input == caseNum) {
 		console.log("INPUT AND CASE # MATCH. BEGIN HACK");
-		hackBoolTrue();	
+		//hackBoolTrue();	
 		console.log(hackBool);
 		hackBack = document.getElementById('back1').style.display = "none";
 		// send info over
@@ -543,12 +547,12 @@ function caseCompare(input, caseNum) {
 		//hackInit();
 		
 	} else {
-		console.log("INPUT AND CASE # DO NOT MATCH. NO HACK");	
+		console.log("INPUT AND CASE # DO NOT MATCH. NO HACK");
+			
 	}
 }
 
 var divHack;
-
 
 function hackInit() {
 	divHack = document.getElementById("hackDiv");
@@ -579,12 +583,14 @@ function doesNotExist() {
 function clearResults() {
     resultInfo.remove();
     noResult.remove();
+    imageDiv.remove();
 
 }
 
 
 function clearNoResults() {
     noResult.remove();
+    imageDiv.remove();
 }
 
 function removePrevHack() {
