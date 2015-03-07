@@ -64,7 +64,7 @@
 			<div id="confirm" style="display:none" >
 				Continue to complete system login. <br>
 				<br>
-				<input id="enter" type="image" src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/confirm_zpsprsuz0ce.png" onclick="loadInter(), displayID()">
+				<input id="enter" type="image" src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/confirm_zpsprsuz0ce.png" onclick="loadInter(), displayID(), dayClock.startClock();">
 			</div>
 			<script src="playerCustom.js"></script>
 		</div>
@@ -89,7 +89,6 @@
 						dayClock.fontSize = 30;
 						dayClock.x = 75;
 						dayClock.y = 15;
-						dayClock.startClock();
 						world.addChild(dayClock);
 						initGame('canvas');
 					</script>
