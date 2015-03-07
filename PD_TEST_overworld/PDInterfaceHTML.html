@@ -1,10 +1,5 @@
 <!----------- "LAYING OUT" ALL THE ELEMENTS THAT WILL APPEAR AS WELL AS THEIR HIERACHY RELATIVE TO EACH OTHER ------->
 
-
-
-
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
 
@@ -20,31 +15,31 @@
 		<!-- Date: 2015-02-10 -->
 	</head>
 	<body>
-		
-	<div id="mainMenu" class="html">
+		<div id="mainMenu" class="html">
 			<!-- decorative stuff here (http://i.imgur.com/w4YMMb9.png?1) <- title draft (not using this one) -->
-				<div id="gameTitle">
-					<br><br><br><br><br>
-					<img id="title" src="http://i.imgur.com/w4YMMb9.png?1" width ="600" height = "120">
-				</div>
-				<br>
-				<input id="startNew" type="image" src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/startNew_zps2qrvfebt.png" onclick="loadCustom();">
-				<br> <br>
-				<input id="loadSaves" type="image" src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/confirm_zpsprsuz0ce.png" onclick="loadSaves();">
+			<div id="gameTitle">
+				<br><br><br><br><br>
+				<img id="title" src="http://i.imgur.com/w4YMMb9.png?1" width ="600" height = "120">
+			</div>
 			
-	</div>
-	
+			<br>
+			<input id="startNew" type="image" src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/startNew_zps2qrvfebt.png" onclick="loadCustom();">
+			<br> <br>
+			<input id="loadSaves" type="image" src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/confirm_zpsprsuz0ce.png" onclick="loadSaves();">
+		</div>
 		<div id="beginCanvas" class="html"style="display:none">
 			<div id="welcome">
 				<br><br><br><br><br><br><br><br><br><br><br><br>	<!-- for some reason, vertical-align doesn't work. if solution found, then i will fix -->
-				Welcome to the DRA Government Database. 
+				Welcome to the DRA Government Database.
 				<br><br>
 				Please type in your username.
 				<br><br>
+				
 				<div id="rec"> 
 					(Recommended 21 characters or less)
 					<br><br>
 				</div>
+				
 				<input id="input1"type="text" style="font:courier" maxlength="21">
 				<input type="button" id="btn" value="OK" onclick="saveName()">
 				<br>
@@ -71,101 +66,96 @@
 				<br>
 				<input id="enter" type="image" src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/confirm_zpsprsuz0ce.png" onclick="loadInter(), displayID()">
 			</div>
-		
-		<script src="playerCustom.js"></script>
+			<script src="playerCustom.js"></script>
 		</div>
-		
 		
 		<!--everything within a parent div set to relative. gameCanvas should act as boundary-->
 		<div id="gameCanvas" class = "html,noselect"style="display:none">
-		
-		<!------------------	<div id = "workspace">
-				<!--icons that will toggle pop ups-->
-				<div id="workSpace">
+			<!------------------	<div id = "workspace">
+			<!--icons that will toggle pop ups-->
+			<div id="workSpace"></div>
+			<div id = "toolbar" class="noselect">
+				<img id="messageIcon" class="icons,noselect" onclick="popup('messagePopUp')"onMouseUp = "changeZIndex('messagePopUp')" src="https://cdn4.iconfinder.com/data/icons/8-bit/160/bit-37-512.png">
+				<img id="terminalIcon" class="icons,noselect" onclick="popup('terminalPopUp')"onMouseUp="changeZIndex('terminalPopUp')" src="http://piq.codeus.net/static/media/userpics/piq_32116_400x400.png">
+				<object id="hackMusic" width="0" height="0" data="9_to_5_Hacker.mp3"></object>
+				
+				<div id = "cdiv">
+					<canvas id="canvas" width = "168" height = "60">
+						You shouldn't see this.
+					</canvas>
+					<script>
+						use2D = true;
+						var dayClock = new Clock(300,1260,null,null);
+						dayClock.fontSize = 30;
+						dayClock.x = 75;
+						dayClock.y = 15;
+						dayClock.startClock();
+						world.addChild(dayClock);
+						initGame('canvas');
+					</script>
 				</div>
-				<div id = "toolbar" class="noselect">
-					<img id="messageIcon" class="icons,noselect" onclick="popup('messagePopUp')"onMouseUp = "changeZIndex('messagePopUp')" src="https://cdn4.iconfinder.com/data/icons/8-bit/160/bit-37-512.png">
-					<img id="terminalIcon" class="icons,noselect" onclick="popup('terminalPopUp')"onMouseUp="changeZIndex('terminalPopUp')" src="http://piq.codeus.net/static/media/userpics/piq_32116_400x400.png">
-					<object id="hackMusic" width="0" height="0" data="9_to_5_Hacker.mp3"></object>
-					<div id = "cdiv">
-						<canvas id="canvas" width = "168" height = "60">
-    						You shouldn't see this.
-	  					</canvas>
-						<script>
-							use2D = true;
-							var dayClock = new Clock(300,1260,null,null);
-							dayClock.fontSize = 30;
-							dayClock.x = 75;
-							dayClock.y = 15;
-							dayClock.startClock();
-							world.addChild(dayClock);
-							initGame('canvas');
-						</script>
-					</div>
+			</div>
+			<!--window pop ups with exit buttons-->		
+			<div id="messagePopUp" class= "noselect,popUp" onMouseDown = "changeZIndex('messagePopUp')" style="display:none">	
+				<a name = "searchBox"></a>        
+				
+				<div class = "search" id = "searchBox"> Please enter your search as instructed:<br> FIRSTNAME LASTNAME. Case NOT sensitive.<br>
+					<img id="messageX" onclick="toggle('messagePopUp')"src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/xButton_zpsloppcsbt.png">
+							
+					<input id="input" type="text" style="font:courier" maxlength="30">
+					<input type="button" id="btn" value="Search" onclick="saveInput(),window.location='#searchResult';">
 				</div>
-						<!--window pop ups with exit buttons-->		
-				<div id="messagePopUp" class= "noselect,popUp" onMouseDown = "changeZIndex('messagePopUp')" style="display:none">	
-					
-					<a name = "searchBox"></a>        
-                    <div class = "search" id = "searchBox"> Please enter your search in the format FIRSTNAME LASTNAME. Case not sensitive.<br>
-                        <img id="messageX" onclick="toggle('messagePopUp')"src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/xButton_zpsloppcsbt.png">
-                                            
-                        <input id="input" type="text" style="font:courier" maxlength="30">
-                        <input type="button" id="btn" value="Search" onclick="saveInput(),window.location='#searchResult';">
-                    </div>
-                    
-                    <a name = "searchResult"></a>
-                    <div class = "search" id = "searchResult"> Results:
-                        <img id="messageX" onclick="toggle('messagePopUp')"src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/xButton_zpsloppcsbt.png">
+
+				<a name = "searchResult"></a>
+				
+				<div class = "search" id = "searchResult"> Results:
+					<img id="messageX" onclick="toggle('messagePopUp')"src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/xButton_zpsloppcsbt.png">
 					<!-- TEMP!!! --> <br><br>
+
+					<img id = "back" onclick = "window.location ='#searchBox', clearResults(); clearNoResults();" src= "http://i1377.photobucket.com/albums/ah47/PublicDomainGame/backButton_zpspiaus68d.png">
+					<br>
+					<img id ="personPic" >
+				</div>
+			</div>
+			<div id="terminalPopUp" class = "noselect,popUp" onMouseDown="changeZIndex('terminalPopUp')" style="display:none">
+				<div id="hackDiv">
+					<iframe src = "hack.html" height="395" width="595" frameborder="0"></iframe>
+				</div>
+				<img id="terminalX" onclick="toggle('terminalPopUp')"src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/xButton_zpsloppcsbt.png">
+			</div>
+
+			<!--<div id="targetPopUp" class= "noselect,popUp" onMouseDown = "changeZIndex('targetPopUp')" style="display:none">	
+			<img id="targetX" onclick="toggle('targetPopUp')"src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/xButton_zpsloppcsbt.png">
+			</div>
+
+			<!-- HACK INITIALIZER -->
+			<div id="ipPopUp" class= "noselect,popUp" onMouseDown = "changeZIndex('ipPopUp')" style="display:none">
+				<a name="ipSearchBox"></a>
 				
-						<img id = "back" onclick = "window.location ='#searchBox', clearResults(); clearNoResults();" src= "http://i1377.photobucket.com/albums/ah47/PublicDomainGame/backButton_zpspiaus68d.png">
-						<br>
-						<img id ="personPic" >
-					</div>
-					
-				</div>	
+				<div class="search" id="ipSearchBox"> Please enter the code to begin hack. <br>
+					<img id="ipX" onclick="toggle('ipPopUp'), removePrevHack()"src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/xButton_zpsloppcsbt.png">
+					<div id="targetName" class="info"></div> 
+					<input id="ipinput" type="text" style="font:courier" maxlength="30">	
+					<input type="button" id="btn" value="CONFIRM" style="font:courier"  onclick="caseCompare(ipinput.value, temp.caseNum), window.location='#ipSearchResult';">
+				</div>
 				
-				<div id="terminalPopUp" class = "noselect,popUp" onMouseDown="changeZIndex('terminalPopUp')" style="display:none">
+				<a name="ipSearchResult"></a>
+				
+				<div class="search" id="ipSearchResult"> Results:
 					<div id="hackDiv">
-						<iframe src = "hack.html" height="395" width="595" frameborder="0"></iframe>
+					<iframe id="hackWin"src = "hack.html" height="395" width="595" frameborder="0" style="display:none"></iframe>
 					</div>
-					<img id="terminalX" onclick="toggle('terminalPopUp')"src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/xButton_zpsloppcsbt.png">
-
+					<img id="ipX" onclick="toggle('ipPopUp'), removePrevHack()"src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/xButton_zpsloppcsbt.png"> 
+					<br><br>
+					<img id="back1" onclick="window.location='#ipSearchBox'" src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/backButton_zpspiaus68d.png">
 				</div>
-				
-				 <!--<div id="targetPopUp" class= "noselect,popUp" onMouseDown = "changeZIndex('targetPopUp')" style="display:none">	
-					<img id="targetX" onclick="toggle('targetPopUp')"src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/xButton_zpsloppcsbt.png">
-				</div>
-				
-				<!-- HACK INITIALIZER -->
-				<div id="ipPopUp" class= "noselect,popUp" onMouseDown = "changeZIndex('ipPopUp')" style="display:none">
-					<a name="ipSearchBox"></a>
-					<div class="search" id="ipSearchBox"> Please enter the code to begin hack. <br>
-						<img id="ipX" onclick="toggle('ipPopUp'), removePrevHack()"src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/xButton_zpsloppcsbt.png">
-						<div id="targetName" class="info"></div> 
-						<input id="ipinput" type="text" style="font:courier" maxlength="30">	
-                    	<input type="button" id="btn" value="CONFIRM" style="font:courier"  onclick="caseCompare(ipinput.value, temp.caseNum), window.location='#ipSearchResult';">
+			</div> 
 
-					</div>
-					<a name="ipSearchResult"></a>
-					<div class="search" id="ipSearchResult"> Results:
-						<div id="hackDiv">
-							<iframe id="hackWin"src = "hack.html" height="395" width="595" frameborder="0" style="display:none"></iframe>
-						</div>
-						<img id="ipX" onclick="toggle('ipPopUp'), removePrevHack()"src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/xButton_zpsloppcsbt.png"> 
-							<br><br>
-						<img id="back1" onclick="window.location='#ipSearchBox'" src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/backButton_zpspiaus68d.png">
-						
-					</div>
-					
-				</div> 
-				
-				
-				
-		<!------------------------- </div> 
-		
-		
+
+
+			<!------------------------- </div> 
+
+
 			<!-- side email display -->
 			<canvas id="playerID"width="330"height="200">
 				<div id="govseal" class="cardInfo" align="center" > 
@@ -173,53 +163,54 @@
 			</canvas>
 			<div id = "sidebar" class = "noselect">		
 				<a name = "default"></a>
-					<div class = "page">
-						<div class = "email" id = "0" onclick= "window.location='#10',targetIndex('0'), saveEcontent(0);"></div>		
-						<div class = "email" id = "1" onclick= "window.location='#11',targetIndex('1'), saveEcontent(1);"></div>
-						<div class = "email" id = "2" onclick= "window.location='#12',targetIndex('2'), saveEcontent(2);"></div>		
-						<div class = "email" id = "3" onclick= "window.location='#13',targetIndex('3'), saveEcontent(3);"></div>
-						<div class = "email" id = "4" onclick= "window.location='#14',targetIndex('4'), saveEcontent(4);"></div>		
-						<div class = "email" id = "5" onclick= "window.location='#15',targetIndex('5'), saveEcontent(5);"></div>
-					</div>
 				
+				<div class = "page">
+					<div class = "email" id = "0" onclick= "window.location='#10',targetIndex('0'), saveEcontent(0);"></div>		
+					<div class = "email" id = "1" onclick= "window.location='#11',targetIndex('1'), saveEcontent(1);"></div>
+					<div class = "email" id = "2" onclick= "window.location='#12',targetIndex('2'), saveEcontent(2);"></div>		
+					<div class = "email" id = "3" onclick= "window.location='#13',targetIndex('3'), saveEcontent(3);"></div>
+					<div class = "email" id = "4" onclick= "window.location='#14',targetIndex('4'), saveEcontent(4);"></div>		
+					<div class = "email" id = "5" onclick= "window.location='#15',targetIndex('5'), saveEcontent(5);"></div>
+				</div>
+
 				<a name ="10"></a>
-					<div class = "page" id = "10"> 
-						<img id = "back" onclick = "window.location ='#default', closeAttachment(), removePrevHack(),clearInput();" src= "http://i1377.photobucket.com/albums/ah47/PublicDomainGame/backButton_zpspiaus68d.png">
-
-					</div>
+				
+				<div class = "page" id = "10"> 
+					<img id = "back" onclick = "window.location ='#default', closeAttachment(), removePrevHack(),clearInput();" src= "http://i1377.photobucket.com/albums/ah47/PublicDomainGame/backButton_zpspiaus68d.png">
+				</div>
+				
 				<a name ="11"></a>
-					<div class = "page" id = "11">
-						<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp'), removePrevHack(),clearInput();" src= "http://i1377.photobucket.com/albums/ah47/PublicDomainGame/backButton_zpspiaus68d.png">
-			
-					</div>
+				
+				<div class = "page" id = "11">
+					<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp'), removePrevHack(),clearInput();" src= "http://i1377.photobucket.com/albums/ah47/PublicDomainGame/backButton_zpspiaus68d.png">
+				</div>
+				
 				<a name ="12"></a>
-					<div class = "page" id = "12">
-						<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp'), removePrevHack(), clearInput();" src= "http://i1377.photobucket.com/albums/ah47/PublicDomainGame/backButton_zpspiaus68d.png">
-					
-					</div>						
+				
+				<div class = "page" id = "12">
+					<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp'), removePrevHack(), clearInput();" src= "http://i1377.photobucket.com/albums/ah47/PublicDomainGame/backButton_zpspiaus68d.png">
+				</div>
+				
 				<a name ="13"></a>
-					<div class = "page" id = "13">
-						<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp'), removePrevHack(), clearInput();" src= "http://i1377.photobucket.com/albums/ah47/PublicDomainGame/backButton_zpspiaus68d.png">
 				
-					</div>
+				<div class = "page" id = "13">
+					<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp'), removePrevHack(), clearInput();" src= "http://i1377.photobucket.com/albums/ah47/PublicDomainGame/backButton_zpspiaus68d.png">
+				</div>
+				
 				<a name ="14"></a>
-					<div class = "page" id = "14">
-						<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp'), removePrevHack(), clearInput();" src= "http://i1377.photobucket.com/albums/ah47/PublicDomainGame/backButton_zpspiaus68d.png">
 				
-					</div>
+				<div class = "page" id = "14">
+					<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp'), removePrevHack(), clearInput();" src= "http://i1377.photobucket.com/albums/ah47/PublicDomainGame/backButton_zpspiaus68d.png">
+				</div>
+				
 				<a name ="15"></a>
-					<div class = "page" id = "15">
-						<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp'), removePrevHack(), clearInput();" src= "http://i1377.photobucket.com/albums/ah47/PublicDomainGame/backButton_zpspiaus68d.png">
-					
-					</div>
-	
-			</div>			
-	
-	</div>
-
+				
+				<div class = "page" id = "15">
+					<img id = "back" onclick = "window.location ='#default', closeAttachment('targetPopUp'), removePrevHack(), clearInput();" src= "http://i1377.photobucket.com/albums/ah47/PublicDomainGame/backButton_zpspiaus68d.png">
+				</div>
+			</div>
+		</div>
 	</body>
-
-
 
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
@@ -236,5 +227,4 @@
 <!-- Latest compiled JavaScript
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 ------------------------------------------------------------------------------------------------------------------------->
-
 </html>
