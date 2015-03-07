@@ -11,7 +11,6 @@
 var DAY = 1;
 //var HACK_WIN = false;
 var emailPreviewArray = [];
-
 faction = {
 	affiliation: "Government",
 	pos: 80,
@@ -28,7 +27,6 @@ faction = {
 		}
 	}
 };
-
 updateEmailPreviewArray = {
 	currentMission: null, // make this equate to the email mission that is accepted
 	init: function() {
@@ -45,7 +43,6 @@ updateEmailPreviewArray = {
 		emailPreviewArray.length = 0;
 	}
 };
-
 function emailPreview( data ) {
 	this.sender = data[0];
 	this.date = data[1];
@@ -57,7 +54,6 @@ function emailPreview( data ) {
 	this.index = data[7];
 	this.name = data[8];
 }
-
 function getData(emailNum) {
 	if (DAY == 1) {
 		if(faction.pos) {
@@ -143,13 +139,13 @@ function getData(emailNum) {
 		}
 	}
 }
-
+updateEmailPreviewArray.init();
 /******************************************************************************************/
 /******************************************************************************************/
-//var databaseArray = [];
+var databaseArray = [];
 databasebArrayObject = {
 	init: function() {
-		for(var i = 1; i <= 2; i++) {		//manually put number larger than how much data there are
+		for(var i = 1; i <= 21; i++) {		//manually put number larger than how much data there are
 			var tempp = getID(i);
 			databaseArray.push(new databaseUnit(tempp[0], tempp[1], tempp[2], tempp[3], tempp[4]));
 		}
@@ -235,6 +231,7 @@ function getID(person) {
 			return null;
 	}
 }
+databasebArrayObject.init();
 /******************************************************************************************/
 /******************************************************************************************/
 var progressReport = "";
