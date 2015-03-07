@@ -75,7 +75,7 @@ function getData(emailNum) {
 				"retired veteran and local flying instructor, Lino Archer, is sentenced to jail without trial for suspicion of being a terrorist.", 4, "Lino Archer"];
 			} else if (emailNum == 5) {
 				return ["Supervisor Tresha Brannon", "June 25", "TASK 5", "Katerina Bove, a Child Care Worker, was recently found with possessions of cannabis. Unfortunately she won’t comply to our questions. Find her residence and report all necessary information to the local force to drag her into questioning.", "9859", 
-				"Katerina Bove, who was recently caught possessing infinitesimal amounts of cannabis was also found concealing copious amounts of narcotics." "Katerina Bove, who was recently caught possessing infinitesimal amounts of cannabis has been let off from all charges.", 5, "Katerina Bove"];
+				"Katerina Bove, who was recently caught possessing infinitesimal amounts of cannabis was also found concealing copious amounts of narcotics." + " Katerina Bove"+"," +"who was recently caught possessing infinitesimal amounts of cannabis has been let off from all charges.", 5, "Katerina Bove"];
 			}
 		}
 	} else if (DAY == 2) {
