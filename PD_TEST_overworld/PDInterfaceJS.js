@@ -1,8 +1,6 @@
-
 /**
  * @author jy, am
  */
-
 
 // JS: INTERNAL STRUCTURES, CONTENT, "EVENTS" WHEN PLAYER INTERACTS WITH INTERFACE //
 
@@ -34,7 +32,6 @@ function closeAttachment() {
 		el.style.display = 'none';
 	}
 }
-
 
 /******************************************************************
  * special toggle code that dictates how attachment windows are toggled
@@ -78,15 +75,12 @@ $( "#ipPopUp" ).draggable({
 	});
 });
 
-
 /******************************************************************
  * (FIXED?): FUNCTION CONTAINING LOGIC FOR WHICH WINDOW WILL APPEAR ON TOP AT ANY TIME 
  ******************************************************************/
 
 function changeZIndex(id) {
-
 	console.log("went into changezindex");
-
 	switch(id) {
 	    case "messagePopUp":
 	        console.log("id is messagePopUp");
@@ -156,7 +150,6 @@ function displayID() {
 		
 }
 
-
 /******************************************************************
  * RENDERING"(appending) DATA FROM JS INTO TEXT OUTPUT ON THE INTERFACE
  * // http://www.w3schools.com/js/js_htmldom_nodes.asp
@@ -189,13 +182,9 @@ people1d.push(new Person("archieo", "5 STARS", "Nerd", "$21847947892", "http://i
 
 
 var people2d = [];
-
 var people3d = [];
-
 var people4d = [];
-
 var people5d = [];
-
 
 function Person(name, diff, occ, netWorth, IP, image) {
 	this.name = name;
@@ -233,41 +222,15 @@ function appendToIpPopUp() {
 	
 }
 
-
 /******************************************************************
  * EMAIL CODE
  * 
  * AN ARRAY THAT STORES ALL EMAIL CONTENT (STUFF THAT APPEARS IN THE SUBJECT BOX AND THE ACTUAL MAXIMIZED CONTENT)
  ******************************************************************/
 
-var emailPreviewArray = [];
-
-emailPreviewArray.push(new emailPreview(["*NEW ASSIGNMENT*","Today","Government Target",
-	"Your target is 48 year old Jon Gonzalez. Gonzalez is a member of a large unorderly group"+ 
-	" that has been causing much trouble lately." + " We believe that he has been illegally obtaining funds" + 
-	" to power his campaign. Please look into Gonzalez further and get more information.", "2244", "report win here", "report lose here","0", "Jon Gonzalez"]));
-	
-emailPreviewArray.push(new emailPreview(["*NEW TASK*","Today ","We ask for help.",
-	"Hello there. We have been interested in you for a while now and we are asking for help." +
-	" We believe the DRA Government has made Jon Gonzalez a target." + 
-	" His name and his organization have been everywhere lately, and we know the government does not approve of his objectives." +
-	" Jon is a very good friend of ours, and anyone can plainly see he means more right than wrong." + 
-	" We ask that you do not target Mr. Gonzalez, and instead look at a Mister Ben York." + 
-	" York is a business man on Wall Street who we believe is working with the government and stealing the profit of other organizations." +
-	" We trust that you will do the right thing. Iniustum non debet lucrari.    " +"     - a friend","1438", "report win here", "report lose here","1", "Ben York"]));
-
-
-emailPreviewArray.push(new emailPreview([" A favor please ","date ","subject ","content "]));
-emailPreviewArray.push(new emailPreview(["NEW MISSION","date ","subject ","content "]));
-emailPreviewArray.push(new emailPreview(["NEW TASK ","date ","subject ","content "]));
-emailPreviewArray.push(new emailPreview(["NEW MISSION"," date  ","subject ","content "]));
-
-
 console.log(emailPreviewArray + "THIS EMAIL PREV");
 // everything beneath this line is just for debugging purposes
 printEmails(emailPreviewArray);
-
-
 
 function printEmails(emailPreviewArray) {
 	for (i=0;i<emailPreviewArray.length;i++) {
@@ -340,8 +303,6 @@ function appendToEmail (emailPreviewArray) {
 	
 }
 
-
-
 //method calls
 appendToMessageWindow();
 appendToTerminalWindow();
@@ -403,8 +364,6 @@ function appendToTargetWindow(index, targetArray) {
  * (array of people with fields)
  * (search in format and returns field)
  ******************************************************************/
-var databaseArray = [];
-
 var result;
 
 var searchElement = document.getElementById('input');
@@ -434,7 +393,6 @@ function searchDatabase(input1) {
         doesNotExist();
 }  
 
-
 var resultInfo;
 var imageDiv;
 
@@ -460,10 +418,6 @@ function appendToSearch(result) {
 
     searchResult.appendChild(resultInfo);
 }
-
-// THIS pushes the new people into the search array (Makes them searchable)
-databasebArrayObject.init();
-
 /******************************************************************
  * HACK INITIALIZATION CODE - (CASENUM COMPARE)
  * Accepts user input and compares user input to target information
@@ -553,7 +507,6 @@ function hackInit() {
 	console.log(hackBool);
 }
 
-
 /******************************************************************
  * CODE TO CLEAN UP AND REMOVE ELEMENTS
  ******************************************************************/
@@ -580,7 +533,6 @@ function clearResults() {
 
 }
 
-
 function clearNoResults() {
     noResult.remove();
     imageDiv.remove();
@@ -597,5 +549,3 @@ function clearInput() {
 	userIn = document.getElementById('ipinput');
 	userIn.value = "";
 }
-
-
