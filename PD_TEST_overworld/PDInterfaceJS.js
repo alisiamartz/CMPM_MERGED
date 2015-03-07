@@ -462,12 +462,7 @@ function appendToSearch(result) {
 }
 
 // THIS pushes the new people into the search array (Makes them searchable)
-//databaseArray.push(new database("homerun", "hitter", "December 4th, 1972", "99", "maria", "none", "11 street, city, country"));
-//databaseArray.push(new database("hannah", "montana", "January 1st, 1990", "42", "Phoenix Wright", "kidz", "77 street, city, country"));
-//databaseArray.push(new database("hannah", "FAKEHANNAH", "January 1st, 1990", "20", "Phoenix Wright", "kidz", "77 street, city, country"));
-databaseArray.push(new databaseUnit("Jon Gonzalez", "Occupation: Freedom Fighter", "Net Worth: $ 1 mill", "http://i.imgur.com/3yEtel6.jpg", "No note."));
-databaseArray.push(new databaseUnit("Ben York", "Occupation: Wall Street broker", "Net Worth: $ 3.5 mill", "http://i.imgur.com/cGwRjRh.png", "No note."));
-
+databasebArrayObject.init();
 
 /******************************************************************
  * HACK INITIALIZATION CODE - (CASENUM COMPARE)
