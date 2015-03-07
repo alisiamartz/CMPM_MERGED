@@ -147,21 +147,11 @@ function getData(emailNum) {
 /******************************************************************************************/
 /******************************************************************************************/
 //var databaseArray = [];
-var databaseUnit = function(name, occ, netWorth, image, note) {
-	this.name = name;
-	this.occ = occ;
-	this.netWorth = netWorth;
-	this.image = image;
-	this.note = note;
-};
-
 databasebArrayObject = {
 	init: function() {
-		for(var i = 1; i < 25; i++) {		//manually put number larger than how much data there are
+		for(var i = 1; i <= 2; i++) {		//manually put number larger than how much data there are
 			var tempp = getID(i);
-			if (tempp != null) {
-				databaseArray.push(new databaseUnit(getID(i)));
-			}
+			databaseArray.push(new databaseUnit(tempp[0], tempp[1], tempp[2], tempp[3], tempp[4]));
 		}
 	},
 	clear: function() {
@@ -169,77 +159,82 @@ databasebArrayObject = {
 		databaseArray.length = 0;
 	}
 };
-
+var databaseUnit = function(name, occ, netWorth, image, note) {
+	this.name = name;
+	this.occ = occ;
+	this.netWorth = netWorth;
+	this.image = image;
+	this.note = note;
+};
 function getID(person) {
 	switch(person) {
 		case 1:
-			return ["Name: Aaron Johnson", "Occupation: Panoi Ambassador", "Net Worth: 150.000", "TEMP", 
+			return ["Aaron Johnson", "Occupation: Panoi Ambassador", "Net Worth: 150.000", "http://i.imgur.com/3yEtel6.jpg", 
 			"Note: case 0331 elicited panoi slave trafficking"];
 		case 2:
-			return ["Name: Trista Hedley", "Occupation: Civil Servant", "Net Worth: 50.000", "TEMP", 
+			return ["Trista Hedley", "Occupation: Civil Servant", "Net Worth: 50.000", "TEMP", 
 			"Note: case 1123 failure to commit with schedule, case 1150 caught trespassing local homes"];
 		case 3:
-			return ["Name: Amelia Rana", "Occupation: Information Specialist", "Net Worth: 10.000", "TEMP", 
+			return ["Amelia Rana", "Occupation: Information Specialist", "Net Worth: 10.000", "TEMP", 
 			"Note: case 9760 publically caught selling private information, case 9780 failure to abide by official ethical conducts"];
 		case 4:
-			return ["Name: Nhung Rhier", "Occupation: State Security Programme", "Net Worth: 20.000", "TEMP", 
+			return ["Nhung Rhier", "Occupation: State Security Programme", "Net Worth: 20.000", "TEMP", 
 			"Note: case 9910 unlawful possession of marijuana and traces of cocaine"];
 		case 5:
-			return ["Name: Brigham Tsukino", "Occupation: Politician", "Net Worth: 80.000", "TEMP", 
+			return ["Brigham Tsukino", "Occupation: Politician", "Net Worth: 80.000", "TEMP", 
 			"Note: case 6628 accused of corporate bribery, case 7444 unlawful possession of firearm"];
 		case 6:
-			return ["Name: Kelsie Toxell", "Occupation: Reporter", "Net Worth: 70.000", "TEMP", 
+			return ["Kelsie Toxell", "Occupation: Reporter", "Net Worth: 70.000", "TEMP", 
 			"Note: case 3709 sued for withholding information from the public"];
 		case 7:
-			return ["Name: Jennifer Wragge", "Occupation: Corporate Attorney", "Net Worth: 150.000", "TEMP", 
+			return ["Jennifer Wragge", "Occupation: Corporate Attorney", "Net Worth: 150.000", "TEMP", 
 			"Note: case 1147 accused of forging evidence, case 1286 caught promoting a suicide attempt"];
 		case 8:
-			return ["Name: Dinah Senft", "Occupation: NSS Technician", "Net Worth: 200.000", "TEMP", 
+			return ["Dinah Senft", "Occupation: NSS Technician", "Net Worth: 200.000", "TEMP", 
 			"Note: case 6890 accused of stalking public figure"];
 		case 9:
-			return ["Name: Fawn Murdok", "Occupation: Chief of NSS", "Net Worth: 250.000", "TEMP", 
+			return ["Fawn Murdok", "Occupation: Chief of NSS", "Net Worth: 250.000", "TEMP", 
 			"Note: case 6513 accused of corporate blackmailing"];
 		case 10:
-			return ["Name: Devan MacDougall", "Occupation: Amtrak Operator", "Net Worth: 2.000", "TEMP", 
+			return ["Devan MacDougall", "Occupation: Amtrak Operator", "Net Worth: 2.000", "TEMP", 
 			"Note: case 0905 tampering with a sports contest, case 0945 public nudity"];
 		case 11:
-			return ["Name: Jaslyn Vitali", "Occupation: Doctor", "Net Worth: 15.000", "TEMP", 
+			return ["Jaslyn Vitali", "Occupation: Doctor", "Net Worth: 15.000", "TEMP", 
 			"Note: case 0707 illegal distribution of drugs to patients"];
 		case 12:
-			return ["Name: Janella Earl", "Occupation: Grave Digger", "Net Worth: 550", "TEMP", 
+			return ["Janella Earl", "Occupation: Grave Digger", "Net Worth: 550", "TEMP", 
 			"Note: case 0107 convicted of shoplifting, case 0120 sued for grave robbing"];
 		case 13:
-			return ["Name: Marlin Amadori", "Occupation: Stockbroker", "Net Worth: 70.000", "TEMP", 
+			return ["Marlin Amadori", "Occupation: Stockbroker", "Net Worth: 70.000", "TEMP", 
 			"Note: case 7708 accused of stock manipulation"];
 		case 14:
-			return ["Name: Yoko Wyndham", "Occupation: Taxi Driver", "Net Worth: 4.000", "TEMP", 
+			return ["Yoko Wyndham", "Occupation: Taxi Driver", "Net Worth: 4.000", "TEMP", 
 			"Note: case 3122 convicted for work-related sex scandal, case 3587 sued for sexual assault"];
 		case 15:
-			return ["Name: Ellis McFarlane", "Occupation: unknown", "Net Worth: 10", "TEMP", 
+			return ["Ellis McFarlane", "Occupation: unknown", "Net Worth: 10", "TEMP", 
 			"Note: case 1102 stole orange electronic goods, case 1108 vandalized city hall, case 1109 accused of smuggling drugs"];
 		case 16:
-			return ["Name: Lino Archer", "Occupation: Flying Instructor", "Net Worth: 780", "TEMP", 
+			return ["Lino Archer", "Occupation: Flying Instructor", "Net Worth: 780", "TEMP", 
 			"Note: case 9422 accused of providing illegal fighter jet lessons"];
 		case 17:
-			return ["Name: Katerina Bove", "Occupation: Child Care Worker", "Net Worth: 5.000", "TEMP", 
+			return ["Katerina Bove", "Occupation: Child Care Worker", "Net Worth: 5.000", "TEMP", 
 			"Note: case 9859 possession of cannabis"] ;
 		case 18:
-			return ["Name: Martie Trueman", "Occupation:Car Mechanic", "Net Worth: 5.500", "TEMP", 
+			return ["Martie Trueman", "Occupation:Car Mechanic", "Net Worth: 5.500", "TEMP", 
 			"Note: case 4906 welfare fraud, case 4987 tax evasion"];
 		case 19:
-			return ["Name: Ellis Walter", "Occupation: Astrophysicist", "Net Worth: 10.500", "TEMP", 
+			return ["Ellis Walter", "Occupation: Astrophysicist", "Net Worth: 10.500", "TEMP", 
 			"Note: case 3008 perjury at a state court"];
 		case 20:
-			return ["Name: Raimonda Robert", "Occupation: unknown", "Net Worth: 100.000", "TEMP", 
+			return ["Raimonda Robert", "Occupation: unknown", "Net Worth: 100.000", "TEMP", 
 			"Note: case 4400 unlawful fleeing a police officer in a motor vehicle, case 4401 grand larceny, case 4403 grand theft auto, case 4405 promotion of prostitution in the first degree"];
 		case 21:
-			return ["Name: Beatrix Coutts", "Occupation: unknown", "Net Worth: 200.000", "TEMP", 
+			return ["Beatrix Coutts", "Occupation: unknown", "Net Worth: 200.000", "TEMP", 
 			"Note: case 6037 massacre of 200 citizens, case 6040 mass political conspiracy, case 6041 wide spread distribution of cyanide, case 6056 mass dumping of anthrax in four major water networks"];
 		default:
 			return null;
 	}
 }
-
 /******************************************************************************************/
 /******************************************************************************************/
 var progressReport = "";
@@ -281,27 +276,3 @@ updateReport = {
 		this.reportNum = 1;
 	}
 };
-/******************************************************************************************/
-/******************************************************************************************/
-
-/*
-function getFriendDialogue() {
-	if (DAY == 1) {
-		if (faction.pos >= 0 && faction.pos < 40) //return "string";
-		else if (faction.pos >= 40 && faction.pos < 60) //return "string";
-		else if (faction.pos >= 60 && faction.pos <= 100) //return "string";
-	} else if (DAY == 2) {
-	
-	} else if (DAY == 3) {
-	
-	} else if (DAY == 4) {
-	
-	} else if (DAY == 5) {
-	
-	} else if (DAY == 6) {
-	
-	} else if (DAY == 7) {
-	
-	} else return null;
-}
-*/
