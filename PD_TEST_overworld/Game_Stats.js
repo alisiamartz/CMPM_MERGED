@@ -59,7 +59,9 @@ for (var i = 0; i < allCookies.length; i++) {
 if (saveNames.length == 0) {
 	for (var i = 0; i < 6; i++) {
 		saveNames.push([]);
-	} for (var i = 0; i < allCookies.length; i++) {
+	} 
+	// deletes lost cookies
+	for (var i = 0; i < allCookies.length; i++) {
 		var ghostSweet = allCookies[i];
 		document.cookie = ghostSweet.split("=")[0] + "=; expires=Tue, 06 Jan 2015 00:00:00 UTC";
 	}
@@ -114,10 +116,14 @@ function startGame(loadStats) {
 // since loading a day 0 game would be the same as starting a new game,
 // only games at day one or later are saved
 // the saved game data must have a name (parameter gameName)
+// returns true if there are no bugs. returns false otherwise
 function saveGame(gameName) {
-	if (findGame(gameName) != null) {
+	if (!(typeof gameName == 'string')) {
+    	window.alert('Error: Incompatible object. Cannot save game.');
+    	return false;
+	} else if (findGame(gameName) != null) {
 	    window.alert('Save data with given name already exists.');
-		return;
+		return false;
 	}
 	var i = currentStats['theDay'] - 1;
 	saveNames[i].push(gameName);
@@ -127,12 +133,18 @@ function saveGame(gameName) {
 	document.cookie = SAVE_STATS_NAME + "=" + JSON.stringify(saveNames) + "; " + expDate;
 	document.cookie = gameName + "=" + JSON.stringify(currentStats);
 	allCookies = document.cookie.split(';');
+	return true;
 };
 
 // deletes save data from saveNames and pushes down save data indexed above the deleted data
 // the game data to delete must have a name (parameter deleteName)
+// returns true if there are no bugs. returns false otherwise
 function deleteSave(deleteName) {
 	// deleteIndex is one-dimensional index for saveNames
+	if (!(typeof deleteName == 'string')) {
+    	window.alert('Error: Incompatible object. Cannot delete save.');
+    	return false;
+	}
 	var deleteIndex = findGame(deleteName);
 	if (deleteIndex == null) {
 	    window.alert('Save data with given name does not exist.');

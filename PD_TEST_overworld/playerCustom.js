@@ -122,6 +122,7 @@
 function loadCustom() {
 	document.getElementById('mainMenu').style.display = "none";
 	document.getElementById("beginCanvas").style.display = "block";
+	currentStats =  new gameHackStats();
 	console.log("NEW GAME STARTED");
 }
 
