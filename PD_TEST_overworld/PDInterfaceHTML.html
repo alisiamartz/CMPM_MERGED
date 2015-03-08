@@ -46,7 +46,7 @@
 				<br>
 			</div>
 			<div id="picChoose" class="playerImage" style="display:none">
-				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>  <!-- same reason here as above -->
+				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>  <!-- same reason here as above -->
 				Please confirm icon. <br>
 				<br><br><br><br><br><br><br><br><br><br>
 				<img id="picMale" onclick="savePic('picMale')" src="http://i.imgur.com/AAIQnbJ.jpg">
@@ -130,7 +130,7 @@
 			</div>
 			<div id="terminalPopUp" class = "noselect,popUp" onMouseDown="changeZIndex('terminalPopUp')" style="display:none">
 				<div id="hackDiv">
-					<iframe src = "hack.html" height="395" width="595" frameborder="0"></iframe>
+				<!--	<iframe src = "hack.html" height="395" width="595" frameborder="0"></iframe> -->
 				</div>
 				<img id="terminalX" onclick="toggle('terminalPopUp')"src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/xButton_zpsloppcsbt.png">
 			</div>
@@ -154,6 +154,9 @@
 				
 				<div class="search" id="ipSearchResult"> Results:
 					<div id="hackDiv">
+						<!-- ATTEMPT AT LINKING 2 HTML FILES TOGETHER, so far, not working so much -->
+						<!-- Just makes a link to an html, when we want it to pass the value -->
+						<!--<a href='PDInterfaceHTML.html?DIFF=temp.diff'> puts diff as the temp.diff</a> -->
 					<iframe id="hackWin"src = "hack.html" height="395" width="595" frameborder="0" style="display:none"></iframe>
 					</div>
 					<img id="ipX" onclick="toggle('ipPopUp'), removePrevHack()"src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/xButton_zpsloppcsbt.png"> 

@@ -8,6 +8,7 @@
  *	IF you want to show faction as a string, the affiliation variable within the faction object will automatically update that string
  *	To get the string for the end of the day, use the variable progressReport
  */
+
 var DAY = 1;
 //var HACK_WIN = false;
 var emailPreviewArray = [];
@@ -68,10 +69,10 @@ function getData(emailNum) {
 				"the case of Ellis McFarlane’s old theft charges have resurfaced within the online community for reasons unknown as of now aside from garnering attention from the press", "Ellis McFarlane’s final trial ended with no sign of conviction.", 3, "Ellis McFarlane"];
 			} else if (emailNum == 4) {
 				return ["Supervisor Tresha Brannon", "June 25", "TASK 4", "Yet another rebel scum going against the law. The name is Lino Archer: accused of providing illegal fighter jet lessons. Working for terrorist groups most likely. Gather some evidence against this guy and report it back to nearby law enforcers.", "9422", 
-				"retired veteran and local flying instructor, Lino Archer, is sentenced to jail without trial for suspicion of being a terrorist.", 4, "Lino Archer"];
+				"retired veteran and local flying instructor" + ","+ "Lino Archer" + ","+ "is sentenced to jail without trial for suspicion of being a terrorist.", " ", 4, "Lino Archer"];
 			} else if (emailNum == 5) {
-				return ["Supervisor Tresha Brannon", "June 25", "TASK 5", "Katerina Bove, a Child Care Worker, was recently found with possessions of cannabis. Unfortunately she won’t comply to our questions. Find her residence and report all necessary information to the local force to drag her into questioning.", "9859", 
-				"Katerina Bove, who was recently caught possessing infinitesimal amounts of cannabis was also found concealing copious amounts of narcotics." + " Katerina Bove"+"," +"who was recently caught possessing infinitesimal amounts of cannabis has been let off from all charges.", 5, "Katerina Bove"];
+				return ["Supervisor Tresha Brannon", "June 25", "TASK 5", "Katerina Bove"+ ","+ "a Child Care Worker, was recently found with possessions of cannabis. Unfortunately she won’t comply to our questions. Find her residence and report all necessary information to the local force to drag her into questioning.", "9859", 
+				"Katerina Bove" + ","+ "who was recently caught possessing infinitesimal amounts of cannabis was also found concealing copious amounts of narcotics." + " Katerina Bove"+"," +"who was recently caught possessing infinitesimal amounts of cannabis has been let off from all charges."," ", 5, "Katerina Bove"];
 			}
 		}
 	} else if (DAY == 2) {

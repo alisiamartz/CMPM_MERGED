@@ -462,7 +462,7 @@ function saveEcontent(index) {
 	console.log(temp.subject);
 	console.log(temp.content);
 	console.log(temp.index);
-	
+	console.log(temp.name);
 	console.log("this target casenum is: " + temp.caseNum);
 }
 
