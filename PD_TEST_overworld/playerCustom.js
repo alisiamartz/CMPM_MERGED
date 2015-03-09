@@ -110,8 +110,9 @@
 			c.fillText("NSS Hacker", 130, 70, 250);
 		}
 
-// Loads main game interface, with name and img as parameters		
+// Loads main game interface, with name and img as parameters
 		function loadInter() {
+			document.getElementById("saveMenu").style.display = "none";
 			document.getElementById("beginCanvas").style.display = "none";
 			document.getElementById("gameCanvas").style.display = "block";
 		}	

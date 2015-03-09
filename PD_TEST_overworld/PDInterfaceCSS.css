@@ -39,6 +39,7 @@
 	width: 1000px;
 	height: 600px;
 	font-family: courier;
+	text-align:center;
 }
 
 #inputLoadName {
@@ -58,8 +59,19 @@
 	margin-left:420px;
 }
 
+/******************************** SAVE MENU *******************************/
 
-	margin-left:420px;
+#saveMenu {
+	position: relative;
+	margin: auto;
+	border: 1px solid #000;
+	width: 1000px;
+	height: 600px;
+	font-family: courier;
+	text-align: center;
+}
+
+>>>>>>> a72eaadd55bad93d3b09a7e393d5a4f68ebe8053
 /************************** CHARACTER CUSTOMIZATION AND INIT**************************************/
 #beginCanvas {
 	position: relative;
