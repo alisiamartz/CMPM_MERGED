@@ -62,6 +62,10 @@ for (var i = 0; i < allCookies.length; i++) {
 		theSweet = theSweet.substring(1);
 	} if (theSweet.indexOf(SAVE_STATS_NAME + "=") == 0) {
 		saveNames = JSON.parse(theSweet.substring(SAVE_STATS_NAME.length + 1, theSweet.length));
+		var d = new Date();
+		d.setTime(d.getTime() + (365*24*60*60*1000));
+		var expDate = "expires=" + d.toUTCString();
+		document.cookie = SAVE_STATS_NAME + "=" + JSON.stringify(saveNames) + "; " + expDate;
 		break;
 	}
 }
@@ -143,7 +147,9 @@ function saveGame(gameName) {
 	d.setTime(d.getTime() + (365*24*60*60*1000));
 	var expDate = "expires=" + d.toUTCString();
 	document.cookie = SAVE_STATS_NAME + "=" + JSON.stringify(saveNames) + "; " + expDate;
-	document.cookie = gameName + "=" + JSON.stringify(currentStats);
+	d = new Date();
+	d.setTime(d.getTime() + (10*365*24*60*60*1000));
+	document.cookie = gameName + "=" + JSON.stringify(currentStats) + "; " + expDate;
 	allCookies = document.cookie.split(';');
 	return true;
 };
