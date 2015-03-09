@@ -94,6 +94,8 @@
 							currentStats.theDay++;
 							dayClock.startHour = morningHour;
 							dayClock.startMin = morningMin;
+							document.getElementById('gameCanvas').style.display = "none";
+							document.getElementById("dayEndCanvas").style.display = "block";
 						}
 						dayClock = new Clock(540,1020,this,nextDay);
 						morningHourday = Clock.startHour;
@@ -225,11 +227,17 @@
 			</div>
 		</div>
 		<div id="dayEndCanvas" class="html" style="display:none">
-			<br><br><br><br><br><br><br>
+			<br><br><br><br><br>
+			Enter a name for the save file.
+			<br>
+			Use 21 characters or less.
+			<br><br>
+			<input id="inputSaveName" type="text" style="font:courier" maxlength="21">
+			<br><br>
 			Do you want to save your game?
 			<br><br>
-			<input id="willSave" type="image" src="" onclick="saveDay(true);">
-			<input id="noSave" type="image" src="" onclick="saveDay(false);">
+			<input id="willSave" type="image" src="" onclick="saveDay(dayClock);">
+			<input id="noSave" type="image" src="" onclick="saveDay(null), dayClock.startClock();">
 		</div>
 	</body>
 

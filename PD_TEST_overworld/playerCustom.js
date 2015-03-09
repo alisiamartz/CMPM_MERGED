@@ -37,7 +37,6 @@
 				theName = nameElement.value;
 				player.push(theName);			
 				console.log(player);
-				clearNameScreen();
 				picSelect();
 			}
 
