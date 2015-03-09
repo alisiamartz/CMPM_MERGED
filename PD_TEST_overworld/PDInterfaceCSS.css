@@ -400,3 +400,31 @@ input#playName:focus {
     font-family: "courier new";
     z-index:10;
 }*/
+
+/************************** DAY PROGRESSION **************************************/
+
+#dayEndCanvas {
+	position: relative;
+	margin: auto;
+	border: 1px solid #000;
+	width: 1000px;
+	height: 600px;
+}
+
+#inputSaveName {
+	margin-left: 20px;
+	top: 200px;
+	
+}
+
+#willSave {
+	margin-left: 220px;
+	width:120px;
+	height:50px;
+}
+
+#noSave {
+	margin-left: 520px;	
+	width:120px;
+	height:50px;
+}
