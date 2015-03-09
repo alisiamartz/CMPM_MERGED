@@ -494,7 +494,7 @@ function caseCompare(input, caseNum) {
 		// send info over
 		// remove back button
 		// AT THE END OF HACK, ADD BACK BUTTON BACK IN
-		//temp.diff
+		// temp.diff
 		hackInit(temp.diff);
 		
 	} else {
@@ -515,8 +515,7 @@ var hackFrame;
 function hackInit(ndiff) {
 	frame = document.getElementById("hackWin");
 	hackFrame = frame.contentDocument;
-	hackFrame.hackStart(ndiff);
-	
+	//hackFrame.hackStart(ndiff);
 	
 	//hackBoolTrue();
 	
