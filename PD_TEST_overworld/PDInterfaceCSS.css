@@ -409,6 +409,7 @@ input#playName:focus {
 	border: 1px solid #000;
 	width: 1000px;
 	height: 600px;
+	text-align: center;
 }
 
 #inputSaveName {
@@ -424,7 +425,7 @@ input#playName:focus {
 }
 
 #noSave {
-	margin-left: 520px;	
+	margin-left: 220px;	
 	width:120px;
 	height:50px;
 }
