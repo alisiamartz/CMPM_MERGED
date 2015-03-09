@@ -113,10 +113,9 @@ function startGame(loadStats) {
 			theSweet = theSweet.substring(1);
 		} if (theSweet.indexOf(loadStats + "=") == 0) {
 			currentStats = JSON.parse(theSweet.substring(loadStats.length + 1, theSweet.length));
+			player = [];
 			player.push(currentStats.theName);
 			player.push(currentStats.thePic);
-			document.getElementById('saveMenu').style.display = "none";
-			document.getElementById("gameCanvas").style.display = "block";
 			return;
 		}
 	} window.alert('Save data not found. Cannot load game.');
