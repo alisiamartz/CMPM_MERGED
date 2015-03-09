@@ -437,7 +437,8 @@ var temp = {
 	reportWin:null,
 	reportLose:null,
 	index: null,
-	name:null
+	name:null,
+	diff:null
 };
 
 // save contents of the email into a function
@@ -455,6 +456,7 @@ function saveEcontent(index) {
 	temp.reportLose = emailPreviewArray[index].reportLose;
 	temp.index = emailPreviewArray[index].index;
 	temp.name = emailPreviewArray[index].name;
+	temp.diff = emailPreviewArray[index].diff;
 	
 	// for testing
 	console.log(temp.sender);
@@ -463,14 +465,16 @@ function saveEcontent(index) {
 	console.log(temp.content);
 	console.log(temp.index);
 	console.log(temp.name);
+	console.log(temp.diff);
 	console.log("this target casenum is: " + temp.caseNum);
 }
 
 var hackBack;
 var win;
-//var p;
-//var no;
-//var ele;
+
+var p;
+var no;
+var ele;
 
 // Compares user input to case number attached to email
 function caseCompare(input, caseNum) {
@@ -487,23 +491,35 @@ function caseCompare(input, caseNum) {
 		// GETS RID OF BACK BUTTON ((REMEMBER TO ADD BACK IN AFTER HACK IS OVER))
 		//hackBack = document.getElementById('back1').style.display = "none";
 		
-		
 		// send info over
 		// remove back button
 		// AT THE END OF HACK, ADD BACK BUTTON BACK IN
-		//hackInit();
+		//temp.diff
+		hackInit(temp.diff);
 		
 	} else {
 		console.log("INPUT AND CASE # DO NOT MATCH. NO HACK");
+		no = document.getElementById("ipSearchResults");
+		p = document.createTextNode("Incorrect Code. Please search Database.");
+		
+		//ele = document.createElement('p');
+		//ele.appendChild(p);
+		//no.appendChild(ele);
 		
 	}
 }
 
-var divHack;
+var frame;
+var hackFrame;
 
-function hackInit() {
-	divHack = document.getElementById("hackDiv");
-	hackBoolTrue();
+function hackInit(ndiff) {
+	frame = document.getElementById("hackWin");
+	hackFrame = frame.contentDocument;
+	hackFrame.hackStart(ndiff);
+	
+	
+	//hackBoolTrue();
+	
 	console.log(hackBool);
 }
 

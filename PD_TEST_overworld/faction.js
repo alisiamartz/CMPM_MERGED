@@ -54,13 +54,14 @@ function emailPreview( data ) {
 	this.reportLose = data[6];
 	this.index = data[7];
 	this.name = data[8];
+	this.diff = data[9];
 }
 function getData(emailNum) {
 	if (DAY == 1) {
 		if(faction.pos) {
 			if (emailNum == 1) {
 				return ["Supervisor Tresha Brannon", "June 25", "TASK 1", "There have been hundreds of reports on the trial of Devan MacDougall’s for rigging a national sport championship. Plant the attached evidence in MacDougall’s machine and security will take care of the rest.", "0905", 
-				"MacDougall lost his chance at freedom as citizens press for his imprisonment.", "MacDougall was released for his last day in court, which has caused an uproar within several counties.", 1, "Devan MacDougall"];
+				"MacDougall lost his chance at freedom as citizens press for his imprisonment.", "MacDougall was released for his last day in court, which has caused an uproar within several counties.", 1, "Devan MacDougall", 20];
 			} else if (emailNum == 2) {
 				return ["Supervisor Tresha Brannon", "June 25", "TASK 2", "Recent events have given Devan MacDougall notoriety and citizens want MacDougall stripped of everything so let us give them what they want. Gather MacDougall’s past criminal nude photos and bring it to light on the net.", "0945", 
 				"public hatred for MacDougall has risen once again after the subject got his photos leaked to the public. Public shaming of MacDougall has been at an all time high.", 2, "Devan MacDougall"];
