@@ -81,10 +81,9 @@
 			<div id="workSpace"></div>
 			<div id = "toolbar" class="noselect">
 				<img id="messageIcon" class="icons,noselect" onclick="popup('messagePopUp')"onMouseUp = "changeZIndex('messagePopUp')" src="https://cdn4.iconfinder.com/data/icons/8-bit/160/bit-37-512.png">
-				<img id="terminalIcon" class="icons,noselect" onclick="popup('terminalPopUp')"onMouseUp="changeZIndex('terminalPopUp')" src="http://piq.codeus.net/static/media/userpics/piq_32116_400x400.png">
-				<object id="hackMusic"></object>
-				
+				<img id="terminalIcon" class="icons,noselect" onclick="popup('terminalPopUp')"onMouseUp="changeZIndex('terminalPopUp')" src="http://piq.codeus.net/static/media/userpics/piq_32116_400x400.png">				
 				<div id = "cdiv">
+					<object id="hackMusic"></object>
 					<canvas id="canvas" width = "168" height = "60">
 						You shouldn't see this.
 					</canvas>
@@ -110,12 +109,12 @@
 						initGame('canvas');
 						$('#hackMusic').jWebAudio('addSoundSource', {
 							'url': '9_to_5_Hacker.mp3',
-							'preLoad': true,
-							'callback': function() {
-								$('#hackMusic').jWebAudio('play');
-							},
 							'loop': true,
-							'volume': 70,
+							'volume': 70
+						});
+						$('#hackMusic').jWebAudio('load', function() {
+							$('#hackMusic').jWebAudio('addSoundSource');
+							$('#hackMusic').jWebAudio('play');
 						});
 					</script>
 				</div>
