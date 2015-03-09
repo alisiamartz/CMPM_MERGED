@@ -12,6 +12,9 @@
 		<script src="brine.js"></script>
 		<script src="clock.js"></script>
 		<script src="Game_Stats.js"></script>
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<script src="jquery.jWebAudio.js"></script>
 
 		<!-- Date: 2015-02-10 -->
 	</head>
@@ -79,7 +82,7 @@
 			<div id = "toolbar" class="noselect">
 				<img id="messageIcon" class="icons,noselect" onclick="popup('messagePopUp')"onMouseUp = "changeZIndex('messagePopUp')" src="https://cdn4.iconfinder.com/data/icons/8-bit/160/bit-37-512.png">
 				<img id="terminalIcon" class="icons,noselect" onclick="popup('terminalPopUp')"onMouseUp="changeZIndex('terminalPopUp')" src="http://piq.codeus.net/static/media/userpics/piq_32116_400x400.png">
-				<object id="hackMusic" width="0" height="0" data="9_to_5_Hacker.mp3"></object>
+				<object id="hackMusic"></object>
 				
 				<div id = "cdiv">
 					<canvas id="canvas" width = "168" height = "60">
@@ -105,6 +108,15 @@
 						dayClock.y = 15;
 						world.addChild(dayClock);
 						initGame('canvas');
+						$('#hackMusic').jWebAudio('addSoundSource', {
+							'url': '9_to_5_Hacker.mp3',
+							'preLoad': true,
+							'callback': function() {
+								$('#hackMusic').jWebAudio('play');
+							},
+							'loop': true,
+							'volume': 70,
+						});
 					</script>
 				</div>
 			</div>
@@ -241,8 +253,6 @@
 		</div>
 	</body>
 
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script src="faction.js"></script>
 <script src="PDInterfaceJS.js"></script>
 <link rel="stylesheet" type="text/css" href="PDInterfaceCSS.css">
