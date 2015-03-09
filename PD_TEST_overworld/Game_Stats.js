@@ -25,15 +25,20 @@ var gameHackStats = function() {
   
   // other stats
   
-  // Targets Hacked
+  // Total Hacks
   this.targetNum = 0;
   // Successful Hacks
   this.winNum = 0;
   // Times Caught
-  this.loseNum = 0;
-  // Money Earned
-  this.totalEarn = 0;
-  
+  this.caughtNum = 0;
+  // Freedom Fighter hacks
+  this.FFNum = 0;
+  // Freedom Fighter successes
+  this.FFWin = 0;
+  // Government hacks
+  this.GovNum = 0;
+  // Government successes
+  this.GovWin = 0;
 
 };
 
@@ -72,7 +77,7 @@ if (saveNames.length == 0) {
 // generate enemy stats
 var genEnemy = function(difficulty) {
   var genArr = [];
-  for (var i = 0; i < 4; i++) { genArr.push(Math.floor(difficulty + (Math.random() * difficulty) ) ) }
+  for (var i = 0; i < 4; i++) { genArr.push(Math.floor(difficulty + (Math.random() * difficulty) ) ); }
   return new crackStats(genArr[0], genArr[1], genArr[2], genArr[3]);
 };
 
