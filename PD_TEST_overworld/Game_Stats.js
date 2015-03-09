@@ -12,14 +12,18 @@ var crackStats = function(atck, def, spd, msk) {
 };
 
 var gameHackStats = function() {
+  // player customization stats	
+
+  this.theName = null;
+  
+  this.thePic = null;
+
   // important stats
   
   // Current day. Every week starts with Monday
   this.theDay = 0;
   // positive numbers closer to government, negative numbers closer to freedom fighters
   this.govAlignment = 30;
-  // The hacker's budget
-  this.money = 100;
   // The hacker's hacking stats
   this.hackCrack = new crackStats(5, 5, 5, 5);
   
@@ -109,6 +113,10 @@ function startGame(loadStats) {
 			theSweet = theSweet.substring(1);
 		} if (theSweet.indexOf(loadStats + "=") == 0) {
 			currentStats = JSON.parse(theSweet.substring(loadStats.length + 1, theSweet.length));
+			player.push(currentStats.theName);
+			player.push(currentStats.thePic);
+			document.getElementById('saveMenu').style.display = "none";
+			document.getElementById("gameCanvas").style.display = "block";
 			return;
 		}
 	} window.alert('Save data not found. Cannot load game.');
@@ -144,9 +152,11 @@ function saveGame(gameName) {
 // deletes save data from saveNames and pushes down save data indexed above the deleted data
 // the game data to delete must have a name (parameter deleteName)
 // returns true if there are no bugs. returns false otherwise
-function deleteSave(deleteName) {
-	// deleteIndex is one-dimensional index for saveNames
-	if (!(typeof deleteName == 'string')) {
+// requires a second confirmation (parameter confirm)
+function deleteSave(deleteName, confirm) {
+	if (!confirm) {
+		return false;
+	} if (!(typeof deleteName == 'string')) {
     	window.alert('Error: Incompatible object. Cannot delete save.');
     	return false;
 	}

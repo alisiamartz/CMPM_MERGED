@@ -6,14 +6,12 @@
 // ALL VARIABLES FOR THIS FILE		
 	 	var player = [];	// First element is name, second is pic choice
 		var nameElement = document.getElementById("input1");
-		var theName;
 		var button = document.getElementById("btn");
 		var welcome = document.getElementById("welcome");
 		var txt = document.getElementById('picChoose');
 		var window = document.getElementById('beginCanvas');
 		var pic1 = document.getElementById('picMale');
-		var pic2 = document.getElementById('picFem');
-		var thePic;		
+		var pic2 = document.getElementById('picFem');		
 		var playerName;		
 		var card = document.getElementById('playerCard'); 
 		var c = card.getContext('2d');		
@@ -34,8 +32,8 @@
 				
 			} else {
 				//e.removeChild(parag);
-				theName = nameElement.value;
-				player.push(theName);			
+				currentStats.theName = nameElement.value;
+				player.push(currentStats.theName);			
 				console.log(player);
 				picSelect();
 			}
@@ -58,16 +56,16 @@
 // Saves the selected picture into the player array
 		function savePic(pic) {
 			if (pic === 'picMale'){
-				thePic = pic1.src;
+				currentStats.thePic = pic1.src;
 				console.log("player chose male");
 			} else if (pic === 'picFem') {
-				thePic = pic2.src;
+				currentStats.thePic = pic2.src;
 				console.log("player chose female");
 			}else {
 				console.log("nothing here!");
 			}
-			player.push(thePic);
-			console.log(thePic);
+			player.push(currentStats.thePic);
+			console.log(currentStats.thePic);
 			console.log(player);
 			clearPicScreen();
 		};
@@ -121,13 +119,14 @@
 function loadCustom() {
 	document.getElementById('mainMenu').style.display = "none";
 	document.getElementById("beginCanvas").style.display = "block";
-	currentStats =  new gameHackStats();
+	startGame(null);
 	console.log("NEW GAME STARTED");
 }
 
 function loadSaves(){
 	console.log("SAVES TO BE LOADED HERE, CLICK START NEW ONE FOR NOW");
-	
+	document.getElementById('mainMenu').style.display = "none";
+	document.getElementById("saveMenu").style.display = "block";
 }
 
 

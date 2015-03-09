@@ -31,13 +31,26 @@
 			<br> <br>
 			<input id="loadSaves" type="image" src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/confirm_zpsprsuz0ce.png" onclick="loadSaves();">
 		</div>
-		<div id="saveMenu" class="html">
+		<div id="saveMenu" class="html" style="display:none">
 			<!-- decorative stuff here (http://i.imgur.com/w4YMMb9.png?1) <- title draft (not using this one) -->
-			<!--input type="button" src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/startNew_zps2qrvfebt.png" onclick="loadCustom();">
-			<br> <br>
-			<input type="button" src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/confirm_zpsprsuz0ce.png" onclick="loadSaves();">
+			<input id="inputLoadName"type="text" style="font:courier" maxlength="21">
 			<br><br>
-			<input type="button" src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/confirm_zpsprsuz0ce.png" onclick="loadSaves();"-->
+			<input type="button" value="Display Stats" onclick="alert(
+			'Alignment: ' + currentStats.govAlignment +
+			'\nStats: ' + String(currentStats.hackCrack) +
+			'\nTotal Hacks: ' + currentStats.targetNum +
+			'\nTotal Successful Hacks: ' + currentStats.winNum +
+			'\nTotal Times Caught: ' + currentStats.caughtNum +
+			'\nTotal Hacks for Freedom Fighters: ' + currentStats.FFNum +
+			'\nTotal Successes for Freedom Fighters: ' + currentStats.FFWin +
+			'\nTotal Hacks for the Government: ' + currentStats.targetNum +
+			'\nTotal Successes for the Government: ' + currentStats.targetNum
+			)">
+			<br><br>
+			<input type="button" value="Load Game" onclick="startGame(getElementById("inputLoadName").value">
+			<br><br>
+			<input type="button" value="Delete Game"
+			onclick="deleteSave(getElementById("inputLoadName").value, confirm("Are you sure you want to delete this save?"));">
 		
 		</div>
 		<div id="beginCanvas" class="html"style="display:none">
