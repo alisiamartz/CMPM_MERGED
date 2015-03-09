@@ -1,4 +1,5 @@
 use2D = true;
+	
 							
 var DIFF = 30;							
 							

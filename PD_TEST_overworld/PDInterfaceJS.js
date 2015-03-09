@@ -515,11 +515,11 @@ var hackFrame;
 function hackInit(ndiff) {
 	frame = document.getElementById("hackWin");
 	hackFrame = frame.contentDocument;
-	//hackFrame.hackStart(ndiff);
+	hackFrame.HackStart(ndiff);
 	
 	//hackBoolTrue();
 	
-	console.log(hackBool);
+	//console.log(hackBool);
 }
 
 /******************************************************************
