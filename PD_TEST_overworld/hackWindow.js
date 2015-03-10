@@ -19,7 +19,7 @@ var h;
 function hackInter() {
 	canvas = document.getElementById("hackCanvas");
 	h = canvas.getContext("2d");
-// APPEARANCE TO BE RE FORMATTED LATER
+	// APPEARANCE TO BE RE FORMATTED LATER
 	h.font = "70px courier";
 	h.fillText("HACK STATS ", 300,50,250); // Title something else, even just a cute gov seal thing could work to replace
 	h.font = "50px courier";
@@ -29,14 +29,19 @@ function hackInter() {
 	
 	// Player Stat Display (atack, deff, mask)
 	h.font = "30px courier";
-	h.fillText("ATCK "+playerStats.atck, 280, 140, 100);
-	h.fillText("DEF "+playerStats.def, 280, 180, 100);
-	h.fillText("MASK "+playerStats.mask, 280,220,100);
+	h.fillText("ATCK "+ playerStats.atck, 280, 140, 100);
+	h.fillText("DEF "+ playerStats.def, 280, 180, 100);
+	h.fillText("MASK "+ playerStats.mask, 280,220,100);
 	
 	// Target Stat Display (atack, deff, mask)
-	h.fillText("ATCK "+enemyStats.atck, 400, 140, 100);
-	h.fillText("DEF "+enemyStats.def, 400, 180, 100);
-	h.fillText("MASK "+enemyStats.sec,400, 220, 100);
+	h.fillText("ATCK "+ enemyStats.atck, 400, 140, 100);
+	h.fillText("DEF "+ enemyStats.def, 400, 180, 100);
+	h.fillText("MASK "+ enemyStats.sec, 400, 220, 100);
+	
+	// Starts input
+	h.fillText("Input: " + input, 400, 220, 100);
+	Hack.init(DIFF);
+	hackBool = true;
 }
 
 /*
@@ -70,6 +75,7 @@ var MIN_STATS = 1;
 
 // CHANGING VARIABLES
 var string = "";
+var DIFF = 30;
 var hackBool = false;
 
 // THIS IS WHERE THE NEW HACKING STUFF WILL BE IMPLEMENTED
@@ -87,82 +93,12 @@ Hack = {
 		 */
 	},
 	end: function() {
-		playerStats.end();
-		enemyStats.end();
 		string = "";
 		hackBool = false;
+		clearCanvas();
 	}
 };
 
-/*
- *	function to read in key inputs and change stats, representative of that in hacking_number_generator
- */
-/*
-Ex.
-	input.onKeyDown = function(key) {
-		var char = String.fromCharCode(key);
-		if (hackBool == true) {
-			switch (key) {
-				case 13:
-					string = string.substring(0, string.length - 1);
-					if (string.localeCompare("ATCKUP") == 0 || string.localeCompare("ATTACKUP") == 0) {
-						playerStats.colorClear();
-						enemyStats.colorClear();
-						playerStats.atckUp();
-						//condition to increase enemy stat depending on player stat
-					} else if (string.localeCompare("ATCK") == 0 || string.localeCompare("ATTACK") == 0) {
-						playerStats.colorClear();
-						enemyStats.colorClear();
-						playerStats.enemyLwrDef();
-						//condition to increase enemy stat depending on player stat
-					}  else if (string.localeCompare("ATCKDOWN") == 0 || string.localeCompare("ATTACKDOWN") == 0 || 
-						string.localeCompare("ATCKDWN") == 0 || string.localeCompare("ATTACKDWN") == 0 || 
-						string.localeCompare("ATCKDN") == 0 || string.localeCompare("ATTACKDN") == 0) {
-						playerStats.colorClear();
-						enemyStats.colorClear();
-						playerStats.enemyLwrAtck();
-						//condition to increase enemy stat depending on player stat
-					} else if (string.localeCompare("DEFUP") == 0 || string.localeCompare("DEFENSEUP") == 0) {
-						playerStats.colorClear();
-						enemyStats.colorClear();
-						playerStats.defUp();
-						//condition to increase enemy stat depending on player stat
-					} else if (string.localeCompare("MASKUP") == 0 || string.localeCompare("MSKUP") == 0 || 
-						string.localeCompare("MSK") == 0 || string.localeCompare("MASK") == 0) {
-						playerStats.colorClear();
-						enemyStats.colorClear();
-						playerStats.maskUp();
-						//condition to increase enemy stat depending on player stat
-					} else if (string.localeCompare("SECDOWN") == 0 || string.localeCompare("SCDOWN") == 0 || 
-						string.localeCompare("SECDWN") == 0 || string.localeCompare("SCDWN") == 0 || 
-						string.localeCompare("SECDN") == 0 || string.localeCompare("SCDN") == 0) {
-						playerStats.colorClear();
-						enemyStats.colorClear();
-						playerStats.enemyLwrSec();
-						//condition to increase enemy stat depending on player stat
-					} else {
-						playerStats.colorClear();
-						enemyStats.colorClear();
-						//condition to increase enemy stat depending on player stat
-					}
-					enemyActions[Math.floor(Math.random() * enemyActions.length)].call(enemyStats);
-					string = "";
-					break;
-				default:
-					if (string.charAt(0) == 0) string = string.substring(1);
-					if (key == 8) {
-						string = string.substring(0, string.length - 2);
-						string += '|';
-					} else {
-						string = string.substring(0, string.length - 1);
-						string += char + '|';
-					}
-					break;
-			}
-			Hack.updateTypeBox(string);
-		}
-	};
-*/ 
 var genPlayer = function(atck, def, mask) {
 	var genArr = [];
 	genArr.push(atck);
@@ -378,7 +314,6 @@ enemyStats = {
 	}
 };
 
-// don't remember but I'm sure the following are not used at all
 var enemyActions = [
 	enemyStats['atckUp'],
 	enemyStats['defUp'],
