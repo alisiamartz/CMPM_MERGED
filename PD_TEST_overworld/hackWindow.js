@@ -28,7 +28,7 @@ function hackInter() {
 	h.fillText("TARGET",250,100,180);
 	
 	// Starts input
-	h.fillText("Input: " + input, 100, 300, 100);
+	h.fillText("Input: " + input, 100, 300, 400);
 	
 	// Player Stat Display (atack, deff, mask)
 	h.font = "30px courier";
@@ -190,19 +190,19 @@ playerStats = {
 		}
 	},
 	selfLwrAtck: function(deduct) {
-		this.statDown('atck', deduct, boxAtck);
+		this.statDown('atck', deduct);
 		/*
 		 *	update the display used for attack here
 		 */
 	},
 	selfLwrDef: function(deduct) {
-		this.statDown('def', deduct, boxDef);
+		this.statDown('def', deduct);
 		/*
 		 *	update the display used for defence here
 		 */
 	},
 	selfLwrMsk: function(deduct) {
-		this.statDown('mask', deduct, boxMsk);
+		this.statDown('mask', deduct);
 		/*
 		 *	update the display used for mask here
 		 */
@@ -237,19 +237,19 @@ enemyStats = {
 		}
 	},
 	atckUp: function() {
-		this.statUp('atck', box2Atck);
+		this.statUp('atck');
 		/*
 		 *	initialize the display used for attack here
 		 */
 	},
 	defUp: function() {
-		this.statUp('def', box2Def);
+		this.statUp('def');
 		/*
 		 *	initialize the display used for defence here
 		 */
 	},
 	secUp: function() {
-		this.statUp('sec', box2Sec);
+		this.statUp('sec');
 		/*
 		 *	initialize the display used for sec(enemy equivalent for mask in some aspect) here
 		 */
