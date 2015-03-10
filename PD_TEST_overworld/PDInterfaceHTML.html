@@ -9,12 +9,12 @@
 		<title>new_file</title>
 		<meta name="author" content="jy" />
 	
+		<script src="jquery-1.9.1.js"></script>
+		<script src="jquery-ui.js"></script>
+		<script src="jquery.jWebAudio.js"></script>
 		<script src="brine.js"></script>
 		<script src="clock.js"></script>
 		<script src="Game_Stats.js"></script>
-		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-		<script src="jquery.jWebAudio.js"></script>
 
 		<!-- Date: 2015-02-10 -->
 	</head>
@@ -128,7 +128,7 @@
 							document.getElementById('gameCanvas').style.display = "none";
 							document.getElementById("dayEndSave").style.display = "block";
 						}
-						dayClock = new Clock(540,560,this,nextDay);
+						dayClock = new Clock(540,1020,this,nextDay);
 						morningHour = dayClock.startHour;
 						morningMin = dayClock.startMin;
 						dayClock.fontSize = 30;
