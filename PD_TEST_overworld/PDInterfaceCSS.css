@@ -327,14 +327,21 @@ input#playName:focus {
     top:7px;
 }
 
-/**********TARGET POPUP***********************/
+/**********README POPUP***********************/
 
+#readmeIcon {
+    position:absolute;
+    width:40px;
+    height:40px;
+    left: 250px;
+    top:10px;
+}
 
-#targetPopUp {
+#readmePopUp {
     position:absolute;
     background: #eee;
-    width:300px;
-    height:250px;
+    width:600px;
+    height:500px;
     border:1px solid #333;
     margin-left:330px;
     font-family: "courier new";
@@ -343,13 +350,13 @@ input#playName:focus {
 
 
 
-#targetPopUp:hover {
+#readmePopUp:hover {
     cursor: pointer;
 }
 
 
 
-#targetX {
+#READMEX {
     width:40px;
     height:40px;
     position: absolute;

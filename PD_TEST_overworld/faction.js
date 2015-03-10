@@ -250,28 +250,38 @@ updateReport = {
 	update: function(newStr) {
 		switch(this.reportNum) {	// needs to be called by email or some shit after a win or loss
 			case 1:
-				progressReport += "Earlier today ";
-				progressReport += newStr;
+				if (newStr != " ") {
+					progressReport += "Earlier today ";
+					progressReport += newStr;
+				}
 				this.reportNum++;
 				break;
 			case 2:
-				progressReport += "Following that, ";
-				progressReport += newStr;
+				if (newStr != " ") {
+					progressReport += "Following that, ";
+					progressReport += newStr;
+				}
 				this.reportNum++;
 				break;
 			case 3:
-				progressReport += "Soon after, ";
-				progressReport += newStr;
+				if (newStr != " ") {
+					progressReport += "Soon after, ";
+					progressReport += newStr;
+				}
 				this.reportNum++;
 				break;
 			case 4:
-				progressReport += "Not to mention that ";
-				progressReport += newStr;
+				if (newStr != " ") {
+					progressReport += "Not to mention that ";
+					progressReport += newStr;
+				}
 				this.reportNum++;
 				break;
 			case 5:
-				progressReport += "And to conclude today' report, we inform you that ";
-				progressReport += newStr;
+				if (newStr != " ") {
+					progressReport += "And to conclude today' report, we inform you that ";
+					progressReport += newStr;
+				}
 				progressReport += "This has been your Daily Digest, farewell and good night friends!";
 				break;
 			default:
