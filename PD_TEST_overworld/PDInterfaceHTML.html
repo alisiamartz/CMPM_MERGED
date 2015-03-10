@@ -190,7 +190,6 @@
 				</div>
 				
 				<a name="ipSearchResult"></a>
-				
 				<div class="search" id="ipSearchResult"> Results:
 					<div id="hackDiv">
 						<!-- ATTEMPT AT LINKING 2 HTML FILES TOGETHER, so far, not working so much -->
@@ -200,13 +199,13 @@
 					
 <!-- THIS IS WHERE THE HACK IS INITIATED -->					
 						<!--<img id="startH" onclick="initHack();" > -->
-						<canvas id="hackCanvas" width="590"height="395"style="display:none"></canvas>
-					
+						<canvas id="hackCanvas" width="590"height="390"style="display:none border:">
+						</canvas>
 					
 					</div>
 					<img id="ipX" onclick="toggle('ipPopUp'), removePrevHack()"src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/xButton_zpsloppcsbt.png"> 
-					<br><br>
-					<img id="back1" onclick="window.location='#ipSearchBox'" src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/backButton_zpspiaus68d.png">
+					<br>
+					<img id="back1" onclick="clearCanvas(),window.location='#ipSearchBox'" src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/backButton_zpspiaus68d.png">
 				</div>
 			</div> 
 
@@ -287,6 +286,7 @@
 		<script src="faction.js"></script>
 		<script src="PDInterfaceJS.js"></script>
 		<script src="dayResults.js"></script>
+		<script src="hackWindow.js"></script>
 		<link rel="stylesheet" type="text/css" href="PDInterfaceCSS.css">
 <!------------------------------------------- bootstrap stuff------------------------------------------------------------ 
 

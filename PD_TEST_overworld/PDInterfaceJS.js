@@ -491,21 +491,13 @@ function caseCompare(input, caseNum) {
 		// GETS RID OF BACK BUTTON ((REMEMBER TO ADD BACK IN AFTER HACK IS OVER))
 		//hackBack = document.getElementById('back1').style.display = "none";
 		
-		// send info over
-		// remove back button
-		// AT THE END OF HACK, ADD BACK BUTTON BACK IN
-		// temp.diff
-		//hackInit(temp.diff);
+		// ****** AT THE END OF HACK, ADD BACK BUTTON BACK IN
+
+		hackInter();
 		
 	} else {
 		console.log("INPUT AND CASE # DO NOT MATCH. NO HACK");
-		no = document.getElementById("ipSearchResults");
-		p = document.createTextNode("Incorrect Code. Please search Database.");
-		
-		//ele = document.createElement('p');
-		//ele.appendChild(p);
-		//no.appendChild(ele);
-		
+		incorrectDisplay();	
 	}
 }
 
