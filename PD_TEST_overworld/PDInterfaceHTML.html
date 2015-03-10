@@ -34,6 +34,7 @@
 		<div id="saveMenu" class="html" style="display:none">
 			<!-- decorative stuff here (http://i.imgur.com/w4YMMb9.png?1) <- title draft (not using this one) -->
 			<br><br><br><br><br>
+			Enter previous save file name here. <br><br>
 			<input id="inputLoadName"type="text" style="font:courier" maxlength="21">
 			<br><br>
 			<input id="displayStats" type="button" value="Display Stats" onclick="alert(
@@ -49,19 +50,13 @@
 			)">
 			<br><br>
 
-			<input id="loadGame" type="button" value="Load Game" onclick="startGame(getElementById("inputLoadName").value)">
-			<br><br>
+			<input id="loadGame" type="button" value="Load Game" onclick="startGame(getElementById('inputLoadName').value)"> 
 			<input id="delGame" type="button" value="Delete Game"
-			onclick="deleteSave(getElementById("inputLoadName").value), confirm("Are you sure you want to delete this save?"));">
-
-			<input type="button" value="Load Game" onclick="startGame(getElementById('inputLoadName').value)">
-			<br><br>
-			<input type="button" value="Delete Game"
 			onclick="deleteSave(getElementById('inputLoadName').value, confirm('Are you sure you want to delete this save?'));">
 			<br><br>
-			<input type="button" value="Start Game"
-			onclick="loadInter(), displayID(), dayClock.startClock();">
-
+			
+			<!--<input type="button" value="Start Game"
+			onclick="loadInter(), displayID(), dayClock.startClock();"> -->
 		
 		</div>
 		<div id="beginCanvas" class="html"style="display:none">
@@ -201,7 +196,12 @@
 						<!-- ATTEMPT AT LINKING 2 HTML FILES TOGETHER, so far, not working so much -->
 						<!-- Just makes a link to an html, when we want it to pass the value -->
 						<!--<a href='PDInterfaceHTML.html?DIFF=temp.diff'> puts diff as the temp.diff</a> -->
-					<iframe id="hackWin"src = "hack.html" height="395" width="595" frameborder="0" style="display:none"></iframe>
+						<iframe id="hackWin"src = "hack.html" height="395" width="595" frameborder="0" style="display:none"></iframe>
+					
+<!-- THIS IS WHERE THE HACK IS INITIATED -->					
+						<img id="startH" onclick="initHack();" >
+					
+					
 					</div>
 					<img id="ipX" onclick="toggle('ipPopUp'), removePrevHack()"src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/xButton_zpsloppcsbt.png"> 
 					<br><br>
@@ -212,7 +212,6 @@
 
 
 			<!------------------------- </div> 
-
 
 			<!-- side email display -->
 			<canvas id="playerID"width="330"height="200">
@@ -268,6 +267,7 @@
 				</div>
 			</div>
 		</div>
+		<!-- DAY END -->
 		<div id="dayEndCanvas" class="html" style="display:none">
 			<br><br><br><br><br>
 			Enter a name for the save file.
@@ -282,6 +282,7 @@
 			<input id="noSave" type="image" src="no_icon.png" onclick="saveDay(null), dayClock.startClock();">
 		</div>
 	</body>
+	
 		<script src="faction.js"></script>
 		<script src="PDInterfaceJS.js"></script>
 		<script src="dayResults.js"></script>

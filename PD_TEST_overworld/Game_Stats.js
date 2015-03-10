@@ -120,6 +120,8 @@ function startGame(loadStats) {
 			player = [];
 			player.push(currentStats.theName);
 			player.push(currentStats.thePic);
+			document.getElementById("saveMenu").style.display = "none";
+			document.getElementById("gameCanvas").style.display = "block";
 			return;
 		}
 	} window.alert('Save data not found. Cannot load game.');

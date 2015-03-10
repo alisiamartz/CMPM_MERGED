@@ -40,23 +40,23 @@
 	height: 600px;
 	font-family: courier;
 	text-align:center;
+	vertical-align:middle;
 }
 
 #inputLoadName {
-	top:60px;
-	margin-left:420px;
+	vertical-align:middle;
 }
 
 #displayStats {
-	margin-left:420px;
+	vertical-align:middle;
 }
 
 #loadGame {
-	margin-left:420px;
+	vertical-align:middle;
 }
 
 #delGame {
-	margin-left:420px;
+	vertical-align:middle;
 }
 
 /******************************** SAVE MENU *******************************/
