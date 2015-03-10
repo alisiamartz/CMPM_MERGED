@@ -9,7 +9,6 @@
  *	To get the string for the end of the day, use the variable progressReport
  */
 
-var DAY = 1;
 //var HACK_WIN = false;
 var emailPreviewArray = [];
 faction = {
@@ -57,7 +56,7 @@ function emailPreview( data ) {
 	this.diff = data[9];
 }
 function getData(emailNum) {
-	if (DAY == 1) {
+	if (currentStats.theDay == 0) {
 		if(faction.pos) {
 			if (emailNum == 1) {
 				return ["Supervisor Tresha Brannon", "June 25", "TASK 1", "There have been hundreds of reports on the trial of Devan MacDougall’s for rigging a national sport championship. Plant the attached evidence in MacDougall’s machine and security will take care of the rest.", "0905", "MacDougall lost his chance at freedom as citizens press for his imprisonment.", "MacDougall was released for his last day in court, which has caused an uproar within several counties.", 1, "Devan MacDougall"];
@@ -71,7 +70,7 @@ function getData(emailNum) {
 				return ["Supervisor Tresha Brannon", "June 25", "TASK 5", "Katerina Bove, a Child Care Worker, was recently found with possessions of cannabis. Unfortunately she won’t comply to our questions. Find her residence and report all necessary information to the local force to drag her into questioning.", "9859", "Katerina Bove, who was recently caught possessing infinitesimal amounts of cannabis was also found concealing copious amounts of narcotics.", "Katerina Bove"+","+ "who was recently caught possessing infinitesimal amounts of cannabis has been let off from all charges.", 5, "Katerina Bove"];
 			}
 		}
-	} else if (DAY == 2) {
+	} else if (currentStats.theDay == 1) {
 		if(faction.pos) {
 			if (emailNum == 1) {
 				return ["Supervisor Tresha Brannon", "June 26", "TASK 1", "One of our own civil servants, Trista Hedley, is being insubordinate and her department head wants her to change. Go into her files and teach her government work is no laughing matter.", "1123", "civil servant, Trista Hedley, nearly lost her life data when her personal machine had a malfunction and caught on fire. A close call indeed.", "Trista Hedley has been marked red for job performance. Take caution when receiving this individual’s service.", 1, "Trista Hedley"];
@@ -85,7 +84,7 @@ function getData(emailNum) {
 				return ["Insurgent Raimonda Robert", "June 26", "RESISTANCE", "Thank you for contacting us, having you supporting our anti-government group will help tremendously. We have taken a look into Aaron Johnson as you’ve mentioned; he is a criminal of heinous crimes but has yet to face any charges. We support you on the matter that the public needs to know even if they’re always left in the dark when it comes to government officials every other time.", "0331", "information about our very own international Panoi ambassador, Aaron Johnson, has leaked world wide through the internet. It states here that ‘Aaron Johnson… elicited Panoi slave trafficking… multiple occasions… killed three women… wow. We are surprised as you are.’", "Aaron Johnson was attacked by a mysterious hacker. Security enforcers are on the lookout.", 5, "Aaron Johnson"];
 			}
 		}
-	} else if (DAY == 3) {
+	} else if (currentStats.theDay == 2) {
 		if(faction.pos) {
 			if (emailNum == 1) {
 				return ["Supervisor Tresha Brannon", "June 27", "TASK 1", "After Ellis McFarlane’s first case, she was caught vandalizing city hall immediately after. The court does not see a problem but the law will catch up. Provide evidence for the judge to punish the little troublemaker", "1108", "Ellis McFarlane was charged with possession of drugs.", "local court released Ellis McFarlane with a minor fine for vandalizing city hall and all previous charges.", 1, "Ellis McFarlane"];
@@ -99,7 +98,7 @@ function getData(emailNum) {
 				return ["Insurgent Raimonda Robert", "June 27", "RESISTANCE", "There has been a consensus that we ask you to look into the case of Jennifer Wragge. Multiple accounts of this individual promoting and driving several persons to attempt suicide. Her luxury is a far cry for justice by those she has done wrong.", "1286", "Jennifer Wragge went unfire within hours of public knowledge of her heinous act of encouraging suicide attempts.", "Jennifer Wragge was informed that her private system was nearly hacked and she won’t rest until the culprit is caught.", 5, "Jennifer Wragge"];
 			}
 		}
-	} else if (DAY == 4) {
+	} else if (currentStats.theDay == 3) {
 		if(faction.pos) {
 			if (emailNum == 1) {
 				return ["Supervisor Tresha Brannon", "June 28", "TASK 1", "Multiple accounts of tax evasion has been recently be reported and you have been assigned the case of Martie Trueman. A dusty criminal record but keep caution as he may be hiding more crimes in his home system.", "4987", "hundreds of citizens were fined for tax evasion! An incredible event for reasons unknown.", "hundreds of citizens were fined for tax evasion! An incredible event for reasons unknown.", 1, "Martie Trueman"];
@@ -113,7 +112,7 @@ function getData(emailNum) {
 				return ["Insurgent Raimonda Robert", "June 28", "RESISTANCE 2", "Another government worker gone awry. Amelia Rana, information specialist, was caught selling private information with no judicial actions taken to punish this individual. The system is corrupt and Rana needs to learn that privacy is of utmost importance.", "9760", "thousands of leaked photos of Amelia Rana have flooded the internet, which ranges from nudes to several other private sectors of her home. Ms. Rana has not left her home since.", "authorities are saying the recent hacker attack on Amelia Rana is a declaration of war against the government.", 5, "Amelia Rana"];
 			}
 		}
-	} else if (DAY == 5) {
+	} else if (currentStats.theDay == 4) {
 		if(faction.pos) {
 			if (emailNum == 1) {
 				return ["Supervisor Tresha Brannon", "June 29", "TASK 1", "There has been too many attacks on government officials, we need to direct the attention to another party. Take a look at Ellis Walter and get started on the recently added case for perjury.", "3008", "astrophysicist, Ellis Walter, was found to be affiliated with rebel groups after being searched for perjury at a state court.", "respectable astrophysicist, Ellis Walter, was falsely accused of perjury and was released with a large compensation.", 1, "Ellis Walter"];
@@ -127,7 +126,7 @@ function getData(emailNum) {
 				return ["Insurgent Raimonda Robert", "June 29", "RESISTANCE 3", "Recently Kelsie Toxell, reporter for national television, was sued for withholding information from the public. Protests on this matter speaks for itself that the people want to know and deserve a right to know. Ms. Toxell is keeping information buried deep in her personal machine; give them your strength and they’ll learn that there’s a powerful friend by their side.", "3709", "Kelsie Toxell’s withheld information have been leaked and the information is more than terrifying. It reads murder and criminal cover-ups for important government officials.", "hacker attacks on government workers and officials cease to stop.", 5, "Kelsie Toxell"];
 			}
 		}
-	} else if (DAY == 6) {
+	} else if (currentStats.theDay == 5) {
 		if(faction.pos) {
 			if (emailNum == 1) {
 				return ["Supervisor Tresha Brannon", "June 30", "TASK 1", "Intel caught wind of insubordination within the ranks and Raimonda Robert is the man behind recent attacks. Everyone is under suspicion, including you. You’re one of the best and if you are trustworthy, prove it. Start with Raimonda’s case for grand theft and locate his location.", "4403", "Raimonda Robert, a leading figure for anti-government groups, was located and caught under the charges for grand theft in addition to heavy charges for treason.", "Raimonda Robert, a leading figure for anti-government groups, successfully avoided all government attacks and went underground.", 1, "Raimonda Robert"];
@@ -139,7 +138,7 @@ function getData(emailNum) {
 				return ["Revolution Leader Beatrix Coutts", "June 30", "RESISTANCE 3", "We are closing in to our final stand with the government of Americk. One of the last persons to stand in our way is NSS Technician, Dinal Senft. The only crime you can pin him down for is stalking public figures. Put him into federl jail and report any details to us.", "6890", "Dinal Senft, NSS Technician, is currently under protection from a recent hacker attack that took over half of all the data he possessed in his machine. The machine malfunctioned and burnt itself out beyond retrieving.", "more than half a thousand hackers have been caught in the past several hours but no information on the leader of these hacker attacks.", 4, "Dinal Senft"];
 			}
 		}
-	} else if (DAY == 7) {
+	} else if (currentStats.theDay == 6) {
 		if(faction.pos) {
 			if (emailNum == 1) {
 				return ["Chief of NSS Fawn Murdok", "June 31", "END THE RESISTANCE", "We have caught up to you, hacker. There is no evidence on your involvement but we know you are being contacted by Beatrix Coutts. That means that you are in close proximity to Beatrix Coutts in one way or another. You can still redeem yourself by stopping the leader in his tracks. Open his case for dumping anthrax into our water networks and endangering our citizens.", "6056", "Win String", "Losing String", 1, "Beatrix Coutts"];

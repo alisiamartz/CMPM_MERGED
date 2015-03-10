@@ -25,8 +25,8 @@ Object.prototype.getKey = function(value) {
 /* checks for key input */
 addEventListener("keydown", function(e) {
 	lastKey = keys.getKey(e.keyCode);
-	if (['enter'].indexOf(lastKey) >= 0) {
-		if (hackBool == true) {
+	if (hackBool == true) {
+		if (['enter'].indexOf(lastKey) >= 0) {
 			if (input.localeCompare("ATCKUP") == 0 || input.localeCompare("ATTACKUP") == 0) {
 				
 				playerStats.atckUp();
@@ -59,15 +59,18 @@ addEventListener("keydown", function(e) {
 			}
 			enemyActions[Math.floor(Math.random() * enemyActions.length)].call(enemyStats);
 			input = "";
+			alert("enter was pressed");
+		} else if (['backspace'].indexOf(lastKey) >= 0) {
+			if (input != "") {
+				input = input.substring(0, input.length - 1);
+			}
+		} else if (['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'].indexOf(lastKey) >= 0
+					&& input.length >= 12) {
+			input += lastKey;
 		}
-	} else if (['backspace'].indexOf(lastKey) >= 0) {
-		if (input != "") {
-			input = input.substring(0, input.length - 1);
-		}
-	} else if (['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'].indexOf(lastKey) >= 0) {
-		input += lastKey;
+		clearCanvas();
+		hackInter();
 	}
-	
 	/*
 	 *	update the display for what is being typed to nothing
 	 */
