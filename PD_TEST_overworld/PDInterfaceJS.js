@@ -508,7 +508,8 @@ function caseCompare(input, caseNum) {
 		//hackBack = document.getElementById('back1').style.display = "none";
 		
 		// ****** AT THE END OF HACK, ADD BACK BUTTON BACK IN
-
+		Hack.init(DIFF);
+		hackBool = true;
 		hackInter();
 		
 	} else {
@@ -517,18 +518,6 @@ function caseCompare(input, caseNum) {
 	}
 }
 
-var frame;
-var hackFrame;
-
-function hackInit(ndiff) {
-	frame = document.getElementById("hackWin");
-	hackFrame = frame.contentDocument;
-	hackFrame.HackStart(ndiff);
-	
-	//hackBoolTrue();
-	
-	//console.log(hackBool);
-}
 
 /******************************************************************
  * CODE TO CLEAN UP AND REMOVE ELEMENTS

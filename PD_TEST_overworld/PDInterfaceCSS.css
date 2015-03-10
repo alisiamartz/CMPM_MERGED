@@ -9,6 +9,7 @@
 	width: 1000px;
 	height: 600px;
 	font-family: courier;
+	background-image: url("http://i.imgur.com/QltowUY.jpg");
 }
 
 #title {
@@ -20,6 +21,7 @@
 
 #startNew {
 	margin-left: 420px;
+	top:300px;
 	width:220px;
 	height:50px;
 	
@@ -27,6 +29,7 @@
 
 #loadSaves {
 	margin-left: 420px;	
+	top:300px;
 	width:220px;
 	height:50px;
 	
@@ -44,8 +47,7 @@
 
 #saveBack{
 	width:40px;
-	height:40px;
-	align:left;	
+	height:40px;	
 }
 
 #inputLoadName {
@@ -132,6 +134,7 @@
 	border: 1px solid #000;
 
 }
+
 /*
 input#playName:focus {
 	font-family:courier;
@@ -156,8 +159,6 @@ input#playName:focus {
 
 #nameSpace {
 	font-family: courier;
-	
-	
 }
 
 #confirm {
@@ -229,17 +230,16 @@ input#playName:focus {
     left:330px;
    }
    
-   #cdiv {
-		position: absolute;
-		top: -1px;
-		width: 168px;
-		height: 60px;
-		left: 500px;
-		border: 1px solid #000;
-	}
+#cdiv {
+	position: absolute;
+	top: -1px;
+	width: 168px;
+	height: 60px;
+	left: 500px;
+	border: 1px solid #000;
+}
 
 .icons {
-
 }
 
 
@@ -301,7 +301,7 @@ input#playName:focus {
     border:1px solid #333;
     margin-left:330px;
     font-family: "courier new";
-       	z-index:50;
+    z-index:50;
     /*z-index: 9002;    */
 }
 	
@@ -316,8 +316,6 @@ input#playName:focus {
 #terminalPopUp:hover {
     cursor: pointer;
 }
-
-
 
 #terminalX {
     width:40px;
@@ -456,7 +454,7 @@ input#playName:focus {
     z-index:10;
 }*/
 
-/************************** DAY PROGRESSION **************************************/
+/************************** DAY PROGRESSION (END OF DAY) **************************************/
 
 #dayEndSave {
 	position: relative;
