@@ -486,7 +486,7 @@ function caseCompare(input, caseNum) {
 		console.log("INPUT AND CASE # MATCH. BEGIN HACK");
 		//hackBoolTrue();	
 		//console.log(hackBool)
-		win = document.getElementById("hackWin");
+		win = document.getElementById("hackCanvas");
 		win.style.display = "inline";
 		// GETS RID OF BACK BUTTON ((REMEMBER TO ADD BACK IN AFTER HACK IS OVER))
 		//hackBack = document.getElementById('back1').style.display = "none";

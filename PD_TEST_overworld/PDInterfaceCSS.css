@@ -383,7 +383,12 @@ input#playName:focus {
     top:7px;
 }
 
-
+#hackCanvas {
+	background-color:#000000;
+	margin-left:7px;
+	
+	
+}
 
 
 /********* SIDEBAR / EMAILS *********************/
