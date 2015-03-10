@@ -64,6 +64,132 @@ var string = "";
 var hackBool = false;
 
 // THIS IS WHERE THE NEW HACKING STUFF WILL BE IMPLEMENTED
+
+/*************************************************************/
+/* this function starts the hacking mechanic	 			 */
+/*************************************************************/
+Hack = {
+	init: function(difficulty) {
+		playerStats.init(genPlayer(playerStats.staticA, playerStats.staticD, playerStats.staticM));
+		enemyStats.init(genEnemy(difficulty));
+		
+		/*
+		 *	initialize the display used to inform the player of what they are typing
+		 */
+	},
+	end: function() {
+		playerStats.end();
+		enemyStats.end();
+		string = "";
+		hackBool = false;
+	}
+};
+
+/*
+ *	function to read in key inputs and change stats, representative of that in hacking_number_generator
+ */
+/*
+Ex.
+	input.onKeyDown = function(key) {
+		var char = String.fromCharCode(key);
+		if (hackBool == true) {
+			switch (key) {
+				case 13:
+					string = string.substring(0, string.length - 1);
+					if (string.localeCompare("ATCKUP") == 0 || string.localeCompare("ATTACKUP") == 0) {
+						playerStats.colorClear();
+						enemyStats.colorClear();
+						playerStats.atckUp();
+						//condition to increase enemy stat depending on player stat
+					} else if (string.localeCompare("ATCK") == 0 || string.localeCompare("ATTACK") == 0) {
+						playerStats.colorClear();
+						enemyStats.colorClear();
+						playerStats.enemyLwrDef();
+						//condition to increase enemy stat depending on player stat
+					}  else if (string.localeCompare("ATCKDOWN") == 0 || string.localeCompare("ATTACKDOWN") == 0 || 
+						string.localeCompare("ATCKDWN") == 0 || string.localeCompare("ATTACKDWN") == 0 || 
+						string.localeCompare("ATCKDN") == 0 || string.localeCompare("ATTACKDN") == 0) {
+						playerStats.colorClear();
+						enemyStats.colorClear();
+						playerStats.enemyLwrAtck();
+						//condition to increase enemy stat depending on player stat
+					} else if (string.localeCompare("DEFUP") == 0 || string.localeCompare("DEFENSEUP") == 0) {
+						playerStats.colorClear();
+						enemyStats.colorClear();
+						playerStats.defUp();
+						//condition to increase enemy stat depending on player stat
+					} else if (string.localeCompare("MASKUP") == 0 || string.localeCompare("MSKUP") == 0 || 
+						string.localeCompare("MSK") == 0 || string.localeCompare("MASK") == 0) {
+						playerStats.colorClear();
+						enemyStats.colorClear();
+						playerStats.maskUp();
+						//condition to increase enemy stat depending on player stat
+					} else if (string.localeCompare("SECDOWN") == 0 || string.localeCompare("SCDOWN") == 0 || 
+						string.localeCompare("SECDWN") == 0 || string.localeCompare("SCDWN") == 0 || 
+						string.localeCompare("SECDN") == 0 || string.localeCompare("SCDN") == 0) {
+						playerStats.colorClear();
+						enemyStats.colorClear();
+						playerStats.enemyLwrSec();
+						//condition to increase enemy stat depending on player stat
+					} else {
+						playerStats.colorClear();
+						enemyStats.colorClear();
+						//condition to increase enemy stat depending on player stat
+					}
+					enemyActions[Math.floor(Math.random() * enemyActions.length)].call(enemyStats);
+					string = "";
+					break;
+				default:
+					if (string.charAt(0) == 0) string = string.substring(1);
+					if (key == 8) {
+						string = string.substring(0, string.length - 2);
+						string += '|';
+					} else {
+						string = string.substring(0, string.length - 1);
+						string += char + '|';
+					}
+					break;
+			}
+			Hack.updateTypeBox(string);
+		}
+	};
+*/ 
+var genPlayer = function(atck, def, mask) {
+	var genArr = [];
+	genArr.push(atck);
+	genArr.push(def);
+	genArr.push(mask);
+	return new crackStats(genArr[0], genArr[1], genArr[2]);
+};
+var genEnemy = function(difficulty) {
+	var genArr = [];
+	for (var i = 0; i < 3; i++) {
+		genArr.push(Math.floor(difficulty + (Math.random() * difficulty / 3)));
+	}
+	if (genArr[2] > 80) genArr[2] = 80;
+	return new crackStats(genArr[0], genArr[1], genArr[2]);
+};
+var crackStats = function(atck, def, msk) {
+	this.attack = atck;
+	this.defense = def;
+	this.mask = msk;
+};
+winLose = {
+	result: function(winBool) {
+		/*
+		 *	initialize the display used to inform the player of a success or failure
+		 */
+	},
+	end: function() {
+		/*
+		 *	remove the display used to inform the player of a success or failure
+		 */
+	}
+};
+
+/*************************************************************/
+/* this function stores player stats and commands 			 */
+/*************************************************************/
 playerStats = {
 	atck: 50,
 	def: 100,
@@ -80,24 +206,24 @@ playerStats = {
 		 *	initialize the display used for stats here
 		 */
 	},
-	statUp: function(theStat, box) {
+	statUp: function(theStat) {
 		if (this[theStat] >= 70) this[theStat] = Math.floor(this[theStat] * (INC_RATIO + (Math.random() / 5)));
 		else this[theStat] += MIN_INC;
 	},
 	atckUp: function() {
-		this.statUp('atck', boxAtck);
+		this.statUp('atck');
 		/*
 		 *	update the display used for attack here
 		 */
 	},
 	defUp: function() {
-		this.statUp('def', boxDef);
+		this.statUp('def');
 		/*
 		 *	update the display used for defence here
 		 */
 	},
 	maskUp: function() {
-		this.statUp('mask', boxMsk);
+		this.statUp('mask');
 		/*
 		 *	update the display used for mask here
 		 */
@@ -111,7 +237,7 @@ playerStats = {
 	enemyLwrSec: function() {
 		enemyStats.selfLwrSec(10);
 	},
-	statDown: function(theStat, deduct, box) {
+	statDown: function(theStat, deduct) {
 		if (theStat == 'def') this[theStat] -= deduct;
 		else this[theStat] -= deduct + Math.floor(Math.random() * deduct * DEDUCT_VAR);
 		if (this[theStat] < MIN_STATS) {
@@ -140,12 +266,10 @@ playerStats = {
 	},
 	end: function() {
 		/*
-		 *	clear the display used for stats here, if they are instances then remove them
+		 *	clear the displays used for stats here, if they are instances then remove them
 		 */
 	}
 };
-
-
 /*************************************************************/
 /* this function stores enemy stats and commands 			 */
 /*************************************************************/
@@ -162,7 +286,7 @@ enemyStats = {
 		 *	initialize the display used for stats here
 		 */
 	},
-	statUp: function(theStat, box) {
+	statUp: function(theStat) {
 		if (this[theStat] >= 70) this[theStat] = Math.floor(this[theStat] * (INC_RATIO + (Math.random() / 5)));
 		else this[theStat] += MIN_INC;
 		if (theStat == 'sec') {
@@ -196,7 +320,7 @@ enemyStats = {
 	enemyLwrMsk: function() {
 		playerStats.selfLwrMsk(10);
 	},
-	statDown: function(theStat, deduct, box) {
+	statDown: function(theStat, deduct) {
 		if (theStat == 'def') this[theStat] -= deduct;
 		else this[theStat] -= deduct + Math.floor(Math.random() * deduct * DEDUCT_VAR);
 		if (this[theStat] < MIN_STATS) {
@@ -221,27 +345,39 @@ enemyStats = {
 		}
 	},
 	selfLwrAtck: function(deduct) {
-		this.statDown('atck', deduct, box2Atck);
+		this.statDown('atck', deduct);
 		/*
 		 *	update the display used for attack here
 		 */
 	},
 	selfLwrDef: function(deduct) {
-		this.statDown('def', deduct, box2Def);
+		this.statDown('def', deduct);
 		/*
 		 *	update the display used for defence here
 		 */
 	},
 	selfLwrSec: function(deduct) {
-		this.statDown('sec', deduct, box2Sec);
+		this.statDown('sec', deduct);
 		/*
 		 *	update the display used for sec(enemy equivalent for mask in some aspect) here
 		 */
 	},
 	end: function() {
 		/*
-		 *	clear the display used for stats here, if they are instances then remove them
+		 *	clear the displays used for stats here, if they are instances then remove them
 		 */
 	}
 };
 
+// don't remember but I'm sure the following are not used at all
+var enemyActions = [
+	enemyStats['atckUp'],
+	enemyStats['defUp'],
+	enemyStats['secUp'],
+	enemyStats['enemyLwrAtck'],
+	enemyStats['enemyLwrDef'],
+	enemyStats['enemyLwrMsk']
+];
+for (var i = 0; i < 5; i++) {
+	enemyActions.push(enemyStats['intelligence']);
+}
