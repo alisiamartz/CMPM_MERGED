@@ -453,16 +453,16 @@ input#playName:focus {
 	width: 1000px;
 	height: 600px;
 	font-family: courier;
+	text-align:center;
 }
 	
 #inputSaveName {
-	margin-left: 20px;
+	margin-left: 200px;
 	top: 200px;
-	
 }
 
 #willSave {
-	margin-left: 0px;
+	margin-left: 220px;
 	width:120px;
 	height:50px;
 }
