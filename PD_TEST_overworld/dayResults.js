@@ -19,7 +19,14 @@ function saveDay(gonnaSave) {
 		}
 		
 	}
-	document.getElementById('dayEndCanvas').style.display = "none";
+	document.getElementById('dayEndSave').style.display = "none";
 	document.getElementById("gameCanvas").style.display = "block";
 
+}
+
+
+function dayEndProgress() {
+	
+	
+	
 }

@@ -130,4 +130,10 @@ function loadSaves(){
 	document.getElementById("saveMenu").style.display = "block";
 }
 
+function backMenu() {
+	console.log("BACK TO MAIN MENU");
+	document.getElementById('saveMenu').style.display = "none";
+	document.getElementById('mainMenu').style.display = "block";
+	
+}
 
