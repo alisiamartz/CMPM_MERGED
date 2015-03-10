@@ -495,7 +495,7 @@ function caseCompare(input, caseNum) {
 		// remove back button
 		// AT THE END OF HACK, ADD BACK BUTTON BACK IN
 		// temp.diff
-		hackInit(temp.diff);
+		//hackInit(temp.diff);
 		
 	} else {
 		console.log("INPUT AND CASE # DO NOT MATCH. NO HACK");
