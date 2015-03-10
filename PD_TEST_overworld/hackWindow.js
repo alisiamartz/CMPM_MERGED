@@ -21,27 +21,25 @@ function hackInter() {
 	h = canvas.getContext("2d");
 	// APPEARANCE TO BE RE FORMATTED LATER
 	h.font = "70px courier";
-	h.fillText("HACK STATS ", 300,50,250); // Title something else, even just a cute gov seal thing could work to replace
+	h.fillText("HACK STATS ", 150,50,250); // Title something else, even just a cute gov seal thing could work to replace
 	h.font = "50px courier";
 
-	h.fillText("YOU",270,100,180);
-	h.fillText("TARGET",400,100,180);
+	h.fillText("YOU",100,100,180);
+	h.fillText("TARGET",250,100,180);
+	
+	// Starts input
+	h.fillText("Input: " + input, 100, 300, 100);
 	
 	// Player Stat Display (atack, deff, mask)
 	h.font = "30px courier";
-	h.fillText("ATCK "+ playerStats.atck, 280, 140, 100);
-	h.fillText("DEF "+ playerStats.def, 280, 180, 100);
-	h.fillText("MASK "+ playerStats.mask, 280,220,100);
+	h.fillText("ATCK "+ playerStats.atck, 100, 140, 100);
+	h.fillText("DEF "+ playerStats.def, 100, 180, 100);
+	h.fillText("MASK "+ playerStats.mask, 100,220,100);
 	
 	// Target Stat Display (atack, deff, mask)
-	h.fillText("ATCK "+ enemyStats.atck, 400, 140, 100);
-	h.fillText("DEF "+ enemyStats.def, 400, 180, 100);
-	h.fillText("MASK "+ enemyStats.sec, 400, 220, 100);
-	
-	// Starts input
-	h.fillText("Input: " + input, 400, 220, 100);
-	Hack.init(DIFF);
-	hackBool = true;
+	h.fillText("ATCK "+ enemyStats.atck, 250, 140, 100);
+	h.fillText("DEF "+ enemyStats.def, 250, 180, 100);
+	h.fillText("MASK "+ enemyStats.sec, 250, 220, 100);
 }
 
 /*
