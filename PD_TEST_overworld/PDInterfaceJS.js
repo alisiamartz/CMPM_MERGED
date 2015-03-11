@@ -75,7 +75,6 @@ $( "#readmePopUp" ).draggable({
 	});
 });
 
-
 $(function() {
 $( "#ipPopUp" ).draggable({
 	containment: '#gameCanvas'
