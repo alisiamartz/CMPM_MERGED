@@ -19,27 +19,27 @@ var h;
 function hackInter() {
 	canvas = document.getElementById("hackCanvas");
 	h = canvas.getContext("2d");
-	// APPEARANCE TO BE RE FORMATTED LATER
-	h.font = "70px courier";
-	h.fillText("HACK STATS ", 150,50,250); // Title something else, even just a cute gov seal thing could work to replace
-	h.font = "50px courier";
-
-	h.fillText("YOU",100,100,180);
-	h.fillText("TARGET",250,100,180);
 	
-	// Starts input
-	h.fillText("Input: " + input, 100, 300, 400);
+	// APPEARANCE TO BE RE FORMATTED LATER
+	h.font = "50px courier";
+	h.fillText("HACK STATS", 165,50,250); // Title something else, even just a cute gov seal thing could work to replace
+	h.fillText("YOU",100,100,75);
+	h.fillText("TARGET",350,100,150);
 	
 	// Player Stat Display (atack, deff, mask)
 	h.font = "30px courier";
-	h.fillText("ATCK "+ playerStats.atck, 100, 140, 100);
-	h.fillText("DEF "+ playerStats.def, 100, 180, 100);
-	h.fillText("MASK "+ playerStats.mask, 100,220,100);
+	h.fillText("ATCK "+ playerStats.atck, 100, 140, 200);
+	h.fillText("DEF "+ playerStats.def, 100, 180, 200);
+	h.fillText("MASK "+ playerStats.mask, 100,220,200);
 	
 	// Target Stat Display (atack, deff, mask)
-	h.fillText("ATCK "+ enemyStats.atck, 250, 140, 100);
-	h.fillText("DEF "+ enemyStats.def, 250, 180, 100);
-	h.fillText("MASK "+ enemyStats.sec, 250, 220, 100);
+	h.fillText("ATCK "+ enemyStats.atck, 350, 140, 200);
+	h.fillText("DEF "+ enemyStats.def, 350, 180, 200);
+	h.fillText("MASK "+ enemyStats.sec, 350, 220, 200);
+		
+	// Starts input
+	h.fillText("Input: ", 5, 300, 100);
+	h.fillText(input, 100, 300, 400);
 }
 
 /*
@@ -96,7 +96,18 @@ Hack = {
 		clearCanvas();
 	}
 };
-
+winLose = {
+	result: function(winBool) {
+		/*
+		 *	initialize the display used to inform the player of a success or failure
+		 */
+	},
+	end: function() {
+		/*
+		 *	remove the display used to inform the player of a success or failure
+		 */
+	}
+};
 var genPlayer = function(atck, def, mask) {
 	var genArr = [];
 	genArr.push(atck);
@@ -117,19 +128,6 @@ var crackStats = function(atck, def, msk) {
 	this.defense = def;
 	this.mask = msk;
 };
-winLose = {
-	result: function(winBool) {
-		/*
-		 *	initialize the display used to inform the player of a success or failure
-		 */
-	},
-	end: function() {
-		/*
-		 *	remove the display used to inform the player of a success or failure
-		 */
-	}
-};
-
 /*************************************************************/
 /* this function stores player stats and commands 			 */
 /*************************************************************/
