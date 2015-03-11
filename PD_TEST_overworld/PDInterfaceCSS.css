@@ -498,10 +498,9 @@ input#playName:focus {
 	font-family: courier;
 	text-align:center;
 	background-color:#D7D7D7;
-	
 }
 
 #endReport {
-	
-	
+	border: 1px solid #000;
+	background-color:#98A4C8;
 }

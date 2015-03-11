@@ -13,6 +13,7 @@
 		var pic1 = document.getElementById('picMale');
 		var pic2 = document.getElementById('picFem');
 		var card = document.getElementById('playerCard'); 
+		var playerName;
 		var c = card.getContext('2d');		
 		
 		var parag;

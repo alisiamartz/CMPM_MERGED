@@ -24,9 +24,14 @@ function saveDay(gonnaSave) {
 
 }
 
+var cc = document.getElementById('endReport');
+var a = cc.getContext('2d');
 
 function dayEndProgress() {
-	
+	a.font = "100px courier";
+	a.fillText("DRA DAILY:", 10, 90,200 );
+	a.font = "70px courier";
+	a.fillText("Our Nation Today", 230, 80, 200);
 	
 	
 }

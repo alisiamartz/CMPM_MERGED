@@ -456,6 +456,7 @@ var temp = {
 	diff:null
 };
 
+var currEm;
 // save contents of the email into a function
 function saveEcontent(index) {
 	console.log("index of email clicked is: " + index);
@@ -472,7 +473,7 @@ function saveEcontent(index) {
 	temp.index = emailPreviewArray[index].index;
 	temp.name = emailPreviewArray[index].name;
 	temp.diff = emailPreviewArray[index].diff;
-	
+	currEm = index;
 	// for testing
 	console.log(temp.sender);
 	console.log(temp.date);
@@ -490,6 +491,7 @@ var win;
 var p;
 var no;
 var ele;
+var caseNumOut;
 
 // Compares user input to case number attached to email
 function caseCompare(input, caseNum) {
@@ -499,17 +501,19 @@ function caseCompare(input, caseNum) {
 	
 	if (input == caseNum) {
 		console.log("INPUT AND CASE # MATCH. BEGIN HACK");
-		//hackBoolTrue();	
-		//console.log(hackBool)
+	//	console.log(emailPreviewArray[currEm]);
 		win = document.getElementById("hackCanvas");
 		win.style.display = "inline";
+		
 		// GETS RID OF BACK BUTTON ((REMEMBER TO ADD BACK IN AFTER HACK IS OVER))
 		//hackBack = document.getElementById('back1').style.display = "none";
 		
-		// ****** AT THE END OF HACK, ADD BACK BUTTON BACK IN
 		Hack.init(DIFF);
 		hackBool = true;
 		hackInter();
+		
+	//	caseNumOut = emailPreviewArray[currEm].splice(5,1);
+	//	console.log("DELETED??" + emailPreviewArray[currEm]);
 		
 	} else {
 		console.log("INPUT AND CASE # DO NOT MATCH. NO HACK");
@@ -532,7 +536,6 @@ function doesNotExist() {
     noResult = document.createElement("p");
     noResult.appendChild(doesNotExist);
     searchResult.appendChild(noResult);
-
 }
 
 //changed this in html also
@@ -560,3 +563,18 @@ function clearInput() {
 	userIn = document.getElementById('ipinput');
 	userIn.value = "";
 }
+
+/*
+ * TEST TO EASILY DESIGN WINDOW
+ */
+function testView(){
+	document.getElementById('dayEndReport').style.display = "block";
+	dayEndProgress();
+}
+
+/*
+function spliceTest() {
+	temp.splice(4,1);
+	console.log(temp);
+}
+*/
