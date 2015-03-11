@@ -59,6 +59,7 @@ function clearCanvas() {
 	canvas = document.getElementById("hackCanvas");
 	h = canvas.getContext("2d");
 	h.clearRect(0,0,590,390);
+	console.log("canvas is going to be cleared");
 }
 
 /*
@@ -93,7 +94,6 @@ Hack = {
 	end: function() {
 		string = "";
 		hackBool = false;
-		clearCanvas();
 	}
 };
 winLose = {
@@ -101,6 +101,16 @@ winLose = {
 		/*
 		 *	initialize the display used to inform the player of a success or failure
 		 */
+		clearCanvas();
+		canvas = document.getElementById("hackCanvas");
+		h = canvas.getContext("2d");
+		
+		h.font = "70px courier";
+		if (winBool == true) {
+			h.fillText("SUCCESS", 165,150,250);
+		} else if (winBool == false) {
+			h.fillText("FAILURE", 165,150,250);
+		}
 	},
 	end: function() {
 		/*
