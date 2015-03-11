@@ -101,6 +101,10 @@ winLose = {
 		/*
 		 *	initialize the display used to inform the player of a success or failure
 		 */
+		cleardisplayID();
+		//faction.updateFaction(50); called in Hack.end as faction.updateFaction(temp.faction!);
+		displayID();
+		
 		clearCanvas();
 		canvas = document.getElementById("hackCanvas");
 		h = canvas.getContext("2d");
