@@ -12,18 +12,22 @@
 //var HACK_WIN = false;
 var emailPreviewArray = [];
 faction = {
-	affiliation: "Government",
+	gov: "PARTY",
+	antigov: "",
 	pos: 80,
 	updateFaction: function(num) {
 		this.pos += num;
 		if (this.pos > 100) {this.pos = 100;}
 		else if (this.pos < 0) {this.pos = 0;}
 		if (this.pos >= 60 && this.pos <= 100) {
-			this.affiliation = "Government";
+			this.gov = "PARTY";
+			this.antigov = "";
 		} else if (this.pos >= 40 && this.pos < 60) {
-			this.affiliation = "Neutral";
+			this.gov = "NEUTRAL";
+			this.antigov = "NEUTRAL";
 		} else if (this.pos >= 0 && this.pos < 40) {
-			this.affiliation = "Anti-government";
+			this.gov = "";
+			this.antigov = "PARTY";
 		}
 	}
 };
