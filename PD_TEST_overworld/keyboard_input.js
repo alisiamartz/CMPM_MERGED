@@ -59,13 +59,12 @@ addEventListener("keydown", function(e) {
 			}
 			enemyActions[Math.floor(Math.random() * enemyActions.length)].call(enemyStats);
 			input = "";
-			alert("enter was pressed");
 		} else if (['backspace'].indexOf(lastKey) >= 0) {
 			if (input != "") {
 				input = input.substring(0, input.length - 1);
 			}
 		} else if (['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'].indexOf(lastKey) >= 0
-					&& input.length <= 12) {
+				&& input.length <= 12) {
 			input += lastKey;
 		}
 		clearCanvas();
