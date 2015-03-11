@@ -11,8 +11,7 @@
 		var txt = document.getElementById('picChoose');
 		var window = document.getElementById('beginCanvas');
 		var pic1 = document.getElementById('picMale');
-		var pic2 = document.getElementById('picFem');		
-		var playerName;		
+		var pic2 = document.getElementById('picFem');
 		var card = document.getElementById('playerCard'); 
 		var c = card.getContext('2d');		
 		

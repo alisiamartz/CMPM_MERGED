@@ -346,7 +346,10 @@ input#playName:focus {
    	z-index:50;
 }
 
-
+	#readmeHTML {
+		position: absolute;
+		top: 100px;
+	}
 
 #readmePopUp:hover {
     cursor: pointer;

@@ -9,13 +9,13 @@
 		<title>new_file</title>
 		<meta name="author" content="jy" />
 	
-		<script src="jquery-1.9.1.js"></script>
-		<script src="jquery-ui.js"></script>
-		<script src="jquery.jWebAudio.js"></script>
 		<script src="brine.js"></script>
 		<script src="clock.js"></script>
 		<script src="Game_Stats.js"></script>
-
+		<script src="jquery-1.9.1.js"></script>
+		<script src="jquery-ui.js"></script>
+		<script src="jquery.jWebAudio.js"></script>
+		
 		<!-- Date: 2015-02-10 -->
 	</head>
 	<body>
@@ -176,7 +176,7 @@
 			</div>
 
 			<div id="readmePopUp" class= "noselect,popUp" onMouseDown = "changeZIndex('readmePopUp')" style="display:none">	
-				<iframe src="README.html" height="395" width="595" frameborder="0"></iframe>
+				<iframe id="readmeHTML" src="README.html" top="100" height="295" width="595" frameborder="0"></iframe>
 				<img id="READMEX" onclick="toggle('readmePopUp')"src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/xButton_zpsloppcsbt.png">
 			</div>			
 
@@ -289,12 +289,12 @@
 			<input id="noSave" type="image" src="no_icon.png" onclick="saveDay(null), dayClock.startClock();">
 		</div>
 	</body>
-	
+		
 		<script src="faction.js"></script>
 		<script src="PDInterfaceJS.js"></script>
 		<script src="dayResults.js"></script>
 		<script src="hackWindow.js"></script>
-		<script src="keyboard_input.js"></script>
+		<!--script src="keyboard_input.js"></script-->
 		<link rel="stylesheet" type="text/css" href="PDInterfaceCSS.css">
 <!------------------------------------------- bootstrap stuff------------------------------------------------------------ 
 
