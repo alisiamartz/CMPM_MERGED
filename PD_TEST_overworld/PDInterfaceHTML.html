@@ -57,7 +57,13 @@
 			<br><br>
 			<input id="startSave" type="button" value="Start Game" onclick="loadInter(), displayID(), dayClock.startClock();"> 
 				<br><br>
+			<!-- list prev saves here -->
 					Previous Saves:
+					<div id="displaySaves">
+						<script>
+							displaySaveNames();	
+						</script>
+					</div>
 			<!-- list prev saves here -->
 		</div>
 		<div id="beginCanvas" class="html"style="display:none">
@@ -128,11 +134,9 @@
 							document.getElementById('gameCanvas').style.display = "none";
 							document.getElementById("dayEndSave").style.display = "block";
 						}
-<<<<<<< HEAD
-						dayClock = new Clock(540,560,this,nextDay);
-=======
-						dayClock = new Clock(540,560,this,nextDay);	//1020
->>>>>>> origin/master
+
+						dayClock = new Clock(540,1020,this,nextDay);
+
 						morningHour = dayClock.startHour;
 						morningMin = dayClock.startMin;
 						dayClock.fontSize = 30;
@@ -198,15 +202,8 @@
 				<a name="ipSearchResult"></a>
 				<div class="search" id="ipSearchResult"> Results:
 					<div id="hackDiv">
-						<!-- ATTEMPT AT LINKING 2 HTML FILES TOGETHER, so far, not working so much -->
-
-						<!--<iframe id="hackWin"src = "hack.html" height="395" width="595" frameborder="0" style="display:none"></iframe>-->
-					
-<!-- THIS IS WHERE THE HACK IS INITIATED -->					
-						<!--<img id="startH" onclick="initHack();" > -->
 						<canvas id="hackCanvas" width="590"height="390"style="display:none">
 						</canvas>
-					
 					</div>
 					<img id="ipX" onclick="toggle('ipPopUp'), removePrevHack()"src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/xButton_zpsloppcsbt.png"> 
 					<br>

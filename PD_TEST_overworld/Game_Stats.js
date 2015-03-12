@@ -194,7 +194,18 @@ console.log(JSON.parse(JasonTest));
 console.log(JSON.parse(JasonTest) instanceof gameHackStats);
 console.log(document.cookie);
 
-function displaySaves() {
-	
-	
+
+/*
+ * TO DISPLAY PREV SAVE NAMES
+ */
+var saveNAMEdisplay;
+var pp;
+var nn;
+
+function displaySaveNames() {
+		pp = document.createElement("p");
+		nn = document.createTextNode("SAVE FILES HERE"+saveNames);
+		pp.appendChild(nn);
+		saveNAMEdisplay = document.getElementById("displaySaves");
+		saveNAMEdisplay.appendChild(pp);
 }

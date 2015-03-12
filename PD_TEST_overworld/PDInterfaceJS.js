@@ -447,7 +447,6 @@ function appendToSearch(result) {
  ******************************************************************/
 var eCase;
 var searchEl = document.getElementById('ipinput');
-
 var case1;
 
 var temp = {

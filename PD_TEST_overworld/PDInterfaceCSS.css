@@ -52,25 +52,8 @@
 	height:40px;
 }
 
-#inputLoadName {
-	vertical-align:middle;
-}
-
-#displayStats {
-	vertical-align:middle;
-}
-
-#loadGame {
-	vertical-align:middle;
-}
-
-#delGame {
-	vertical-align:middle;
-}
-
-#startSave {
-	vertical-align:middle;
-	
+#displaySaves {
+	font-family:courier;
 }
 
 /******************************** SAVE MENU *******************************/
