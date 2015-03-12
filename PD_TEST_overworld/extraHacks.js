@@ -16,8 +16,29 @@ var webcam = function () {
 	
 };
 
+// Database Operation: add, delete, and/or find entries from a database
+// entAdd: entries to add
+// entDel: entries to delete
+// entFind: entries to find
+var dataOp = function (entAdd, entDel, entFind) {
+	
+	var outTask = new hackMission();
+	var dataEntActs = outTask.playerSpecials();
+	var entVars = outTask.specialVars;
+	
+	if (dirtAmount >= 4) {
+		dirtVars['dirtLeft'] = 3;
+	} else if (dirtAmount >= 1) {
+		dirtVars['dirtLeft'] = Math.floor(dirtAmount);
+	} else {
+		dirtVars['dirtLeft'] = 1;
+	}
+	
+};
+
 // Get Dirt: infiltrate a computer and download the desired material
-var getDirt = function () {
+// dirtAmount: determines number or downloads needed
+var getDirt = function (dirtAmount) {
 	
 	var outTask = new hackMission();
 	var dirtSetup = outTask.playerSpecials();
@@ -56,7 +77,13 @@ var getDirt = function () {
 	
 	dirtVars['dirtFound'] = false;
 	dirtVars['download'] = false;
-	dirtVars['dirtLeft'] = 1 + Math.floor(Math.random() * 3);
+	if (dirtAmount >= 4) {
+		dirtVars['dirtLeft'] = 3;
+	} else if (dirtAmount >= 1) {
+		dirtVars['dirtLeft'] = Math.floor(dirtAmount);
+	} else {
+		dirtVars['dirtLeft'] = 1;
+	}
 	
 	return outTask;
 	
