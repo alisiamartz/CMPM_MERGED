@@ -16,29 +16,54 @@ var webcam = function () {
   
 };
 
+// Get Dirt: infiltrate a computer and download the desired material
 var getDirt = function () {
 	
 	var outTask = new hackMission();
 	var dirtSetup = outTask.playerSpecials();
+	var dirtVars = outTask.specialVars;
 	
 	dirtSetup['SEARCH'] = function () {
-		if (!dirtVars['download'] && Math.random() < 0.5) {
-			outTask.SpecialVars['SetUp'] = true;
+		if (!dirtVars['download']) {
+			dirtVars['dirtFound'] = true;
 		}
 	};
 	
-	var dirtVars = outTask.specialVars;
+	dirtSetup['DOWNLOAD'] = function () {
+		if (dirtVars['dirtFound']) {
+			dirtVars['download'] = true;
+			dirtVars['dirtFound'] = false;
+			dirtVars['dirtLeft']--;
+		}
+	};
 	
+	var theDownload = function () {
+		if (outTask.SpecialVars['download']) {
+			if (dirtVars['dirtLeft'] <= 0) {
+				winLose.result(true);
+			} else {
+				dirtVars['download'] = false;
+			}
+			
+		} else {
+			enemyActions[Math.floor(Math.random() * enemyActions.length)].call(enemyStats);			
+		}
+	};
+	
+	for(var i = 0; i < 3; i++) {
+		outTask.enemySpecials.push(theDownload);
+	}
 	
 	dirtVars['dirtFound'] = false;
 	dirtVars['download'] = false;
-	dirtVars['dirtLeft'] = 3;
+	dirtVars['dirtLeft'] = 1 + Math.floor(Math.random() * 3);
 	
 	return outTask;
 	
 };
 
-// blackmail: set up an untracable connection, then send a blackmail message through it.
+// Blackmail: set up an untracable connection, then send a blackmail message through it.
+// Similar to 'Get Dirt' except initial command features repetition and only one upload is needed
 var blackmail = function () {
 	
 	var outTask = new hackMission();
@@ -50,7 +75,7 @@ var blackmail = function () {
 		}
 	};
 	
-	// Victory if 'SetUp' is true, otherwise instant fail
+	// Delayed victory if 'SetUp' is true, otherwise instant fail
 	blackSetup['SEND'] = function () {
 		if (outTask.SpecialVars['SetUp']) {
 			outTask.SpecialVars['Sending'] = true;
@@ -59,6 +84,7 @@ var blackmail = function () {
 		}
 	};
 	
+	// Victory if 'Sending' is true, does other action otherwise
 	var theUpload = function () {
 		if (outTask.SpecialVars['Sending']) {
 			winLose.result(true);
