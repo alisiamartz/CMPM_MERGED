@@ -513,7 +513,7 @@ function caseCompare(input, caseNum) {
 		win.style.display = "inline";
 		
 		// GETS RID OF BACK BUTTON ((REMEMBER TO ADD BACK IN AFTER HACK IS OVER))
-		//hackBack = document.getElementById('back1').style.display = "none";
+		hackBack = document.getElementById('back1').style.display = "none";
 		
 		Hack.init(DIFF);
 		hackBool = true;

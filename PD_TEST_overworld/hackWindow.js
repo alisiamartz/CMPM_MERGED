@@ -87,7 +87,7 @@ var hackBool = false;
 var turns = {
 	turnsLeft: 0,
 	turnsBool: false
-}
+};
 
 // THIS IS WHERE THE NEW HACKING STUFF WILL BE IMPLEMENTED
 
@@ -105,6 +105,7 @@ Hack = {
 	},
 	end: function() {
 		string = "";
+		hackBack = document.getElementById('back1').style.display = "inline";
 		hackBool = false;
 	}
 };
