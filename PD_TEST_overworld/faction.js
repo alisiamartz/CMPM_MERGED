@@ -14,19 +14,18 @@ var emailPreviewArray = [];
 faction = {
 	gov: "PARTY",
 	antigov: "",
-	pos: 80,
 	updateFaction: function(num) {
-		this.pos += num;
-		console.log(this.pos);	//condition for debuggging
-		if (this.pos > 100) {this.pos = 100;}
-		else if (this.pos < 0) {this.pos = 0;}
-		if (this.pos >= 60 && this.pos <= 100) {
+		currentStats.govAlignment += num;
+		console.log(currentStats.govAlignment);	//condition for debuggging
+		if (currentStats.govAlignment > 100) currentStats.govAlignment = 100;
+		else if (currentStats.govAlignment < 0) currentStats.govAlignment = 0;
+		if (currentStats.govAlignment >= 60 && currentStats.govAlignment <= 100) {
 			this.gov = "PARTY";
 			this.antigov = "";
-		} else if (this.pos >= 40 && this.pos < 60) {
+		} else if (currentStats.govAlignment >= 40 && currentStats.govAlignment < 60) {
 			this.gov = "NEUTRAL";
 			this.antigov = "NEUTRAL";
-		} else if (this.pos >= 0 && this.pos < 40) {
+		} else if (currentStats.govAlignment >= 0 && currentStats.govAlignment < 40) {
 			this.gov = "";
 			this.antigov = "PARTY";
 		}
@@ -63,7 +62,7 @@ function emailPreview( data ) {
 }
 function getData(emailNum) {
 	if (currentStats.theDay == 0) {
-		if(faction.pos) {
+		if(currentStats.govAlignment) {
 			if (emailNum == 1) {
 				return ["Supervisor Tresha Brannon", "June 25", "TASK 1", "There have been hundreds of reports on the trial of Devan MacDougall’s for rigging a national sport championship. Plant the attached evidence in MacDougall’s machine and security will take care of the rest.", "0905", "MacDougall lost his chance at freedom as citizens press for his imprisonment.", "MacDougall was released for his last day in court, which has caused an uproar within several counties.", 1, "Devan MacDougall", 2];
 			} else if (emailNum == 2) {
@@ -77,7 +76,7 @@ function getData(emailNum) {
 			}
 		}
 	} else if (currentStats.theDay == 1) {
-		if(faction.pos) {
+		if(currentStats.govAlignment) {
 			if (emailNum == 1) {
 				return ["Supervisor Tresha Brannon", "June 26", "TASK 1", "One of our own civil servants, Trista Hedley, is being insubordinate and her department head wants her to change. Go into her files and teach her government work is no laughing matter.", "1123", "civil servant, Trista Hedley, nearly lost her life data when her personal machine had a malfunction and caught on fire. A close call indeed.", "Trista Hedley has been marked red for job performance. Take caution when receiving this individual’s service.", 1, "Trista Hedley", 2];
 			} else if (emailNum == 2) {
@@ -91,7 +90,7 @@ function getData(emailNum) {
 			}
 		}
 	} else if (currentStats.theDay == 2) {
-		if(faction.pos) {
+		if(currentStats.govAlignment) {
 			if (emailNum == 1) {
 				return ["Supervisor Tresha Brannon", "June 27", "TASK 1", "After Ellis McFarlane’s first case, she was caught vandalizing city hall immediately after. The court does not see a problem but the law will catch up. Provide evidence for the judge to punish the little troublemaker", "1108", "Ellis McFarlane was charged with possession of drugs.", "local court released Ellis McFarlane with a minor fine for vandalizing city hall and all previous charges.", 1, "Ellis McFarlane", 2];
 			} else if (emailNum == 2) {
@@ -105,7 +104,7 @@ function getData(emailNum) {
 			}
 		}
 	} else if (currentStats.theDay == 3) {
-		if(faction.pos) {
+		if(currentStats.govAlignment) {
 			if (emailNum == 1) {
 				return ["Supervisor Tresha Brannon", "June 28", "TASK 1", "Multiple accounts of tax evasion has been recently be reported and you have been assigned the case of Martie Trueman. A dusty criminal record but keep caution as he may be hiding more crimes in his home system.", "4987", "hundreds of citizens were fined for tax evasion! An incredible event for reasons unknown.", "hundreds of citizens were fined for tax evasion! An incredible event for reasons unknown.", 1, "Martie Trueman", 2];
 			} else if (emailNum == 2) {
@@ -119,7 +118,7 @@ function getData(emailNum) {
 			}
 		}
 	} else if (currentStats.theDay == 4) {
-		if(faction.pos) {
+		if(currentStats.govAlignment) {
 			if (emailNum == 1) {
 				return ["Supervisor Tresha Brannon", "June 29", "TASK 1", "There has been too many attacks on government officials, we need to direct the attention to another party. Take a look at Ellis Walter and get started on the recently added case for perjury.", "3008", "astrophysicist, Ellis Walter, was found to be affiliated with rebel groups after being searched for perjury at a state court.", "respectable astrophysicist, Ellis Walter, was falsely accused of perjury and was released with a large compensation.", 1, "Ellis Walter", 2];
 			} else if (emailNum == 2) {
@@ -133,7 +132,7 @@ function getData(emailNum) {
 			}
 		}
 	} else if (currentStats.theDay == 5) {
-		if(faction.pos) {
+		if(currentStats.govAlignment) {
 			if (emailNum == 1) {
 				return ["Supervisor Tresha Brannon", "June 30", "TASK 1", "Intel caught wind of insubordination within the ranks and Raimonda Robert is the man behind recent attacks. Everyone is under suspicion, including you. You’re one of the best and if you are trustworthy, prove it. Start with Raimonda’s case for grand theft and locate his location.", "4403", "Raimonda Robert, a leading figure for anti-government groups, was located and caught under the charges for grand theft in addition to heavy charges for treason.", "Raimonda Robert, a leading figure for anti-government groups, successfully avoided all government attacks and went underground.", 1, "Raimonda Robert", 10];
 			} else if (emailNum == 2) {
@@ -145,7 +144,7 @@ function getData(emailNum) {
 			}
 		}
 	} else if (currentStats.theDay == 6) {
-		if(faction.pos) {
+		if(currentStats.govAlignment) {
 			if (emailNum == 1) {
 				return ["Chief of NSS Fawn Murdok", "June 31", "END THE RESISTANCE", "We have caught up to you, hacker. There is no evidence on your involvement but we know you are being contacted by Beatrix Coutts. That means that you are in close proximity to Beatrix Coutts in one way or another. You can still redeem yourself by stopping the leader in his tracks. Open his case for dumping anthrax into our water networks and endangering our citizens.", "6056", "Win String", "Losing String", 1, "Beatrix Coutts", 30];
 			} else if (emailNum == 2) {
