@@ -21,7 +21,18 @@ var getDirt = function () {
 	var outTask = new hackMission();
 	var dirtSetup = outTask.playerSpecials();
 	
+	dirtSetup['SEARCH'] = function () {
+		if (!dirtVars['download'] && Math.random() < 0.5) {
+			outTask.SpecialVars['SetUp'] = true;
+		}
+	};
 	
+	var dirtVars = outTask.specialVars;
+	
+	
+	dirtVars['dirtFound'] = false;
+	dirtVars['download'] = false;
+	dirtVars['dirtLeft'] = 3;
 	
 	return outTask;
 	
@@ -41,7 +52,7 @@ var blackmail = function () {
 	
 	// Victory if 'SetUp' is true, otherwise instant fail
 	blackSetup['SEND'] = function () {
-		if (outTask.SpecialVars['SetUp'] == true) {
+		if (outTask.SpecialVars['SetUp']) {
 			outTask.SpecialVars['Sending'] = true;
 		} else {
 			winLose.result(false);
@@ -49,7 +60,7 @@ var blackmail = function () {
 	};
 	
 	var theUpload = function () {
-		if (outTask.SpecialVars['Sending'] == true) {
+		if (outTask.SpecialVars['Sending']) {
 			winLose.result(true);
 		} else {
 			enemyActions[Math.floor(Math.random() * enemyActions.length)].call(enemyStats);			
