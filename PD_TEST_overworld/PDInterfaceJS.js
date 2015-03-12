@@ -479,6 +479,7 @@ function saveEcontent(index) {
 	temp.name = emailPreviewArray[index].name;
 	temp.diff = emailPreviewArray[index].diff;
 	currEm = index;
+	
 	// for testing
 	console.log(temp.sender);
 	console.log(temp.date);
@@ -503,6 +504,7 @@ function caseCompare(input, caseNum) {
 
 	console.log(input);
 	console.log(caseNum);
+	console.log("OLD" +emailPreviewArray[currEm].caseNum);
 	
 	if (input == caseNum) {
 		console.log("INPUT AND CASE # MATCH. BEGIN HACK");
@@ -516,9 +518,15 @@ function caseCompare(input, caseNum) {
 		Hack.init(DIFF);
 		hackBool = true;
 		hackInter();
-		
-	//	caseNumOut = emailPreviewArray[currEm].splice(5,1);
+		console.log(temp);
+		// MAKES CASE NUM NULL SO CANT REHACK TARGETS
+		// (REMEMBER TO CLEAR CANVAS ONCE HACK IS DONE)
+		emailPreviewArray[currEm].caseNum = null;
+		temp.caseNum = null;
 	//	console.log("DELETED??" + emailPreviewArray[currEm]);
+		console.log("NEW" +emailPreviewArray[currEm].caseNum);
+		console.log("NEW" + emailPreviewArray[0].reportWin);
+		console.log(temp);
 		
 	} else {
 		console.log("INPUT AND CASE # DO NOT MATCH. NO HACK");
