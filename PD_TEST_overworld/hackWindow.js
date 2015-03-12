@@ -9,6 +9,7 @@
  */
 var canvas;
 var h;
+var hackMission = null;
 
 /*
  * DISPLAYS HACK INTERFACE 
@@ -95,9 +96,13 @@ var turns = {
 /* this function starts the hacking mechanic	 			 */
 /*************************************************************/
 Hack = {
-	init: function(difficulty) {
+	init: function(theData, difficulty) {
 		playerStats.init(genPlayer(playerStats.staticA, playerStats.staticD, playerStats.staticM));
 		enemyStats.init(genEnemy(difficulty));
+		
+		hackMission = theData['hackType'];
+		
+		enemyActions = enemyActions.concat(hackMission['enemySpecials']);
 		
 		/*
 		 *	initialize the display used to inform the player of what they are typing

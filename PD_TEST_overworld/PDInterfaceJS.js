@@ -459,7 +459,8 @@ var temp = {
 	reportLose:null,
 	index: null,
 	name:null,
-	diff:null
+	diff:null,
+	hackType:null
 };
 
 var currEm;
@@ -516,7 +517,7 @@ function caseCompare(input, caseNum) {
 		// GETS RID OF BACK BUTTON ((REMEMBER TO ADD BACK IN AFTER HACK IS OVER))
 		hackBack = document.getElementById('back1').style.display = "none";
 		
-		Hack.init(DIFF);
+		Hack.init(temp, DIFF);
 		hackBool = true;
 		hackInter();
 		console.log(temp);
