@@ -43,12 +43,13 @@
 	height: 600px;
 	font-family: courier;
 	vertical-align:middle;
-	background-color:#D7D7D7;
+	background-color:#D7D7D7;	
+	text-align:center;
 }
 
 #saveBack{
 	width:40px;
-	height:40px;	
+	height:40px;
 }
 
 #inputLoadName {
@@ -334,7 +335,7 @@ input#playName:focus {
     position:absolute;
     width:40px;
     height:40px;
-    left: 250px;
+    left: 140px;
     top:10px;
 }
 
@@ -347,11 +348,15 @@ input#playName:focus {
     margin-left:330px;
     font-family: "courier new";
    	z-index:50;
+   	/*
+    resize: both;
+    overflow: auto;
+    */
 }
 
-	#readmeHTML {
-		position: absolute;
-		top: 100px;
+#readmeHTML {
+	position: absolute;
+	top: 60px;
 	}
 
 #readmePopUp:hover {

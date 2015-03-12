@@ -20,10 +20,8 @@
 	</head>
 	<body>
 		<div id="mainMenu" class="html">
-			<!-- decorative stuff here (http://i.imgur.com/w4YMMb9.png?1) <- title draft (not using this one) -->
 			<div id="gameTitle">
 				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-				<!--<img id="title" src="http://i.imgur.com/w4YMMb9.png?1" width ="600" height = "120">-->
 			</div>
 			
 			<br>
@@ -53,11 +51,13 @@
 			)">
 			<br><br>
 
-			<input id="loadGame" type="button" value="Load Game" onclick="startGame(getElementById('inputLoadName').value)"> 
+			<input id="loadGame" type="button" value="Load Game" onclick="startGame(getElementById('inputLoadName').value), loadInter(), displayID(), dayClock.startClock();"> 
 			<input id="delGame" type="button" value="Delete Game"
 			onclick="deleteSave(getElementById('inputLoadName').value, confirm('Are you sure you want to delete this save?'));">
 			<br><br><br>
 			Previous Saves:
+			<!-- list prev saves here -->
+			
 			<!--<input type="button" value="Start Game"
 			onclick="loadInter(), displayID(), dayClock.startClock();"> -->
 		
@@ -112,7 +112,7 @@
 			<div id="workSpace"></div>
 			<div id = "toolbar" class="noselect">
 				<img id="messageIcon" class="icons,noselect" onclick="popup('messagePopUp')"onMouseUp = "changeZIndex('messagePopUp')" src="https://cdn4.iconfinder.com/data/icons/8-bit/160/bit-37-512.png">
-				<img id="terminalIcon" class="icons,noselect" onclick="popup('terminalPopUp')"onMouseUp="changeZIndex('terminalPopUp')" src="http://piq.codeus.net/static/media/userpics/piq_32116_400x400.png">
+				<!--<img id="terminalIcon" class="icons,noselect" onclick="popup('terminalPopUp')"onMouseUp="changeZIndex('terminalPopUp')" src="http://piq.codeus.net/static/media/userpics/piq_32116_400x400.png">-->
 				<img id="readmeIcon" class="icons,noselect" onclick="popup('readmePopUp')"onMouseUp="changeZIndex('readmePopUp')" src="http://piq.codeus.net/static/media/userpics/piq_32116_400x400.png">				
 				<div id = "cdiv">
 					<canvas id="canvas" width = "168" height = "60">
@@ -130,7 +130,7 @@
 							document.getElementById('gameCanvas').style.display = "none";
 							document.getElementById("dayEndSave").style.display = "block";
 						}
-						dayClock = new Clock(540,1020,this,nextDay);
+						dayClock = new Clock(540,560,this,nextDay);	//1020
 						morningHour = dayClock.startHour;
 						morningMin = dayClock.startMin;
 						dayClock.fontSize = 30;
@@ -178,7 +178,7 @@
 			</div>
 -->
 			<div id="readmePopUp" class= "noselect,popUp" onMouseDown = "changeZIndex('readmePopUp')" style="display:none">	
-				<iframe id="readmeHTML" src="README.html" top="100" height="195" width="345" frameborder="0"></iframe>
+				<iframe id="readmeHTML" src="README.html" height="240" width="345" frameborder="0"></iframe>
 				<img id="READMEX" onclick="toggle('readmePopUp')"src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/xButton_zpsloppcsbt.png">
 			</div>			
 

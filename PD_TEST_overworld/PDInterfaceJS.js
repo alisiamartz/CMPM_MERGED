@@ -63,11 +63,13 @@ $( "#messagePopUp" ).draggable({
 	});
 });
 
+/*
 $(function() {
 $( "#terminalPopUp" ).draggable({
 	containment: '#gameCanvas'
 	});
 });
+*/
 
 $(function() {
 $( "#readmePopUp" ).draggable({
@@ -98,7 +100,7 @@ function changeZIndex(id) {
 			document.getElementById(id).style.zIndex=50;
 			
             break;
-	
+	/*
 	    case "terminalPopUp":
 	        console.log("id is terminalPopUp");	     
 			document.getElementById("messagePopUp").style.zIndex --;
@@ -107,9 +109,9 @@ function changeZIndex(id) {
 			document.getElementById(id).style.zIndex=50;
 			console.log ("message index " + document.getElementById("messagePopUp").style.zIndex);
 	        break;
-	        
+	   */     
 	    case "readmePopUp":
-	    	console.log("id is terminalPopUp");	     
+	    	console.log("id is READMEPopUp");	     
 			document.getElementById("messagePopUp").style.zIndex --;
 			//document.getElementById("terminalPopUp").style.zIndex --;
 			document.getElementById("ipPopUp").style.zIndex -- ;
@@ -179,7 +181,7 @@ function cleardisplayID() {
 var stuff;
 var node2;
 var elmnt;
-	
+/*	
 function appendToTerminalWindow(){
 	stuff = document.createElement("p");
 	//node2 = document.createTextNode("this is the terminal window!!!");
@@ -187,7 +189,7 @@ function appendToTerminalWindow(){
 	//elmnt = document.getElementById("terminalPopUp");
 	//elmnt.appendChild(stuff);
 }
-
+*/
 
 var people1d = [];
 // TARGETS FOR TESTING 2 MAIN MISSIONS
@@ -325,7 +327,7 @@ function appendToEmail (emailPreviewArray) {
 
 //method calls
 appendToMessageWindow();
-appendToTerminalWindow();
+//appendToTerminalWindow();
 appendToEmail(emailPreviewArray);
 
 /******************************************************************
