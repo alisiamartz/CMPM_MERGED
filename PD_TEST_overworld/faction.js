@@ -58,7 +58,6 @@ function emailPreview( data ) {
 	this.index = data[7];
 	this.name = data[8];
 	this.diff = data[9];
-	this.factionChange = data[10];
 }
 function getData(emailNum) {
 	if (currentStats.theDay == 0) {
