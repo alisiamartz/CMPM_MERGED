@@ -17,6 +17,7 @@ faction = {
 	pos: 80,
 	updateFaction: function(num) {
 		this.pos += num;
+		console.log(this.pos);	//condition for debuggging
 		if (this.pos > 100) {this.pos = 100;}
 		else if (this.pos < 0) {this.pos = 0;}
 		if (this.pos >= 60 && this.pos <= 100) {
