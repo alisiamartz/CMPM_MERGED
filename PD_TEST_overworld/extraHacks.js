@@ -4,7 +4,7 @@ var hackMission = function () {
 	this.playerSpecials = {};
 	
 	// contains mission-specific enemy actions
-	this.enemySpecials = {};
+	this.enemySpecials = [];
 	
 	// contains mission-specific variables
 	this.specialVars = {};
@@ -19,6 +19,10 @@ var webcam = function () {
 var getDirt = function () {
 	
 	var outTask = new hackMission();
+	var dirtSetup = outTask.playerSpecials();
+	
+	
+	
 	return outTask;
 	
 };
@@ -37,14 +41,27 @@ var blackmail = function () {
 	
 	// Victory if 'SetUp' is true, otherwise instant fail
 	blackSetup['SEND'] = function () {
-		if (outTask.SpecialVars['SetUp'] = true) {
-			
+		if (outTask.SpecialVars['SetUp'] == true) {
+			outTask.SpecialVars['Sending'] = true;
 		} else {
-			
+			winLose.result(false);
 		}
 	};
 	
+	var theUpload = function () {
+		if (outTask.SpecialVars['Sending'] == true) {
+			winLose.result(true);
+		} else {
+			enemyActions[Math.floor(Math.random() * enemyActions.length)].call(enemyStats);			
+		}
+	};
+	
+	for(var i = 0; i < 3; i++) {
+		outTask.enemySpecials.push(theUpload);
+	}
+	
 	outTask.SpecialVars['SetUp'] = false;
+	outTask.SpecialVars['Sending'] = false;
 	
 	return outTask;
   
