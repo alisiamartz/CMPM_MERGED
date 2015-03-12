@@ -49,7 +49,11 @@ function incorrectDisplay() {
 	canvas = document.getElementById("hackCanvas");
 	h = canvas.getContext("2d");
 	h.font = "70px courier";
-	h.fillText("INCORRECT CODE. PLEASE SEARCH DATABASE", 20,190,550);
+	if (temp.caseNum == null) {
+		h.fillText("MISSION ATTEMPTED BEFORE", 20,190,550);
+	} else if (temp.caseNum != null) {
+		h.fillText("INCORRECT CODE. PLEASE SEARCH DATABASE", 20,190,550);
+	}
 }
 
 /*
