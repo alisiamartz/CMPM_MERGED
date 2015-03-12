@@ -51,16 +51,14 @@
 			)">
 			<br><br>
 
-			<input id="loadGame" type="button" value="Load Game" onclick="startGame(getElementById('inputLoadName').value), loadInter(), displayID(), dayClock.startClock();"> 
-			<input id="delGame" type="button" value="Delete Game"
+			<input id="loadGame" type="button" value="Load Save" onclick="startGame(getElementById('inputLoadName').value);"> 
+			<input id="delGame" type="button" value="Delete Save"
 			onclick="deleteSave(getElementById('inputLoadName').value, confirm('Are you sure you want to delete this save?'));">
-			<br><br><br>
-			Previous Saves:
+			<br><br>
+			<input id="startSave" type="button" value="Start Game" onclick="loadInter(), displayID(), dayClock.startClock();"> 
+				<br><br>
+					Previous Saves:
 			<!-- list prev saves here -->
-			
-			<!--<input type="button" value="Start Game"
-			onclick="loadInter(), displayID(), dayClock.startClock();"> -->
-		
 		</div>
 		<div id="beginCanvas" class="html"style="display:none">
 			<div id="welcome">
