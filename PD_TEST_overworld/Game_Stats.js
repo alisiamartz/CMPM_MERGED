@@ -22,8 +22,8 @@ var gameHackStats = function() {
   
   // Current day. Every week starts with Monday
   this.theDay = 0;
-  // positive numbers closer to government, negative numbers closer to freedom fighters
-  this.govAlignment = 30;
+  // higher numbers closer to government, lower numbers closer to freedom fighters
+  this.govAlignment = 80;
   // The hacker's hacking stats
   this.hackCrack = new crackStats(5, 5, 5, 5);
   

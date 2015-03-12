@@ -13,7 +13,7 @@ var hackMission = function () {
 
 
 var webcam = function () {
-  
+	
 };
 
 // Get Dirt: infiltrate a computer and download the desired material
