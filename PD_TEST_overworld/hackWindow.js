@@ -35,11 +35,15 @@ function hackInter() {
 	// Target Stat Display (atack, deff, mask)
 	h.fillText("ATCK "+ enemyStats.atck, 350, 140, 200);
 	h.fillText("DEF "+ enemyStats.def, 350, 180, 200);
-	h.fillText("MASK "+ enemyStats.sec, 350, 220, 200);
+	h.fillText("SEC "+ enemyStats.sec, 350, 220, 200);
 		
 	// Starts input
-	h.fillText("Input: ", 5, 300, 100);
-	h.fillText(input, 100, 300, 400);
+	h.fillText("Input: ", 5, 350, 100);
+	h.fillText(input, 100, 350, 400);
+	
+	if (turns.turnsBool == true) {
+		h.fillText("Turns Left: " + turns.turnsLeft, 100, 300, 200);
+	}
 }
 
 /*
@@ -80,6 +84,10 @@ var MIN_STATS = 1;
 var string = "";
 var DIFF = 30;
 var hackBool = false;
+var turns = {
+	turnsLeft: 0,
+	turnsBool: false
+}
 
 // THIS IS WHERE THE NEW HACKING STUFF WILL BE IMPLEMENTED
 
@@ -200,9 +208,14 @@ playerStats = {
 		if (theStat == 'def') this[theStat] -= deduct;
 		else this[theStat] -= deduct + Math.floor(Math.random() * deduct * DEDUCT_VAR);
 		if (this[theStat] < MIN_STATS) {
-			if (theStat == 'def' || theStat == 'mask') Hack.end();
+			if (theStat == 'def') {
+				Hack.end();
+				winLose.result(false);
+			} else if (theStat == 'mask' && turns.turnsBool == false) {
+				turns.turnsLeft = 5;
+				turns.turnsBool = true;
+			}
 			else this[theStat] = MIN_STATS;
-			winLose.result(false);
 		}
 	},
 	selfLwrAtck: function(deduct) {
@@ -248,8 +261,11 @@ enemyStats = {
 	statUp: function(theStat) {
 		if (this[theStat] >= 70) this[theStat] = Math.floor(this[theStat] * (INC_RATIO + (Math.random() / 5)));
 		else this[theStat] += MIN_INC;
-		if (theStat == 'sec') {
-			if (this[theStat] >= 100) Hack.end();
+		if (theStat == 'sec' && turns.turnsBool == false) {
+			if (this[theStat] >= 100) {
+				turns.turnsLeft = 5;
+				turns.turnsBool = true;
+			}
 		}
 	},
 	atckUp: function() {
@@ -283,9 +299,10 @@ enemyStats = {
 		if (theStat == 'def') this[theStat] -= deduct;
 		else this[theStat] -= deduct + Math.floor(Math.random() * deduct * DEDUCT_VAR);
 		if (this[theStat] < MIN_STATS) {
-			if (theStat == 'def') Hack.end();
-			else this[theStat] = MIN_STATS;
-			winLose.result(true);
+			if (theStat == 'def') {
+				Hack.end();
+				winLose.result(true);
+			} else this[theStat] = MIN_STATS;
 		}
 	},
 	intelligence: function() {
