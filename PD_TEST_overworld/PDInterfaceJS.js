@@ -91,7 +91,7 @@ function changeZIndex(id) {
 	    case "messagePopUp":
 	        console.log("id is messagePopUp");
 	        //change other window z index to 0
-			document.getElementById("terminalPopUp").style.zIndex --;
+			//document.getElementById("terminalPopUp").style.zIndex --;
 			document.getElementById("readmePopUp").style.zIndex -- ;
 			document.getElementById("ipPopUp").style.zIndex -- ;
 	    	//change z index to 1:
@@ -111,7 +111,7 @@ function changeZIndex(id) {
 	    case "readmePopUp":
 	    	console.log("id is terminalPopUp");	     
 			document.getElementById("messagePopUp").style.zIndex --;
-			document.getElementById("terminalPopUp").style.zIndex --;
+			//document.getElementById("terminalPopUp").style.zIndex --;
 			document.getElementById("ipPopUp").style.zIndex -- ;
 			document.getElementById(id).style.zIndex=50;
 	    	break;
@@ -119,7 +119,7 @@ function changeZIndex(id) {
 	    case "ipPopUp":
 	    	console.log("id is ipPopUp");
 	    	document.getElementById("messagePopUp").style.zIndex --;
-	    	document.getElementById("terminalPopUp").style.zIndex --;
+	    	//document.getElementById("terminalPopUp").style.zIndex --;
 	    	document.getElementById("readmePopUp").style.zIndex --;
 	    	document.getElementById(id).style.zIndex=50;
 	        break;
@@ -584,10 +584,3 @@ function testView(){
 	document.getElementById('dayEndReport').style.display = "block";
 	dayEndProgress();
 }
-
-/*
-function spliceTest() {
-	temp.splice(4,1);
-	console.log(temp);
-}
-*/

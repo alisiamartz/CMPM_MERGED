@@ -252,7 +252,7 @@ var progressReport = "";
 updateReport = {
 	reportNum: 1,	// reset to zero after displaying the string for that day
 	update: function(newStr) {
-		switch(this.reportNum) {	// needs to be called by email or some shit after a win or loss
+		switch(this.reportNum) {	// needs to be called by email or something after a win or loss
 			case 1:
 				if (newStr != " ") {
 					progressReport += "Earlier today ";
