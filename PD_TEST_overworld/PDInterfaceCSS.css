@@ -341,8 +341,8 @@ input#playName:focus {
 #readmePopUp {
     position:absolute;
     background: #eee;
-    width:600px;
-    height:500px;
+    width:350px;
+    height:300px;
     border:1px solid #333;
     margin-left:330px;
     font-family: "courier new";

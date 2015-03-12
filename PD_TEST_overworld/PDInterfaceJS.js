@@ -140,29 +140,34 @@ var pName;
 var pImg;
 
 // Function to display play id card to main interface (NOT INCLUDING FACTION AFFILIATION)
-function displayID() {	
-		pName = player[0];
-		pImg = player[1];
-		console.log(pName);
-		console.log(pImg);
-		seal = new Image();
-		seal.src = "http://i1377.photobucket.com/albums/ah47/PublicDomainGame/smallSeal_zpsvvhlslcv.png";
-		seal.onload = function() {
-			d.strokeStyle = 'black';
-			d.drawImage(seal, 15, 125, 90,60 );
-		};
-		playerImage = new Image();
-		playerImage.src = pImg;
-		playerImage.onload = function() {
-    		d.strokeStyle = 'black';
-   			d.drawImage(playerImage, 15, 15, 100,100); 
-		};	
-		d.font = "30px courier";
-		d.fillText(pName, 120, 40, 205);
-		d.fillText("NSS Hacker", 120, 70, 250);
-		d.fillText('GOV: (AFFILIATION HERE)', 120, 130, 205);
-		d.fillText('ANTI: (AFFILIATION HERE)', 120, 160, 205);
-		
+function displayID() {
+	pName = player[0];
+	pImg = player[1];
+	console.log(pName);
+	console.log(pImg);
+	seal = new Image();
+	seal.src = "http://i1377.photobucket.com/albums/ah47/PublicDomainGame/smallSeal_zpsvvhlslcv.png";
+	seal.onload = function() {
+		d.strokeStyle = 'black';
+		d.drawImage(seal, 15, 125, 90,60 );
+	};
+	playerImage = new Image();
+	playerImage.src = pImg;
+	playerImage.onload = function() {
+		d.strokeStyle = 'black';
+		d.drawImage(playerImage, 15, 15, 100,100); 
+	};	
+	d.font = "30px courier";
+	d.fillText(pName, 120, 40, 205);
+	d.fillText("NSS Hacker", 120, 70, 250);
+	d.fillText('GOV: ' + faction.gov, 120, 130, 205);
+	d.fillText('ANTI: ' + faction.antigov, 120, 160, 205);
+}
+function cleardisplayID() {
+	//canvasdisplayID = document.getElementById("playerID");
+	//hdisplayID = canvasdisplayID.getContext("2d");
+	d.clearRect(0,0,590,390);
+	console.log("playerID is cleared");
 }
 
 /******************************************************************

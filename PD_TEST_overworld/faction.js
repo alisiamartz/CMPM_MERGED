@@ -12,18 +12,22 @@
 //var HACK_WIN = false;
 var emailPreviewArray = [];
 faction = {
-	affiliation: "Government",
+	gov: "PARTY",
+	antigov: "",
 	pos: 80,
 	updateFaction: function(num) {
 		this.pos += num;
 		if (this.pos > 100) {this.pos = 100;}
 		else if (this.pos < 0) {this.pos = 0;}
 		if (this.pos >= 60 && this.pos <= 100) {
-			this.affiliation = "Government";
+			this.gov = "PARTY";
+			this.antigov = "";
 		} else if (this.pos >= 40 && this.pos < 60) {
-			this.affiliation = "Neutral";
+			this.gov = "NEUTRAL";
+			this.antigov = "NEUTRAL";
 		} else if (this.pos >= 0 && this.pos < 40) {
-			this.affiliation = "Anti-government";
+			this.gov = "";
+			this.antigov = "PARTY";
 		}
 	}
 };
@@ -143,7 +147,7 @@ function getData(emailNum) {
 			if (emailNum == 1) {
 				return ["Chief of NSS Fawn Murdok", "June 31", "END THE RESISTANCE", "We have caught up to you, hacker. There is no evidence on your involvement but we know you are being contacted by Beatrix Coutts. That means that you are in close proximity to Beatrix Coutts in one way or another. You can still redeem yourself by stopping the leader in his tracks. Open his case for dumping anthrax into our water networks and endangering our citizens.", "6056", "Win String", "Losing String", 1, "Beatrix Coutts"];
 			} else if (emailNum == 2) {
-				return ["Revolution Leader Beatrix Coutts", "June 31", "PIECE DE RESISTANCE", "The final piece to our coup. The world will understand that a government that disregards their citizens will only lose. We have provided you with the best equipments for this occasion and through thousands of join efforts, we only managed to give you the ability to target Fawn Murdok. The rest is up to you.", "6513", "Win String", "Losing String", 2, "Fawn Murdok"];
+				return ["Revolution Leader Beatrix Coutts", "June 31", "PIECE DE RESISTANCE", "We understand that you have to take down some of our own but we hope it's for the true greater good. The final piece to our coup. The world will understand that a government that disregards their citizens will only lose. We have provided you with the best equipments for this occasion and through thousands of join efforts, we only managed to give you the ability to target Fawn Murdok. The rest is up to you.", "6513", "Win String", "Losing String", 2, "Fawn Murdok"];
 			}
 		}
 	}

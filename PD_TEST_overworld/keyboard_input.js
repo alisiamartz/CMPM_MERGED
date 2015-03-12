@@ -67,8 +67,10 @@ addEventListener("keydown", function(e) {
 				&& input.length <= 12) {
 			input += lastKey;
 		}
-		clearCanvas();
-		hackInter();
+		if (hackBool == true) {
+			clearCanvas();
+			hackInter();
+		}
 	}
 	/*
 	 *	update the display for what is being typed to nothing
