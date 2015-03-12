@@ -107,6 +107,7 @@ Hack = {
 		string = "";
 		hackBack = document.getElementById('back1').style.display = "inline";
 		hackBool = false;
+		faction.updateFaction(temp.diff);
 	}
 };
 winLose = {
@@ -124,9 +125,13 @@ winLose = {
 		
 		h.font = "70px courier";
 		if (winBool == true) {
+			currentStats.winNum++;
 			h.fillText("SUCCESS", 165,150,250);
+			console.log("you have won " + currentStats.winNum + " times");
 		} else if (winBool == false) {
-			h.fillText("FAILURE", 165,150,250);
+			currentStats.caughtNum++;
+			h.fillText("CAUGHT", 165,150,250);
+			console.log("you have lost " + currentStats.caughtNum + " times");
 		}
 	},
 	end: function() {
