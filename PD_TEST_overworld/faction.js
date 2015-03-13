@@ -258,6 +258,7 @@ updateReport = {
 				if (newStr != " ") {
 					progressReport += "Earlier today ";
 					progressReport += newStr;
+					progressReport += " ";
 				}
 				this.reportNum++;
 				break;
@@ -265,6 +266,7 @@ updateReport = {
 				if (newStr != " ") {
 					progressReport += "Following that, ";
 					progressReport += newStr;
+					progressReport += " ";
 				}
 				this.reportNum++;
 				break;
@@ -272,6 +274,7 @@ updateReport = {
 				if (newStr != " ") {
 					progressReport += "Soon after, ";
 					progressReport += newStr;
+					progressReport += " ";
 				}
 				this.reportNum++;
 				break;
@@ -279,6 +282,7 @@ updateReport = {
 				if (newStr != " ") {
 					progressReport += "Not to mention that ";
 					progressReport += newStr;
+					progressReport += " ";
 				}
 				this.reportNum++;
 				break;
@@ -286,6 +290,7 @@ updateReport = {
 				if (newStr != " ") {
 					progressReport += "And to conclude today' report, we inform you that ";
 					progressReport += newStr;
+					progressReport += " ";
 				}
 				progressReport += "This has been your Daily Digest, farewell and good night friends!";
 				break;
