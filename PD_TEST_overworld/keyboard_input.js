@@ -132,7 +132,9 @@ addEventListener("keydown", function(e) {
 			}
 			enemyActions[Math.floor(Math.random() * enemyActions.length)].call(enemyStats);
 			input = "";
-			--turns.turnsLeft;
+			if (turns.turnsBool == true) {//<--------------------- swapped
+				--turns.turnsLeft;
+			}
 			if (turns.turnsLeft == 0 && turns.turnsBool == true) {
 				Hack.end();
 				winLose.result(false);
