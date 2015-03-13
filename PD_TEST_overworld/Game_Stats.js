@@ -200,12 +200,29 @@ console.log(document.cookie);
  */
 var saveNAMEdisplay;
 var pp;
-var nn;
+var n1;
+
+var splitSave;
+var emp;
 
 function displaySaveNames() {
+	// if saveNames[i][j] == undefined
+	// do not display/ print no save yet
 		pp = document.createElement("p");
-		nn = document.createTextNode("SAVE FILES HERE"+saveNames);
-		pp.appendChild(nn);
+		n1 = document.createTextNode(saveNames[0][0]);
+		emp = document.createTextNode("   |    ");
+		var emp2 = document.createTextNode("   |    ");
+		var n2 = document.createTextNode(saveNames[0][1]);
+		var n3 = document.createTextNode(saveNames[0][2]);
+		var n4 = document.createTextNode(saveNames[0][3]);
+		pp.appendChild(n1);
+		pp.appendChild(emp);
+		pp.appendChild(n2);
+		pp.appendChild(emp2);
+		pp.appendChild(n3);
 		saveNAMEdisplay = document.getElementById("displaySaves");
 		saveNAMEdisplay.appendChild(pp);
 }
+
+
+
