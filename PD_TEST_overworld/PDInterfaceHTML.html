@@ -25,14 +25,12 @@
 			</div>
 			
 			<br>
-			<input id="startNew" type="image" align="middle" src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/startNew_zps2qrvfebt.png" onclick="loadCustom();">
+			<input id="startNew" type="image" align="middle" src="images/startNewGameIcon.PNG" onclick="loadCustom();">
 			<br> <br>
-			<input id="loadSaves" type="image" align="middle" src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/savedGame_zps5ivzzffg.png" onclick="loadSaves();">
-<!-- WILL BE REMOVED, JUST DOING TO TEST -->
-		<!--<input type="button"onclick="testView();" > -->
+			<input id="loadSaves" type="image" align="middle" src="images/saveGameIcon.PNG" onclick="loadSaves();">
 		</div>
 		<div id="saveMenu" class="html" style="display:none">
-			<img id="saveBack" onclick="backMenu();" src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/backButton_zpspiaus68d.png">
+			<img id="saveBack" onclick="backMenu();" src="images/backButton.PNG">
 			<!-- decorative stuff here (http://i.imgur.com/w4YMMb9.png?1) <- title draft (not using this one) -->
 			<br><br><br>
 			Enter previous save file name here. <br><br>
@@ -87,8 +85,8 @@
 				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>  <!-- same reason here as above -->
 				Please confirm icon. <br>
 				<br><br><br><br><br><br><br><br><br><br>
-				<img id="picMale" onclick="savePic('picMale')" src="http://i.imgur.com/AAIQnbJ.jpg">
-				<img id="picFem" onclick="savePic('picFem')" src="http://i.imgur.com/NY7FQ05.jpg">
+				<img id="picMale" onclick="savePic('picMale')" src="images/playerMALE.jpg">
+				<img id="picFem" onclick="savePic('picFem')" src="images/playerFEMALE.jpg">
 			</div>
 			<br><br><br>
 			<div id="nameShow" class="playerInfo" style="display:none">
@@ -103,7 +101,7 @@
 			<div id="confirm" style="display:none" >
 				Continue to complete system login. <br>
 				<br>
-				<input id="enter" type="image" src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/confirm_zpsprsuz0ce.png"
+				<input id="enter" type="image" src="images/confirm.PNG"
 				onclick="loadInter(), displayID(), dayClock.startClock();">
 			</div>
 			<script src="playerCustom.js"></script>
@@ -115,9 +113,9 @@
 			<!--icons that will toggle pop ups-->
 			<div id="workSpace"></div>
 			<div id = "toolbar" class="noselect">
-				<img id="messageIcon" class="icons,noselect" onclick="popup('messagePopUp')"onMouseUp = "changeZIndex('messagePopUp')" src="https://cdn4.iconfinder.com/data/icons/8-bit/160/bit-37-512.png">
+				<img id="messageIcon" class="icons,noselect" onclick="popup('messagePopUp')"onMouseUp = "changeZIndex('messagePopUp')" src="images/databaseIcon.PNG">
 				<!--<img id="terminalIcon" class="icons,noselect" onclick="popup('terminalPopUp')"onMouseUp="changeZIndex('terminalPopUp')" src="http://piq.codeus.net/static/media/userpics/piq_32116_400x400.png">-->
-				<img id="readmeIcon" class="icons,noselect" onclick="popup('readmePopUp')"onMouseUp="changeZIndex('readmePopUp')" src="http://piq.codeus.net/static/media/userpics/piq_32116_400x400.png">				
+				<img id="readmeIcon" class="icons,noselect" onclick="popup('readmePopUp')"onMouseUp="changeZIndex('readmePopUp')" src="images/READMEicon.PNG">				
 				<div id = "cdiv">
 					<canvas id="canvas" width = "168" height = "60">
 						You shouldn't see this.
@@ -135,7 +133,7 @@
 							document.getElementById("dayEndSave").style.display = "block";
 						}
 
-						dayClock = new Clock(540,1020,this,nextDay);
+						dayClock = new Clock(540,960,this,nextDay);
 						morningHour = dayClock.startHour;
 						morningMin = dayClock.startMin;
 						dayClock.fontSize = 30;
@@ -158,7 +156,7 @@
 				<a name = "searchBox"></a>        
 				
 				<div class = "search" id = "searchBox"> Please enter your search as instructed:<br> FIRSTNAME LASTNAME. Case NOT sensitive.<br>
-					<img id="messageX" onclick="toggle('messagePopUp')"src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/xButton_zpsloppcsbt.png">
+					<img id="messageX" onclick="toggle('messagePopUp')"src="images/XButtonIcon.PNG">
 							
 					<input id="input" type="text" style="font:courier" maxlength="30">
 					<input type="button" id="btn" value="Search" onclick="saveInput(),window.location='#searchResult';">
@@ -167,10 +165,10 @@
 				<a name = "searchResult"></a>
 				
 				<div class = "search" id = "searchResult"> Results:
-					<img id="messageX" onclick="toggle('messagePopUp')"src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/xButton_zpsloppcsbt.png">
+					<img id="messageX" onclick="toggle('messagePopUp')"src="images/XButtonIcon.PNG">
 					<!-- TEMP!!! --> <br><br>
 
-					<img id = "back" onclick = "window.location ='#searchBox', clearResults(); clearNoResults();" src= "http://i1377.photobucket.com/albums/ah47/PublicDomainGame/backButton_zpspiaus68d.png">
+					<img id = "back" onclick = "window.location ='#searchBox', clearResults(); clearNoResults();" src= "images/backButton.PNG">
 					<br>
 					<img id ="personPic" >
 				</div>
@@ -179,12 +177,12 @@
 				<div id="hackDiv">
 				<!--	<iframe src = "hack.html" height="395" width="595" frameborder="0"></iframe> -->
 			<!--	</div>
-				<img id="terminalX" onclick="toggle('terminalPopUp')"src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/xButton_zpsloppcsbt.png">
+				<img id="terminalX" onclick="toggle('terminalPopUp')"src="images/XButtonIcon.PNG">
 			</div>
 -->
 			<div id="readmePopUp" class= "noselect,popUp" onMouseDown = "changeZIndex('readmePopUp')" style="display:none">	
 				<iframe id="readmeHTML" src="README.html" height="240" width="345" frameborder="0"></iframe>
-				<img id="READMEX" onclick="toggle('readmePopUp')"src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/xButton_zpsloppcsbt.png">
+				<img id="READMEX" onclick="toggle('readmePopUp')"src="images/XButtonIcon.PNG">
 			</div>			
 
 			<!-- HACK INITIALIZER -->
@@ -192,7 +190,7 @@
 				<a name="ipSearchBox"></a>
 				
 				<div class="search" id="ipSearchBox"> Please enter the code to begin hack. <br>
-					<img id="ipX" onclick="toggle('ipPopUp'), removePrevHack()"src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/xButton_zpsloppcsbt.png">
+					<img id="ipX" onclick="toggle('ipPopUp'), removePrevHack()"src="images/XButtonIcon.PNG">
 					<div id="targetName" class="info"></div> 
 					<input id="ipinput" type="text" style="font:courier" maxlength="30">	
 					<input type="button" id="btn" value="CONFIRM" style="font:courier"  onclick="caseCompare(ipinput.value, temp.caseNum), window.location='#ipSearchResult';">
@@ -204,9 +202,9 @@
 						<canvas id="hackCanvas" width="590"height="390"style="display:none">
 						</canvas>
 					</div>
-					<img id="ipX" onclick="toggle('ipPopUp'), removePrevHack()"src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/xButton_zpsloppcsbt.png"> 
+					<img id="ipX" onclick="toggle('ipPopUp'), removePrevHack()"src="images/XButtonIcon.PNG"> 
 					<br>
-					<img id="back1" onclick="clearCanvas(),window.location='#ipSearchBox'" src="http://i1377.photobucket.com/albums/ah47/PublicDomainGame/backButton_zpspiaus68d.png">
+					<img id="back1" onclick="clearCanvas(),window.location='#ipSearchBox'" src="images/backButton.PNG">
 				</div>
 			</div> 
 
@@ -234,44 +232,45 @@
 				<a name ="10"></a>
 				
 				<div class = "page" id = "10"> 
-					<img id = "back" onclick = "window.location ='#default', closeAttachment(), removePrevHack(),clearInput();" src= "http://i1377.photobucket.com/albums/ah47/PublicDomainGame/backButton_zpspiaus68d.png">
+					<img id = "back" onclick = "window.location ='#default', closeAttachment(), removePrevHack(),clearInput();" src= "images/backButton.PNG">
 				</div>
 				
 				<a name ="11"></a>
 				
 				<div class = "page" id = "11">
-					<img id = "back" onclick = "window.location ='#default', closeAttachment(), removePrevHack(),clearInput();" src= "http://i1377.photobucket.com/albums/ah47/PublicDomainGame/backButton_zpspiaus68d.png">
+					<img id = "back" onclick = "window.location ='#default', closeAttachment(), removePrevHack(),clearInput();" src= "images/backButton.PNG">
 				</div>
 				
 				<a name ="12"></a>
 				
 				<div class = "page" id = "12">
-					<img id = "back" onclick = "window.location ='#default', closeAttachment(), removePrevHack(), clearInput();" src= "http://i1377.photobucket.com/albums/ah47/PublicDomainGame/backButton_zpspiaus68d.png">
+					<img id = "back" onclick = "window.location ='#default', closeAttachment(), removePrevHack(), clearInput();" src= "images/backButton.PNG">
 				</div>
 				
 				<a name ="13"></a>
 				
 				<div class = "page" id = "13">
-					<img id = "back" onclick = "window.location ='#default', closeAttachment(), removePrevHack(), clearInput();" src= "http://i1377.photobucket.com/albums/ah47/PublicDomainGame/backButton_zpspiaus68d.png">
+					<img id = "back" onclick = "window.location ='#default', closeAttachment(), removePrevHack(), clearInput();" src= "images/backButton.PNG">
 				</div>
 				
 				<a name ="14"></a>
 				
 				<div class = "page" id = "14">
-					<img id = "back" onclick = "window.location ='#default', closeAttachment(), removePrevHack(), clearInput();" src= "http://i1377.photobucket.com/albums/ah47/PublicDomainGame/backButton_zpspiaus68d.png">
+					<img id = "back" onclick = "window.location ='#default', closeAttachment(), removePrevHack(), clearInput();" src= "images/backButton.PNG">
 				</div>
 				
 				<a name ="15"></a>
 				
 				<div class = "page" id = "15">
-					<img id = "back" onclick = "window.location ='#default', closeAttachment(), removePrevHack(), clearInput();" src= "http://i1377.photobucket.com/albums/ah47/PublicDomainGame/backButton_zpspiaus68d.png">
+					<img id = "back" onclick = "window.location ='#default', closeAttachment(), removePrevHack(), clearInput();" src= "images/backButton.PNG">
 				</div>
 			</div>
 		</div>
 		<!-- DAY END -->
 		<div id="dayEndReport" class="html" style="display:none">
-			<canvas id="endReport" height="550" width="500">
-			</canvas>
+			<div id="endRep" height="550" width="500">		
+				<img id="nextDay" src="images/confirm.PNG" onclick="newDay();">
+			</div>
 		</div>
 		
 		<div id="dayEndSave" class="html" style="display:none">
@@ -284,8 +283,8 @@
 			<br><br>
 			Do you want to save your game?
 			<br><br>
-			<input id="willSave" type="image" src="yes_icon.png" onclick="saveDay(dayClock);">
-			<input id="noSave" type="image" src="no_icon.png" onclick="saveDay(null), dayClock.startClock();">
+			<img id="willSave" src="images/yes_icon.png" onclick="saveDay(dayClock),endOfDayView(), updateEmailPreviewArray.clear(), updateEmailPreviewArray.init();">
+			<img id="noSave" src="images/no_icon.png" onclick="saveDay(null), dayClock.startClock(), endOfDayView(), updateEmailPreviewArray.clear(), updateEmailPreviewArray.init();">
 		</div>
 	</body>
 		<script src="extraHacks.js"></script>

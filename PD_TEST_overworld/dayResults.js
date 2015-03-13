@@ -24,10 +24,15 @@ function saveDay(gonnaSave) {
 
 }
 
-var cc = document.getElementById('endReport');
-var a = cc.getContext('2d');
+//var cc = document.getElementById('endReport');
+//var a = cc.getContext('2d');
+
+var parDisplay;
+var c1 = document.getElementById('endRep');
+var textDisplay;
 
 function dayEndProgress() {
+	/*
 	a.font = "100px courier";
 	a.fillText("DRA DAILY:", 10, 90,200 );
 	a.font = "70px courier";
@@ -40,17 +45,16 @@ function dayEndProgress() {
 	
 	a.font="60px courier";
 	a.fillStyle="#000000";
-	a.fillText("FIRST STORY HERE", 190, 150, 200);
+	a.fillText("TEEE" + progressReport, 190, 150, 600);
 	a.fillText("SECOND STORY HERE",20, 230, 200);
 	a.fillText("THIRD STORY HERE",190, 310, 200);
 	a.fillText("FOURTH STORY HERE",20, 390, 200);		
 	a.fillText("FIFTH STORY HERE",190, 470, 200);
+	*/
+	
+	parDisplay = document.createElement('p');
+	textDisplay = document.createTextNode(progressReport);
+	parDisplay.appendChild(textDisplay);
+	c1.appendChild(parDisplay);
 }
 
-
-// Appending progress as just one text box
-function dayEndAppend() {
-	
-	
-	
-}

@@ -586,7 +586,14 @@ function clearInput() {
 /*
  * TEST TO EASILY DESIGN WINDOW
  */
-function testView(){
+function endOfDayView(){
+	document.getElementById('gameCanvas').style.display = "none";
 	document.getElementById('dayEndReport').style.display = "block";
 	dayEndProgress();
+	currentStats.theDay += 1;
+}
+
+function newDay(){
+	document.getElementById('dayEndReport').style.display = "none";
+	document.getElementById('gameCanvas').style.display = "block";	
 }

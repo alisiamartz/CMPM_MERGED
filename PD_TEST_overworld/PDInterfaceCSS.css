@@ -9,7 +9,7 @@
 	width: 1000px;
 	height: 600px;
 	font-family: courier;
-	background-image: url("http://i.imgur.com/QltowUY.jpg");
+	background-image: url("images/MainMenu.jpg");
 }
 
 #title {
@@ -177,7 +177,7 @@ input#playName:focus {
 }
 
 #workSpace {
-	background-image: url("http://i.imgur.com/Klfzigd.jpg");
+	background-image: url("images/desktop.jpg");
 	position:absolute;
 	background-repeat: no-repeat;
     margin-left:330px;
@@ -238,10 +238,10 @@ input#playName:focus {
 /********* MESSAGE AND ITS PROPERTIES (NOW DATABASE)**************************/
 #messageIcon {
     position:absolute;
-    width:95px;
+    width:50px;
     height:50px;
     left:30px;
-    top:10px;
+    top:5px;
 }
 
 
@@ -323,7 +323,7 @@ input#playName:focus {
     position:absolute;
     width:40px;
     height:40px;
-    left: 140px;
+    left: 100px;
     top:10px;
 }
 
@@ -492,8 +492,9 @@ input#playName:focus {
 	text-align:center;
 	background-color:#D7D7D7;
 }
-
-#endReport {
+/*endReport*/
+#endRep {
+	top:200px;
 	border: 1px solid #000;
-	background-color:#98A4C8;
+	background-color:#eee;
 }
