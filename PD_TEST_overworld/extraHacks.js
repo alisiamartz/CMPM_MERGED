@@ -11,7 +11,6 @@ var hackMission = function () {
 	
 };
 
-
 var webcam = function () {
 	
 };
@@ -23,7 +22,7 @@ var webcam = function () {
 var dataOp = function (entAdd, entDel, entFind) {
 	
 	var outTask = new hackMission();
-	var dataEntActs = outTask.playerSpecials();
+	var dataEntActs = outTask.playerSpecials;
 	var entVars = outTask.specialVars;
 	
 	if (dirtAmount >= 4) {
@@ -41,7 +40,7 @@ var dataOp = function (entAdd, entDel, entFind) {
 var getDirt = function (dirtAmount) {
 	
 	var outTask = new hackMission();
-	var dirtSetup = outTask.playerSpecials();
+	var dirtSetup = outTask.playerSpecials;
 	var dirtVars = outTask.specialVars;
 	
 	dirtSetup['SEARCH'] = function () {
@@ -59,7 +58,7 @@ var getDirt = function (dirtAmount) {
 	};
 	
 	var theDownload = function () {
-		if (outTask.SpecialVars['download']) {
+		if (outTask.specialVars['download']) {
 			if (dirtVars['dirtLeft'] <= 0) {
 				winLose.result(true);
 			} else {
@@ -89,23 +88,23 @@ var getDirt = function (dirtAmount) {
 	
 };
 
-// Blackmail: set up an untracable connection, then send a blackmail message through it.
+// Upload: set up an untracable connection, then send a program, a blackmail message, incriminating data, some money, etc.  through it.
 // Similar to 'Get Dirt' except initial command features repetition and only one upload is needed
-var blackmail = function () {
+var uploadThing = function () {
 	
 	var outTask = new hackMission();
 	var blackSetup = outTask.playerSpecials;
 	
 	blackSetup['SETUP'] = function () {
 		if (Math.random() < 0.2) {
-			outTask.SpecialVars['SetUp'] = true;
+			outTask.specialVars['SetUp'] = true;
 		}
 	};
 	
 	// Delayed victory if 'SetUp' is true, otherwise instant fail
 	blackSetup['SEND'] = function () {
-		if (outTask.SpecialVars['SetUp']) {
-			outTask.SpecialVars['Sending'] = true;
+		if (outTask.specialVars['SetUp']) {
+			outTask.specialVars['Sending'] = true;
 		} else {
 			winLose.result(false);
 		}
@@ -113,8 +112,9 @@ var blackmail = function () {
 	
 	// Victory if 'Sending' is true, does other action otherwise
 	var theUpload = function () {
-		if (outTask.SpecialVars['Sending']) {
+		if (outTask.specialVars['Sending']) {
 			winLose.result(true);
+			outTask.specialVars['Sending'] = false;
 		} else {
 			enemyActions[Math.floor(Math.random() * enemyActions.length)].call(enemyStats);			
 		}
@@ -124,8 +124,8 @@ var blackmail = function () {
 		outTask.enemySpecials.push(theUpload);
 	}
 	
-	outTask.SpecialVars['SetUp'] = false;
-	outTask.SpecialVars['Sending'] = false;
+	outTask.specialVars['SetUp'] = false;
+	outTask.specialVars['Sending'] = false;
 	
 	return outTask;
   

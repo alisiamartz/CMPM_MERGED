@@ -9,6 +9,7 @@
  */
 var canvas;
 var h;
+var hackingTask = null;
 
 /*
  * DISPLAYS HACK INTERFACE 
@@ -36,6 +37,9 @@ function hackInter() {
 	h.fillText("ATCK "+ enemyStats.atck, 350, 140, 200);
 	h.fillText("DEF "+ enemyStats.def, 350, 180, 200);
 	h.fillText("SEC "+ enemyStats.sec, 350, 220, 200);
+	
+	// Special Stat Display
+	h.fillText(JSON.stringify(hackingTask['specialVars']), 50, 270);
 		
 	// Starts input
 	h.fillText("Input: ", 5, 350, 100);
@@ -95,9 +99,13 @@ var turns = {
 /* this function starts the hacking mechanic	 			 */
 /*************************************************************/
 Hack = {
-	init: function(difficulty) {
+	init: function(theData, difficulty) {
 		playerStats.init(genPlayer(playerStats.staticA, playerStats.staticD, playerStats.staticM));
 		enemyStats.init(genEnemy(difficulty));
+		
+		hackingTask = theData['hackType'];
+		
+		enemyActions = enemyActions.concat(hackingTask['enemySpecials']);
 		
 		/*
 		 *	initialize the display used to inform the player of what they are typing
@@ -126,10 +134,12 @@ winLose = {
 		h.font = "70px courier";
 		if (winBool == true) {
 			currentStats.winNum++;
+			updateReport.update(temp.reportWin);
 			h.fillText("SUCCESS", 165,150,250);
 			console.log("you have won " + currentStats.winNum + " times");
 		} else if (winBool == false) {
 			currentStats.caughtNum++;
+			updateReport.update(temp.reportLose);
 			h.fillText("CAUGHT", 165,150,250);
 			console.log("you have lost " + currentStats.caughtNum + " times");
 		}

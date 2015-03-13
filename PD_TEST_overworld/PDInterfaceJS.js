@@ -459,7 +459,8 @@ var temp = {
 	reportLose:null,
 	index: null,
 	name:null,
-	diff:null
+	diff:null,
+	hackType:null
 };
 
 var currEm;
@@ -479,6 +480,7 @@ function saveEcontent(index) {
 	temp.index = emailPreviewArray[index].index;
 	temp.name = emailPreviewArray[index].name;
 	temp.diff = emailPreviewArray[index].diff;
+	temp.hackType = emailPreviewArray[index].hackType.apply(emailPreviewArray[index], emailPreviewArray[index].hackParam);
 	currEm = index;
 	
 	// for testing
@@ -516,7 +518,7 @@ function caseCompare(input, caseNum) {
 		// GETS RID OF BACK BUTTON ((REMEMBER TO ADD BACK IN AFTER HACK IS OVER))
 		hackBack = document.getElementById('back1').style.display = "none";
 		
-		Hack.init(DIFF);
+		Hack.init(temp, DIFF);
 		hackBool = true;
 		hackInter();
 		console.log(temp);
