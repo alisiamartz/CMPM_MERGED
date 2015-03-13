@@ -131,10 +131,12 @@ winLose = {
 		h.font = "70px courier";
 		if (winBool == true) {
 			currentStats.winNum++;
+			updateReport.update(temp.reportWin);
 			h.fillText("SUCCESS", 165,150,250);
 			console.log("you have won " + currentStats.winNum + " times");
 		} else if (winBool == false) {
 			currentStats.caughtNum++;
+			updateReport.update(temp.reportLose);
 			h.fillText("CAUGHT", 165,150,250);
 			console.log("you have lost " + currentStats.caughtNum + " times");
 		}
