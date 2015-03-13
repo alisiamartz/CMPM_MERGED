@@ -159,11 +159,14 @@ function displayID() {
 		d.strokeStyle = 'black';
 		d.drawImage(playerImage, 15, 15, 100,100); 
 	};	
-	d.font = "30px courier";
-	d.fillText(pName, 120, 40, 205);
-	d.fillText("NSS Hacker", 120, 70, 250);
-	d.fillText('GOV: ' + faction.gov, 120, 130, 205);
-	d.fillText('ANTI: ' + faction.antigov, 120, 160, 205);
+	d.font = "24px courier";
+    	//d.textAlign = 'center';
+    	//d.textAlign = 'left';
+	d.fillText(pName.toUpperCase(), 130, 60, 180);	//250
+	d.fillText("NSS HACKER", 130, 90, 190);
+	d.fillText('GOV: ' + faction.gov, 130, 152, 180);
+	//d.fillText('ANTI: ' + faction.antigov, 130, 182, 180);
+	d.fillText('ANTI: NEUTRAL', 130, 182, 180);
 }
 function cleardisplayID() {
 	//canvasdisplayID = document.getElementById("playerID");
