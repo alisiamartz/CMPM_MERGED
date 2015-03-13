@@ -39,7 +39,7 @@ function hackInter() {
 	h.fillText("SEC "+ enemyStats.sec, 350, 220, 200);
 	
 	// Special Stat Display
-	h.fillText(JSON.stringify(hackingTask['specialVars']), 50, 270);
+	h.fillText(JSON.stringify(hackingTask['specialVars']), 5, 270);
 		
 	// Starts input
 	h.fillText("Input: ", 5, 350, 100);
@@ -132,6 +132,9 @@ winLose = {
 		h = canvas.getContext("2d");
 		
 		h.font = "70px courier";
+		if (turns.turnsBool == true) {
+			turns.turnsBool = false;
+		}
 		if (winBool == true) {
 			currentStats.winNum++;
 			updateReport.update(temp.reportWin);
