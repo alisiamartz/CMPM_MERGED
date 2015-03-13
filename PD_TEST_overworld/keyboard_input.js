@@ -128,7 +128,12 @@ addEventListener("keydown", function(e) {
 				playerStats.enemyLwrSec();
 				//condition to increase enemy stat depending on player stat
 			} else {
-				hackingTask.playerSpecials[input].call(playerStats);
+				try {
+					hackingTask.playerSpecials[input].call(playerStats);
+				} catch (err) {
+					alert("Command does not exist");
+					console.log(err.message);
+				}
 			}
 			enemyActions[Math.floor(Math.random() * enemyActions.length)].call(enemyStats);
 			input = "";
