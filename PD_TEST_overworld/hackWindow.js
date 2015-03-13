@@ -9,7 +9,7 @@
  */
 var canvas;
 var h;
-var hackMission = null;
+var hackingTask = null;
 
 /*
  * DISPLAYS HACK INTERFACE 
@@ -37,6 +37,9 @@ function hackInter() {
 	h.fillText("ATCK "+ enemyStats.atck, 350, 140, 200);
 	h.fillText("DEF "+ enemyStats.def, 350, 180, 200);
 	h.fillText("SEC "+ enemyStats.sec, 350, 220, 200);
+	
+	// Special Stat Display
+	h.fillText(JSON.stringify(hackingTask['specialVars']), 50, 270);
 		
 	// Starts input
 	h.fillText("Input: ", 5, 350, 100);
@@ -100,9 +103,9 @@ Hack = {
 		playerStats.init(genPlayer(playerStats.staticA, playerStats.staticD, playerStats.staticM));
 		enemyStats.init(genEnemy(difficulty));
 		
-		hackMission = theData['hackType'];
+		hackingTask = theData['hackType'];
 		
-		enemyActions = enemyActions.concat(hackMission['enemySpecials']);
+		enemyActions = enemyActions.concat(hackingTask['enemySpecials']);
 		
 		/*
 		 *	initialize the display used to inform the player of what they are typing

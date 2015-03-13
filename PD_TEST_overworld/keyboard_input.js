@@ -128,7 +128,7 @@ addEventListener("keydown", function(e) {
 				playerStats.enemyLwrSec();
 				//condition to increase enemy stat depending on player stat
 			} else {
-				hackMission[input].call(playerStats);
+				hackingTask.playerSpecials[input].call(playerStats);
 			}
 			enemyActions[Math.floor(Math.random() * enemyActions.length)].call(enemyStats);
 			input = "";
