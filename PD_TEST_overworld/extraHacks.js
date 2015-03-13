@@ -60,6 +60,7 @@ var getDirt = function (dirtAmount) {
 	var theDownload = function () {
 		if (outTask.specialVars['download']) {
 			if (dirtVars['dirtLeft'] <= 0) {
+				Hack.end();
 				winLose.result(true);
 			} else {
 				dirtVars['download'] = false;
@@ -106,6 +107,7 @@ var uploadThing = function () {
 		if (outTask.specialVars['SetUp']) {
 			outTask.specialVars['Sending'] = true;
 		} else {
+			Hack.end();
 			winLose.result(false);
 		}
 	};
@@ -113,8 +115,9 @@ var uploadThing = function () {
 	// Victory if 'Sending' is true, does other action otherwise
 	var theUpload = function () {
 		if (outTask.specialVars['Sending']) {
+			Hack.end();
 			winLose.result(true);
-			outTask.specialVars['Sending'] = false;
+			// outTask.specialVars['Sending'] = false;
 		} else {
 			enemyActions[Math.floor(Math.random() * enemyActions.length)].call(enemyStats);			
 		}
