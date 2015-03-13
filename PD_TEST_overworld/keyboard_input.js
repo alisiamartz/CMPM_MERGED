@@ -131,7 +131,6 @@ addEventListener("keydown", function(e) {
 				try {
 					hackingTask.playerSpecials[input].call(playerStats);
 				} catch (err) {
-					alert("Command does not exist");
 					console.log(err.message);
 				}
 			}
