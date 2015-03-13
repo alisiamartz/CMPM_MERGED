@@ -46,3 +46,11 @@ function dayEndProgress() {
 	a.fillText("FOURTH STORY HERE",20, 390, 200);		
 	a.fillText("FIFTH STORY HERE",190, 470, 200);
 }
+
+
+// Appending progress as just one text box
+function dayEndAppend() {
+	
+	
+	
+}
