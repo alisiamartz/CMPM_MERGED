@@ -89,9 +89,9 @@ var getDirt = function (dirtAmount) {
 	
 };
 
-// Blackmail: set up an untracable connection, then send a blackmail message through it.
+// Upload: set up an untracable connection, then send a program, a blackmail message, incriminating data, some money, etc.  through it.
 // Similar to 'Get Dirt' except initial command features repetition and only one upload is needed
-var blackmail = function () {
+var uploadThing = function () {
 	
 	var outTask = new hackMission();
 	var blackSetup = outTask.playerSpecials;

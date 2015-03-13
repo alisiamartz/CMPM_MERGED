@@ -480,7 +480,7 @@ function saveEcontent(index) {
 	temp.index = emailPreviewArray[index].index;
 	temp.name = emailPreviewArray[index].name;
 	temp.diff = emailPreviewArray[index].diff;
-	temp.hackType = emailPreviewArray[index].hackType();
+	temp.hackType = emailPreviewArray[index].hackType.apply(emailPreviewArray[index], emailPreviewArray[index].hackParam);
 	currEm = index;
 	
 	// for testing
