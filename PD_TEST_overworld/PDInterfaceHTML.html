@@ -21,6 +21,7 @@
 	<body>
 		<div id="mainMenu" class="html">
 			<div id="gameTitle">
+				<!-- for some reason, vertical-align doesn't work. if solution found, then i will fix -->
 				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 			</div>
 			
@@ -66,7 +67,8 @@
 		</div>
 		<div id="beginCanvas" class="html"style="display:none">
 			<div id="welcome">
-				<br><br><br><br><br><br><br><br><br><br><br><br>	<!-- for some reason, vertical-align doesn't work. if solution found, then i will fix -->
+				<!-- for some reason, vertical-align doesn't work. if solution found, then i will fix -->
+				<br><br><br><br><br><br><br><br><br><br><br><br>
 				Welcome to the DRA Government Database.
 				<br><br>
 				Please type in your username.
@@ -82,7 +84,8 @@
 				<br>
 			</div>
 			<div id="picChoose" class="playerImage" style="display:none">
-				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>  <!-- same reason here as above -->
+				<!-- for some reason, vertical-align doesn't work. if solution found, then i will fix -->
+				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
 				Please confirm icon. <br>
 				<br><br><br><br><br><br><br><br><br><br>
 				<img id="picMale" onclick="savePic('picMale')" src="images/playerMALE.jpg">
@@ -166,20 +169,14 @@
 				
 				<div class = "search" id = "searchResult"> Results:
 					<img id="messageX" onclick="toggle('messagePopUp')"src="images/XButtonIcon.PNG">
-					<!-- TEMP!!! --> <br><br>
+					 <br><br>
 
 					<img id = "back" onclick = "window.location ='#searchBox', clearResults(); clearNoResults();" src= "images/backButton.PNG">
 					<br>
 					<img id ="personPic" >
 				</div>
 			</div>
-			<!--<div id="terminalPopUp" class = "noselect,popUp" onMouseDown="changeZIndex('terminalPopUp')" style="display:none">
-				<div id="hackDiv">
-				<!--	<iframe src = "hack.html" height="395" width="595" frameborder="0"></iframe> -->
-			<!--	</div>
-				<img id="terminalX" onclick="toggle('terminalPopUp')"src="images/XButtonIcon.PNG">
-			</div>
--->
+			
 			<div id="readmePopUp" class= "noselect,popUp" onMouseDown = "changeZIndex('readmePopUp')" style="display:none">	
 				<iframe id="readmeHTML" src="README.html" height="240" width="345" frameborder="0"></iframe>
 				<img id="READMEX" onclick="toggle('readmePopUp')"src="images/XButtonIcon.PNG">

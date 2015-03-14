@@ -589,8 +589,9 @@ function clearInput() {
 function endOfDayView(){
 	document.getElementById('gameCanvas').style.display = "none";
 	document.getElementById('dayEndReport').style.display = "block";
-	dayEndProgress();
 	currentStats.theDay += 1;
+	DIFF +=3;
+	dayEndProgress();
 }
 
 function newDay(){

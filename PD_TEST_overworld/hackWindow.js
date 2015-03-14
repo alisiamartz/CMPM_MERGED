@@ -86,7 +86,7 @@ var MIN_STATS = 1;
 
 // CHANGING VARIABLES
 var string = "";
-var DIFF = 30;
+var DIFF = 40;	//increments by 3 everyday
 var hackBool = false;
 var turns = {
 	turnsLeft: 0,

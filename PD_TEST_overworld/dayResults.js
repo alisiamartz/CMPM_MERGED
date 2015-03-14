@@ -24,34 +24,11 @@ function saveDay(gonnaSave) {
 
 }
 
-//var cc = document.getElementById('endReport');
-//var a = cc.getContext('2d');
-
 var parDisplay;
 var c1 = document.getElementById('endRep');
 var textDisplay;
 
 function dayEndProgress() {
-	/*
-	a.font = "100px courier";
-	a.fillText("DRA DAILY:", 10, 90,200 );
-	a.font = "70px courier";
-	a.fillText("Our Nation Today", 230, 80, 200);
-	a.fillRect(10,120, 170,30);
-	
-	a.fillStyle="#eeeeee";
-	a.font ="30px courier";
-	a.fillText("DATE HERE",20, 145,150);
-	
-	a.font="60px courier";
-	a.fillStyle="#000000";
-	a.fillText("TEEE" + progressReport, 190, 150, 600);
-	a.fillText("SECOND STORY HERE",20, 230, 200);
-	a.fillText("THIRD STORY HERE",190, 310, 200);
-	a.fillText("FOURTH STORY HERE",20, 390, 200);		
-	a.fillText("FIFTH STORY HERE",190, 470, 200);
-	*/
-	
 	parDisplay = document.createElement('p');
 	textDisplay = document.createTextNode(progressReport);
 	parDisplay.appendChild(textDisplay);
