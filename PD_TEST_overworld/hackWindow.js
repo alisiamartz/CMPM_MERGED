@@ -39,9 +39,11 @@ function hackInter() {
 	h.fillText("SEC "+ enemyStats.sec, 350, 220, 200);
 	
 	// Special Stat Display
+	h.font = "12px courier";
 	h.fillText(JSON.stringify(hackingTask['specialVars']), 5, 270);
 		
 	// Starts input
+	h.font = "30px courier";
 	h.fillText("Input: ", 5, 350, 100);
 	h.fillText(input, 100, 350, 400);
 	
@@ -105,7 +107,7 @@ Hack = {
 		
 		hackingTask = theData['hackType'];
 		
-		enemyActions = enemyActions.concat(hackingTask['enemySpecials']);
+		enemyActions = enemyType(hackingTask['enemySpecials']);
 		
 		/*
 		 *	initialize the display used to inform the player of what they are typing
@@ -364,14 +366,20 @@ enemyStats = {
 	}
 };
 
-var enemyActions = [
+// enSpecial: special actions to give enemy
+var enemyType = function (enSpecial) {
+	outArrrrr = [
 	enemyStats['atckUp'],
 	enemyStats['defUp'],
 	enemyStats['secUp'],
 	enemyStats['enemyLwrAtck'],
 	enemyStats['enemyLwrDef'],
 	enemyStats['enemyLwrMsk']
-];
-for (var i = 0; i < 5; i++) {
-	enemyActions.push(enemyStats['intelligence']);
-}
+	];
+	for (var i = 0; i < 5; i++) {
+		outArrrrr.push(enemyStats['intelligence']);
+	}
+	outArrrrr = outArrrrr.concat(enSpecial);
+	return outArrrrr;
+};
+var enemyActions = enemyType([]);
