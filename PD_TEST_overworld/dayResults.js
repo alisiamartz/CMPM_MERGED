@@ -32,6 +32,7 @@ function dayEndProgress() {
 	parDisplay = document.createElement('p');
 	textDisplay = document.createTextNode(progressReport);
 	parDisplay.appendChild(textDisplay);
+	DIFF += 5;
 	c1.appendChild(parDisplay);
 }
 
