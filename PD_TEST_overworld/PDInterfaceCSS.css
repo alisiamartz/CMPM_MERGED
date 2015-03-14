@@ -1,5 +1,28 @@
 /******** STYLIZING ALL THE ELEMENTS. POSITIONAL STUFF, STYLE PROPERTIES, ETC*************/
 
+/******************************** QUOUTE TRANSITION *******************************/
+
+#quote {
+	background-color:#000000;
+	position:absolute;
+	border: 1px solid #000;
+	width: 1000px;
+	height: 600px;
+	opacity: 0;
+    font-size: 50px;
+    text-align: center;
+	color:#FFFFFF;
+    -webkit-transition: opacity 6s ease-in;
+    -moz-transition: opacity 6s ease-in;
+    -o-transition: opacity 6s ease-in;
+    -ms-transition: opacity 6s ease-in;
+    transition: opacity 6s ease-in;
+}
+
+#quote p.load {
+	opacity: 1;
+}
+
 /******************************** MAIN MENU *******************************/
 
 #mainMenu {
@@ -12,27 +35,20 @@
 	background-image: url("images/MainMenu.jpg");
 }
 
-#title {
-	top:100px;
-	vertical-align:50px;
-	margin-left: 240px;	
-	
-}
-
 #startNew {
-	margin-left: 420px;
-	top:300px;
+	position:absolute;
+	margin-left: 300px;
 	width:220px;
-	height:50px;
-	
+	height:55px;
+	margin-top:340px;
 }
 
 #loadSaves {
-	margin-left: 420px;	
-	top:300px;
+	position:absolute;
+	margin-left: 500px;	
 	width:220px;
 	height:50px;
-	
+	margin-top:342px;
 }
 /******************************** Save Screen *******************************/
 #saveMenu {

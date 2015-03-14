@@ -1,8 +1,6 @@
 /**
- * @author jy, am
+ * // JS: INTERNAL STRUCTURES, CONTENT, "EVENTS" WHEN PLAYER INTERACTS WITH INTERFACE //
  */
-
-// JS: INTERNAL STRUCTURES, CONTENT, "EVENTS" WHEN PLAYER INTERACTS WITH INTERFACE //
 
 /******************************************************************
  * functions that dictate how windows are toggled 
@@ -62,14 +60,6 @@ $( "#messagePopUp" ).draggable({
 	containment: '#gameCanvas'
 	});
 });
-
-/*
-$(function() {
-$( "#terminalPopUp" ).draggable({
-	containment: '#gameCanvas'
-	});
-});
-*/
 
 $(function() {
 $( "#readmePopUp" ).draggable({
@@ -169,8 +159,6 @@ function displayID() {
 	d.fillText('ANTI: NEUTRAL', 130, 182, 180);
 }
 function cleardisplayID() {
-	//canvasdisplayID = document.getElementById("playerID");
-	//hdisplayID = canvasdisplayID.getContext("2d");
 	d.clearRect(0,0,590,390);
 	console.log("playerID is cleared");
 }
@@ -582,10 +570,7 @@ function clearInput() {
 	userIn = document.getElementById('ipinput');
 	userIn.value = "";
 }
-
-/*
- * TEST TO EASILY DESIGN WINDOW
- */
+/***************** DAY CHANGING *****************/
 function endOfDayView(){
 	document.getElementById('gameCanvas').style.display = "none";
 	document.getElementById('dayEndReport').style.display = "block";
@@ -597,4 +582,11 @@ function endOfDayView(){
 function newDay(){
 	document.getElementById('dayEndReport').style.display = "none";
 	document.getElementById('gameCanvas').style.display = "block";	
+}
+
+
+function loadMenu() {
+	document.getElementById('quoteTrans').style.display = "none";	
+	document.getElementById('gameCanvas').style.display = "block";	
+	
 }

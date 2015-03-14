@@ -107,7 +107,7 @@
 			};	
 			c.font = "30px courier";
 			c.fillText(name, 130, 40, 250);
-			c.fillText("NSS Hacker", 130, 70, 250);
+			c.fillText("National Security Service Hacker", 130, 70, 269);
 		}
 
 // Loads main game interface, with name and img as parameters
