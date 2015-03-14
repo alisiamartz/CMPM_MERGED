@@ -16,18 +16,26 @@
 		<script src="jquery-ui.js"></script>
 		<script src="jquery.jWebAudio.js"></script>
 		
-		<!-- Date: 2015-02-10 -->
+		<!-- Date: 2015-03-13 -->
 	</head>
 	<body>
 		<div id="mainMenu" class="html">
-			<div id="gameTitle">
-				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<div id="quoteTrans">
+				<div id="quote">
+					<br><br><br><br>
+						"I have no regrets." <br> <br>
+						      - Edward Snowden
+					<script>
+					$("#quoteTrans p").addClass("load");
+					</script>
+				</div>
 			</div>
-			
-			<br>
-			<input id="startNew" type="image" align="middle" src="images/startNewGameIcon.PNG" onclick="loadCustom();">
-			<br> <br>
-			<input id="loadSaves" type="image" align="middle" src="images/saveGameIcon.PNG" onclick="loadSaves();">
+			<div id="gameTitle">
+				<div id="menuChoices">
+					<input id="startNew" type="image" align="middle" src="images/startNewGameIcon.PNG" onclick="loadCustom();">
+					<input id="loadSaves" type="image" align="middle" src="images/saveGameIcon.PNG" onclick="loadSaves();">
+				</div>
+			</div>
 		</div>
 		<div id="saveMenu" class="html" style="display:none">
 			<img id="saveBack" onclick="backMenu();" src="images/backButton.PNG">
@@ -66,8 +74,9 @@
 		</div>
 		<div id="beginCanvas" class="html"style="display:none">
 			<div id="welcome">
-				<br><br><br><br><br><br><br><br><br><br><br><br>	<!-- for some reason, vertical-align doesn't work. if solution found, then i will fix -->
-				Welcome to the DRA Government Database.
+				<!-- for some reason, vertical-align doesn't work. if solution found, then i will fix -->
+				<br><br><br><br><br><br><br><br><br><br><br><br>
+				Welcome to the Democratic Republic of Americk Government Database.
 				<br><br>
 				Please type in your username.
 				<br><br>
@@ -82,7 +91,8 @@
 				<br>
 			</div>
 			<div id="picChoose" class="playerImage" style="display:none">
-				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>  <!-- same reason here as above -->
+				<!-- for some reason, vertical-align doesn't work. if solution found, then i will fix -->
+				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
 				Please confirm icon. <br>
 				<br><br><br><br><br><br><br><br><br><br>
 				<img id="picMale" onclick="savePic('picMale')" src="images/playerMALE.jpg">
@@ -133,7 +143,7 @@
 							document.getElementById("dayEndSave").style.display = "block";
 						}
 
-						dayClock = new Clock(540,960,this,nextDay);
+						dayClock = new Clock(720,1020,this,nextDay);
 						morningHour = dayClock.startHour;
 						morningMin = dayClock.startMin;
 						dayClock.fontSize = 30;
@@ -166,21 +176,15 @@
 				
 				<div class = "search" id = "searchResult"> Results:
 					<img id="messageX" onclick="toggle('messagePopUp')"src="images/XButtonIcon.PNG">
-					<!-- TEMP!!! --> <br><br>
+					 <br><br>
 
 					<img id = "back" onclick = "window.location ='#searchBox', clearResults(); clearNoResults();" src= "images/backButton.PNG">
 					<br>
 					<img id ="personPic" >
 				</div>
 			</div>
-			<!--<div id="terminalPopUp" class = "noselect,popUp" onMouseDown="changeZIndex('terminalPopUp')" style="display:none">
-				<div id="hackDiv">
-				<!--	<iframe src = "hack.html" height="395" width="595" frameborder="0"></iframe> -->
-			<!--	</div>
-				<img id="terminalX" onclick="toggle('terminalPopUp')"src="images/XButtonIcon.PNG">
-			</div>
--->
-			<div id="readmePopUp" class= "noselect,popUp" onMouseDown = "changeZIndex('readmePopUp')" style="display:none">	
+			<!-- README is automaticall up when desktop is open -->
+			<div id="readmePopUp" class= "noselect,popUp" onMouseDown = "changeZIndex('readmePopUp')">	
 				<iframe id="readmeHTML" src="README.html" height="240" width="345" frameborder="0"></iframe>
 				<img id="READMEX" onclick="toggle('readmePopUp')"src="images/XButtonIcon.PNG">
 			</div>			
