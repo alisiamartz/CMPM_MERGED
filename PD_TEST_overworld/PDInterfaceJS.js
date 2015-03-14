@@ -243,6 +243,7 @@ function appendToIpPopUp() {
 
 console.log(emailPreviewArray + "THIS EMAIL PREV");
 // everything beneath this line is just for debugging purposes
+appendToEmail(emailPreviewArray);
 printEmails(emailPreviewArray);
 updateEmailPreviewArray.init();
 
