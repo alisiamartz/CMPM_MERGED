@@ -138,7 +138,7 @@ function displayID() {
 	console.log(pName);
 	console.log(pImg);
 	seal = new Image();
-	seal.src = "http://i1377.photobucket.com/albums/ah47/PublicDomainGame/smallSeal_zpsvvhlslcv.png";
+	seal.src = "images/sealIcon.PNG";
 	seal.onload = function() {
 		d.strokeStyle = 'black';
 		d.drawImage(seal, 15, 125, 90,60 );
