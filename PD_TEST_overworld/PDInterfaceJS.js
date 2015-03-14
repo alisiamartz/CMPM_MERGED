@@ -319,7 +319,6 @@ function appendToEmail (emailPreviewArray) {
 //method calls
 appendToMessageWindow();
 //appendToTerminalWindow();
-appendToEmail(emailPreviewArray);
 
 /******************************************************************
  * Keeps track of which email is being clicked and targetInfo being appended to screen
