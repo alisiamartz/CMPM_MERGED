@@ -37,6 +37,7 @@ updateEmailPreviewArray = {
 		for(var i = 1; i <= 5; i++) {
 			emailPreviewArray.push(new emailPreview(getData(i)));
 		}
+		appendToEmail(emailPreviewArray);
 	},
 	updateReport: function(winBool) {
 		//<--------------------------------------------- called by the winLose function
