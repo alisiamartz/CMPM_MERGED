@@ -83,27 +83,16 @@ function changeZIndex(id) {
 	    case "messagePopUp":
 	        console.log("id is messagePopUp");
 	        //change other window z index to 0
-			//document.getElementById("terminalPopUp").style.zIndex --;
 			document.getElementById("readmePopUp").style.zIndex -- ;
 			document.getElementById("ipPopUp").style.zIndex -- ;
 	    	//change z index to 1:
 			document.getElementById(id).style.zIndex=50;
 			
             break;
-	/*
-	    case "terminalPopUp":
-	        console.log("id is terminalPopUp");	     
-			document.getElementById("messagePopUp").style.zIndex --;
-			document.getElementById("readmePopUp").style.zIndex --;
-			document.getElementById("ipPopUp").style.zIndex -- ;
-			document.getElementById(id).style.zIndex=50;
-			console.log ("message index " + document.getElementById("messagePopUp").style.zIndex);
-	        break;
-	   */     
+  
 	    case "readmePopUp":
 	    	console.log("id is READMEPopUp");	     
 			document.getElementById("messagePopUp").style.zIndex --;
-			//document.getElementById("terminalPopUp").style.zIndex --;
 			document.getElementById("ipPopUp").style.zIndex -- ;
 			document.getElementById(id).style.zIndex=50;
 	    	break;
@@ -111,7 +100,6 @@ function changeZIndex(id) {
 	    case "ipPopUp":
 	    	console.log("id is ipPopUp");
 	    	document.getElementById("messagePopUp").style.zIndex --;
-	    	//document.getElementById("terminalPopUp").style.zIndex --;
 	    	document.getElementById("readmePopUp").style.zIndex --;
 	    	document.getElementById(id).style.zIndex=50;
 	        break;
@@ -150,13 +138,11 @@ function displayID() {
 		d.drawImage(playerImage, 15, 15, 100,100); 
 	};	
 	d.font = "24px courier";
-    	//d.textAlign = 'center';
-    	//d.textAlign = 'left';
 	d.fillText(pName.toUpperCase(), 130, 60, 180);	//250
 	d.fillText("NSS HACKER", 130, 90, 190);
 	d.fillText('GOV: ' + faction.gov, 130, 152, 180);
-	//d.fillText('ANTI: ' + faction.antigov, 130, 182, 180);
-	d.fillText('ANTI: NEUTRAL', 130, 182, 180);
+	d.fillText('ANTI: ' + faction.antigov, 130, 182, 180);
+	//d.fillText('ANTI: NEUTRAL', 130, 182, 180);
 }
 function cleardisplayID() {
 	d.clearRect(0,0,590,390);
@@ -172,24 +158,18 @@ function cleardisplayID() {
 var stuff;
 var node2;
 var elmnt;
-/*	
-function appendToTerminalWindow(){
-	stuff = document.createElement("p");
-	//node2 = document.createTextNode("this is the terminal window!!!");
-	//stuff.appendChild(node2);
-	//elmnt = document.getElementById("terminalPopUp");
-	//elmnt.appendChild(stuff);
-}
-*/
+
 
 var people1d = [];
+
+// MAIN TESTING INFO
 // TARGETS FOR TESTING 2 MAIN MISSIONS
 people1d.push(new Person("Jon Gonzalez", "Difficulty: 3/10", "Occupation: Freedom Fighter", "Net Worth: $ 1 mill", "http://i.imgur.com/3yEtel6.jpg"));
 people1d.push(new Person("Ben York", "Difficulty: 5/10", "Occupation: Wall Street broker", "Net Worth: $ 3.5 mill", "http://i.imgur.com/3yEtel6.jpg"));
 
 // Random targets to make sure it worked, ignore for now
-people1d.push(new Person("fernando", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
-people1d.push(new Person("ipanema", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
+people1d.push(new Person("fernando", "DIFF", "OCC", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
+people1d.push(new Person("ipanema", "DIFF", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
 people1d.push(new Person("marry me", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
 people1d.push(new Person("archieo", "5 STARS", "Nerd", "$21847947892", "http://i.imgur.com/3yEtel6.jpg"));
 
@@ -214,8 +194,6 @@ var element;
 	
 function appendToMessageWindow(){
 	para = document.createElement("p");
-	//node = document.createTextNode("this is the message window!!!!");
-	//para.appendChild(node);	
 	element = document.getElementById("messagePopUp");
 	element.appendChild(para);
 	
@@ -319,7 +297,6 @@ function appendToEmail (emailPreviewArray) {
 
 //method calls
 appendToMessageWindow();
-//appendToTerminalWindow();
 
 /******************************************************************
  * Keeps track of which email is being clicked and targetInfo being appended to screen

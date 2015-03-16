@@ -183,67 +183,67 @@ var databaseUnit = function(name, occ, netWorth, image, note) {
 function getID(person) {
 	switch(person) {
 		case 1:
-			return ["Aaron Johnson", "Occupation: Panoi Ambassador", "Net Worth: 150.000", "http://i.imgur.com/3yEtel6.jpg", 
+			return ["Aaron Johnson", "Occupation: Panoi Ambassador", "Net Worth: 150.000", "images/spike_hair_man.PNG", 
 			"Note: case 0331 elicited panoi slave trafficking"];
 		case 2:
-			return ["Trista Hedley", "Occupation: Civil Servant", "Net Worth: 50.000", "TEMP", 
+			return ["Trista Hedley", "Occupation: Civil Servant", "Net Worth: 50.000", "images/bob_hair_girl.PNG", 
 			"Note: case 1123 failure to commit with schedule, case 1150 caught trespassing local homes"];
 		case 3:
-			return ["Amelia Rana", "Occupation: Information Specialist", "Net Worth: 10.000", "TEMP", 
+			return ["Amelia Rana", "Occupation: Information Specialist", "Net Worth: 10.000", "images/side_hair_girl.PNG", 
 			"Note: case 9760 publically caught selling private information, case 9780 failure to abide by official ethical conducts"];
 		case 4:
-			return ["Nhung Rhier", "Occupation: State Security Programme", "Net Worth: 20.000", "TEMP", 
+			return ["Nhung Rhier", "Occupation: State Security Programme", "Net Worth: 20.000", "images/buzzed_man.PNG", 
 			"Note: case 9910 unlawful possession of marijuana and traces of cocaine"];
 		case 5:
-			return ["Brigham Tsukino", "Occupation: Politician", "Net Worth: 80.000", "TEMP", 
+			return ["Brigham Tsukino", "Occupation: Politician", "Net Worth: 80.000", "images/hair_up_girl.PNG", 
 			"Note: case 6628 accused of corporate bribery, case 7444 unlawful possession of firearm"];
 		case 6:
-			return ["Kelsie Toxell", "Occupation: Reporter", "Net Worth: 70.000", "TEMP", 
+			return ["Kelsie Toxell", "Occupation: Reporter", "Net Worth: 70.000", "images/side_hair_girl.PNG", 
 			"Note: case 3709 sued for withholding information from the public"];
 		case 7:
-			return ["Jennifer Wragge", "Occupation: Corporate Attorney", "Net Worth: 150.000", "TEMP", 
+			return ["Jennifer Wragge", "Occupation: Corporate Attorney", "Net Worth: 150.000", "images/spike_hair_man.PNG", 
 			"Note: case 1147 accused of forging evidence, case 1286 caught promoting a suicide attempt"];
 		case 8:
-			return ["Dinah Senft", "Occupation: NSS Technician", "Net Worth: 200.000", "TEMP", 
+			return ["Dinah Senft", "Occupation: NSS Technician", "Net Worth: 200.000", "images/hair_up_girl.PNG", 
 			"Note: case 6890 accused of stalking public figure"];
 		case 9:
-			return ["Fawn Murdok", "Occupation: Chief of NSS", "Net Worth: 250.000", "TEMP", 
+			return ["Fawn Murdok", "Occupation: Chief of NSS", "Net Worth: 250.000", "images/med_hair_girl.PNG", 
 			"Note: case 6513 accused of corporate blackmailing"];
 		case 10:
-			return ["Devan MacDougall", "Occupation: Amtrak Operator", "Net Worth: 2.000", "TEMP", 
+			return ["Devan MacDougall", "Occupation: Amtrak Operator", "Net Worth: 2.000", "images/bald_man.PNG", 
 			"Note: case 0905 tampering with a sports contest, case 0945 public nudity"];
 		case 11:
-			return ["Jaslyn Vitali", "Occupation: Doctor", "Net Worth: 15.000", "TEMP", 
+			return ["Jaslyn Vitali", "Occupation: Doctor", "Net Worth: 15.000", "images/side_hair_girl.PNG", 
 			"Note: case 0707 illegal distribution of drugs to patients"];
 		case 12:
-			return ["Janella Earl", "Occupation: Grave Digger", "Net Worth: 550", "TEMP", 
+			return ["Janella Earl", "Occupation: Grave Digger", "Net Worth: 550", "images/med_hair_girl.PNG", 
 			"Note: case 0107 convicted of shoplifting, case 0120 sued for grave robbing"];
 		case 13:
-			return ["Marlin Amadori", "Occupation: Stockbroker", "Net Worth: 70.000", "TEMP", 
+			return ["Marlin Amadori", "Occupation: Stockbroker", "Net Worth: 70.000", "images/bob_hair_girl.PNG", 
 			"Note: case 7708 accused of stock manipulation"];
 		case 14:
-			return ["Yoko Wyndham", "Occupation: Taxi Driver", "Net Worth: 4.000", "TEMP", 
+			return ["Yoko Wyndham", "Occupation: Taxi Driver", "Net Worth: 4.000", "images/bun_woman.PNG", 
 			"Note: case 3122 convicted for work-related sex scandal, case 3587 sued for sexual assault"];
 		case 15:
-			return ["Ellis McFarlane", "Occupation: unknown", "Net Worth: 10", "TEMP", 
+			return ["Ellis McFarlane", "Occupation: unknown", "Net Worth: 10", "images/cowlick_man.PNG", 
 			"Note: case 1102 stole orange electronic goods, case 1108 vandalized city hall, case 1109 accused of smuggling drugs"];
 		case 16:
-			return ["Lino Archer", "Occupation: Flying Instructor", "Net Worth: 780", "TEMP", 
+			return ["Lino Archer", "Occupation: Flying Instructor", "Net Worth: 780", "images/gelled_hair_man.PNG", 
 			"Note: case 9422 accused of providing illegal fighter jet lessons"];
 		case 17:
-			return ["Katerina Bove", "Occupation: Child Care Worker", "Net Worth: 5.000", "TEMP", 
+			return ["Katerina Bove", "Occupation: Child Care Worker", "Net Worth: 5.000", "images/bun_woman.PNG", 
 			"Note: case 9859 possession of cannabis"] ;
 		case 18:
-			return ["Martie Trueman", "Occupation:Car Mechanic", "Net Worth: 5.500", "TEMP", 
+			return ["Martie Trueman", "Occupation:Car Mechanic", "Net Worth: 5.500", "images/cowlick_man.PNG", 
 			"Note: case 4906 welfare fraud, case 4987 tax evasion"];
 		case 19:
-			return ["Ellis Walter", "Occupation: Astrophysicist", "Net Worth: 10.500", "TEMP", 
+			return ["Ellis Walter", "Occupation: Astrophysicist", "Net Worth: 10.500", "images/bald_man.PNG", 
 			"Note: case 3008 perjury at a state court"];
 		case 20:
-			return ["Raimonda Robert", "Occupation: unknown", "Net Worth: 100.000", "TEMP", 
+			return ["Raimonda Robert", "Occupation: unknown", "Net Worth: 100.000", "images/hair_up_girl.PNG", 
 			"Note: case 4400 unlawful fleeing a police officer in a motor vehicle, case 4401 grand larceny, case 4403 grand theft auto, case 4405 promotion of prostitution in the first degree"];
 		case 21:
-			return ["Beatrix Coutts", "Occupation: unknown", "Net Worth: 200.000", "TEMP", 
+			return ["Beatrix Coutts", "Occupation: unknown", "Net Worth: 200.000", "images/long_hair_woman.PNG", 
 			"Note: case 6037 massacre of 200 citizens, case 6040 mass political conspiracy, case 6041 wide spread distribution of cyanide, case 6056 mass dumping of anthrax in four major water networks"];
 		default:
 			return null;
